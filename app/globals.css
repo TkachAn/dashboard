@@ -1,49 +1,110 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Базовые цвета фонов и поверхностей */
+  --bg-primary: #f9fafb;
+  --bg-secondary: #ffffff;
+  --bg-sidebar: #ffffff;
+  --bg-header: #ffffff;
+  --main-bg: #f9fafb;
+
+  /* Текст */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+
+  /* Границы и разделители */
+  --border-color: #e5e7eb;
+  --clr-brd: #d1d5db;
+
+  /* Акценты и ссылки */
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+  --clr-link-section: #0070f3;
+  --clr-link-article: #10b981;
+
+  /* Элементы меню */
+  --clr-menu-nav: #374151;
+  --clr-menu-mobile: #1f2937;
+  --clr-menu-mobile-hover: #0070f3;
+
+  /* Размеры */
+  --header-height: 64px;
+  --sidebar-width: 260px;
+  --radius-base: 8px;
 }
 
+/* Поддержка темной темы (автоматически по системным настройкам или принудительно через класс/атрибут) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-sidebar: #1f2937;
+    --bg-header: #1f2937;
+    --main-bg: #111827;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+
+    --border-color: #374151;
+    --clr-brd: #4b5563;
+
+    --clr-menu-nav: #e5e7eb;
+    --clr-menu-mobile: #f3f4f6;
+    --clr-menu-mobile-hover: #38bdf8;
+
+    --clr-link-section: #38bdf8;
+    --clr-link-article: #34d399;
   }
 }
 
-html {
-  height: 100%;
+.dark,
+[data-theme="dark"] {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-sidebar: #1f2937;
+  --bg-header: #1f2937;
+  --main-bg: #111827;
+
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+
+  --border-color: #374151;
+  --clr-brd: #4b5563;
+
+  --clr-menu-nav: #e5e7eb;
+  --clr-menu-mobile: #f3f4f6;
+  --clr-menu-mobile-hover: #38bdf8;
+
+  --clr-link-section: #38bdf8;
+  --clr-link-article: #34d399;
 }
 
-html,
-body {
+/* Базовые сбросы и настройки документа */
+html {
+  scroll-behavior: smooth;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  background-color: var(--main-bg);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+html {
+  scroll-behavior: smooth;
 }
