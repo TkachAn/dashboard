@@ -108,7 +108,7 @@
 
     /* ── Иконки и хинты ── */
     --icon-color: var(--color-gray-800);
-    --icon-hover-color: var(--color-red);
+    --icon-hover-color: var(--color-blue-500);
     --icon-hover-bg: rgba(0, 0, 0, 0.05);
 
     --hint-text: var(--color-blue-600);
@@ -218,7 +218,7 @@
 
     /* ── Иконки и хинты ── */
     --icon-color: var(--color-gray-50);
-    --icon-hover-color: var(--color-red);
+    --icon-hover-color: var(--color-blue-500);
     --icon-hover-bg: rgba(255, 255, 255, 0.08);
 
     --hint-text: var(--color-blue-500);
@@ -310,7 +310,7 @@
         --form-divider-line: var(--color-gray-800);
 
         --icon-color: var(--color-gray-50);
-        --icon-hover-color: var(--color-red);
+        --icon-hover-color: var(--color-blue-500);
         --icon-hover-bg: rgba(255, 255, 255, 0.08);
 
         --hint-text: var(--color-blue-500);

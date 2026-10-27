@@ -8,13 +8,13 @@ export function Container({ children, className }) {
 export function Header({ children, id, title }) {
     return (
         <header id={id} title={title} className={s.header_wrapper}>
-            <div className={s.header}><span>{title}</span>{children}</div>
+            <div className={s.header}>{children}</div>
         </header>
     );
 }
-export function Sidebar({ children, id }) {
+export function Sidebar({ children, id, className }) {
     return (
-        <aside id={id} className={s.sidebar}>
+        <aside id={id} className={`${s.sidebar} ${className || ""}`}>
             {children}
         </aside>
     );

@@ -7,7 +7,7 @@ import { Logotype } from "../layouts/for_header/logotype";
 import { SmartMenu } from "../layouts/for_sidebar/leftBar";
 import { ThemeToggle } from "../ui/elements/buttons/IconButtons";
 
-export function Dashboard_Layout({ children, sidebar }) {
+export function Dashboard_Layout({ children, sidebar, title }) {
     // Состояние для мобильного меню (открыто / закрыто)
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -45,7 +45,7 @@ export function Dashboard_Layout({ children, sidebar }) {
 
             {/* Правая обёртка: Header + Main */}
             <Wrapper className={s.content_wrapper}>
-                <Header title="Header" id="0" className={s.header}>
+                <Header title={title} id="0" className={s.header}>
                     <Logotype />
                     <ThemeToggle />
                 </Header>

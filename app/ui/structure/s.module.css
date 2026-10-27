@@ -65,6 +65,17 @@
     z-index: 10;
 }
 
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width, 280px);
+    padding-left: 30px;
+    padding-top: 30px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-default);
+}
+
 /* Правая часть (хедер + контент) имеет собственный вертикальный скролл */
 .content_wrapper {
     display: flex;
@@ -165,12 +176,13 @@
 @media (min-width: 1200px) {
 
 
-    .article,
+
     .card {
         padding: 24px;
         /*box-shadow: 0px 4px 12px var(--card-shadow);*/
     }
 
+    .article,
     .section {
         padding-right: 24px;
         padding-left: 24px;

@@ -282,7 +282,7 @@ export const TextAreaInput = forwardRef(
 ========================= */
 export const SelectInput = forwardRef(
   (
-    { label, error, options = [], value, defaultValue, onChange, ...props },
+    { label = 'Select', error, options = [], value, defaultValue, onChange, ...props },
     ref,
   ) => {
     const isControlled = value !== undefined;
@@ -578,7 +578,7 @@ export const PasswordInput = forwardRef(
    INTEGER INPUT (Только целые)
 ========================= */
 export const IntegerInput = forwardRef(
-  ({ label, value, defaultValue, onChange, ...props }, ref) => {
+  ({ label = 'Integer', value, defaultValue, onChange, ...props }, ref) => {
     const isControlled = value !== undefined;
     const [localValue, setLocalValue] = useState(defaultValue || "");
     const [error, setError] = useState("");
@@ -618,7 +618,7 @@ export const IntegerInput = forwardRef(
    DIGITS & FLOAT INPUT
 ========================= */
 export const NumericInput = forwardRef(
-  ({ label, value, defaultValue, onChange, decimal, ...props }, ref) => {
+  ({ label = 'Numeric', value, defaultValue, onChange, decimal, ...props }, ref) => {
     const isControlled = value !== undefined;
     const [localValue, setLocalValue] = useState(defaultValue || "");
     const [error, setError] = useState("");
@@ -668,7 +668,7 @@ export const NumericInput = forwardRef(
   },
 );
 
-export const FloatInput = (props) => <NumericInput {...props} decimal={true} />;
+export const FloatInput = (props) => <NumericInput {...props} label={'Float'} decimal={true} />;
 
 export const PriceInput = forwardRef(
   (

@@ -17,6 +17,7 @@ import {
   Network,
   Camera,
 } from "lucide-react";
+import { Forma } from "./ui/elements/forms/form";
 const Icons = [
   { icon: <Camera />, title: 'Камера', state: 'unknown' },
   { icon: <Server />, title: 'Сервер', state: 'loading' },
@@ -40,14 +41,13 @@ export default function Home() {
               <TextAreaInput />
             </Card>
             <Card title="card 2" >
-              <SelectInput options={[{ value: '1', label: '1' }, { value: '2', label: '2' }]} />
-              <PhoneInput country="UA" placeholder="+380" />
-              <NumericInput />
-              <EmailInput />
-              <PasswordInput />
-              <IntegerInput />
-              <FloatInput />
-              <PriceInput />
+              <SelectInput name={'SelectInput'} options={[{ value: '1', label: '1' }, { value: '2', label: '2' }]} />
+              <PhoneInput name={'PhoneInput'} country="UA" placeholder="+380" />
+              <NumericInput name={'NumericInput'} />
+
+              <IntegerInput name={'IntegerInput'} />
+              <FloatInput name={'FloatInput'} />
+
             </Card>
             <Card title="card 3" id={'c3'}>
               <ScrollToTopButton />
@@ -81,18 +81,20 @@ export default function Home() {
                 ))}
               </ul>
             </Card>
-            <Card title="card 6" id={'c6'}>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-
+            <Card title="card 6" id={'c6'} className={s.card6}>
+              <Forma>
+                <EmailInput />
+                <PasswordInput />
+                <TextInput placeholder="placeholder" name={'t1'} />
+                <PriceInput />
+              </Forma>
             </Card>
           </div>
         </Article>
         <Article id="article2" title="article 2">
-          <p>hello children</p>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+
         </Article>
       </Section>
       <Section id={'2'} title={'hello world'}>
