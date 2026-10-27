@@ -1,69 +1,64 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+
+import { Dashboard_Layout } from "./layouts/layout";
+import { Section, Article, Card } from "./ui/structure/struct";
+import s from './s.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <Dashboard_Layout id={"0"} sw_h1={true} title="Home" >
+      <Section id={'1'} title={'Dashboard'}>
+        <Article id="article1" title="article 1">
+          <div className={s.flex}>
+            <Card title="card 1" id={'c1'}>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+            </Card>
+            <Card title="card 2" id={'c2'}>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+            </Card>
+            <Card title="card 3" id={'c3'}>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+            </Card>
+            <Card title="card 4" id={'c4'}>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+            </Card>
+            <Card title="card 5" id={'c5'}>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+            </Card>
+            <Card title="card 6" id={'c6'}>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+
+            </Card>
+          </div>
+        </Article>
+        <Article id="article2" title="article 2">
+          <p>hello children</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+        </Article>
+      </Section>
+      <Section id={'2'} title={'hello world'}>
+        <Article id="article3" title="article 3">
+          <p>hello children</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+        </Article>
+        <Article id="article4" title="article 4">
+          <p>hello children</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+        </Article>
+      </Section>
+    </Dashboard_Layout>
   );
 }

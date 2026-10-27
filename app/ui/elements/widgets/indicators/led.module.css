@@ -1,0 +1,167 @@
+/* ui/elements/widgets/indicators/led.module.css — LED-индикатор состояния устройства */
+
+/*
+  Переменные --clr-id, --clr-title, --clr-comment передаются через inline-стиль
+  компонента (пропсы), т.к. они специфичны для каждого экземпляра устройства.
+  Цвета состояний LED (ready/error/warning/loading) — семантические, не тематические.
+*/
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style-type: none;
+    border-radius: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 2px var(--clr-id);
+
+    /* Пробрасываем пропсы компонента в локальные переменные */
+    --color-title:   var(--clr-title);
+    --color-comment: var(--clr-comment);
+    --color-id:      var(--clr-id);
+}
+
+.visualWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-id);
+}
+
+.led {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: filter 0.3s ease;
+}
+
+.info {
+    display: none;
+}
+
+/* ── ОБЪЁМНЫЕ СОСТОЯНИЯ СВЕТОДИОДА (эффект сферы) ── */
+
+/* Неизвестное состояние — серый */
+.unknown {
+    background: radial-gradient(circle at 35% 35%, #aeaeb2, #636366);
+    box-shadow:
+        inset -2px -2px 4px rgba(0, 0, 0, 0.4),
+        inset  2px  2px 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Готов — зелёный */
+.ready {
+    background: radial-gradient(circle at 35% 35%, #58d777, #248a3d);
+    box-shadow:
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+        inset  2px  2px 4px rgba(255, 255, 255, 0.4),
+        0 0 8px rgba(52, 199, 89, 0.5);
+}
+
+/* Ошибка — красный */
+.error {
+    background: radial-gradient(circle at 35% 35%, #ff6961, #d70015);
+    box-shadow:
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+        inset  2px  2px 4px rgba(255, 255, 255, 0.4),
+        0 0 8px rgba(255, 59, 48, 0.5);
+}
+
+/* Предупреждение — жёлтый */
+.warning {
+    background: radial-gradient(circle at 35% 35%, #ffd60a, #cc9900);
+    box-shadow:
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+        inset  2px  2px 4px rgba(255, 255, 255, 0.4),
+        0 0 8px rgba(255, 204, 0, 0.5);
+}
+
+/* Загрузка — анимация Морзе оранжевым */
+.loading {
+    animation: morseLoadingOrange 6.4s infinite;
+}
+
+@keyframes morseLoadingOrange {
+    0%,
+    1.5%, 3.1%, 4.6%, 6.2%,
+    10.9%, 12.5%,
+    17.1%, 18.7%, 20.3%, 21.8%, 23.4%,
+    28.1%, 29.6%, 31.2%, 32.8%, 34.3%, 35.9%,
+    40.6%, 42.1%, 43.7%, 45.3%, 46.8%, 48.4%,
+    53.1%, 54.6%, 56.2%, 57.8%, 59.3%, 60.9%,
+    65.6%, 67.1%, 68.7%,
+    73.4%, 75.0%,
+    79.6%, 81.2%, 82.8%, 84.3%, 85.9%,
+    90.6%, 92.1%,
+    96.8%, 100% {
+        background: radial-gradient(circle at 35% 35%, #ffaa33, #d96b00);
+        box-shadow:
+            inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+            inset  2px  2px 4px rgba(255, 255, 255, 0.3);
+    }
+
+    1.6%, 3.0%, 4.7%, 6.1%, 7.8%,
+    10.8%, 12.6%,
+    17.0%, 18.8%, 20.2%, 21.9%, 23.3%, 25.0%,
+    28.0%, 29.7%, 31.1%, 32.9%, 34.2%, 36.0%,
+    40.5%, 42.2%, 43.6%, 43.8%, 45.2%, 46.9%, 48.3%, 50.0%,
+    53.0%, 54.7%, 56.1%, 56.3%, 57.7%, 59.4%, 60.8%, 62.5%,
+    65.5%, 67.2%, 68.6%, 70.3%,
+    73.3%, 75.1%,
+    79.5%, 79.7%, 81.1%, 82.9%, 84.2%, 86.0%,
+    90.5%, 92.2%,
+    96.7% {
+        background: radial-gradient(circle at 35% 35%, #ffff66, #ffcc00);
+        box-shadow:
+            inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+            inset  2px  2px 4px rgba(255, 255, 255, 0.5),
+            0 0 8px rgba(255, 204, 0, 0.6);
+    }
+}
+
+/* ── МЕДИАЗАПРОСЫ ── */
+@media (min-width: 380px) {
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .id {
+        font-size: 0.75rem;
+        color: var(--color-id);
+    }
+
+    .title {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--color-title);
+    }
+
+    .comment {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .comment {
+        display: block;
+        font-size: 1.2rem;
+        color: var(--color-comment);
+    }
+}

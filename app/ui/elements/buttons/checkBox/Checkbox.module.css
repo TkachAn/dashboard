@@ -1,0 +1,44 @@
+/* ui/elements/buttons/checkBox/Checkbox.module.css — Чекбокс */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  display: none;
+}
+
+.custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--checkbox-border);
+  border-radius: var(--radius-sm);
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.checkbox:checked + .custom {
+  background-color: var(--checkbox-checked-bg);
+  border-color: var(--checkbox-checked-bg);
+}
+
+.checkbox:checked + .custom::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 10px;
+  border: solid var(--checkbox-check-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.labelText {
+  font-size: 14px;
+  color: var(--checkbox-label-text);
+}

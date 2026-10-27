@@ -1,0 +1,103 @@
+/* ui/elements/buttons/button.module.css — Базовые кнопки */
+
+.baseButton {
+  /* Mobile First: увеличенная область нажатия */
+  padding: 10px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: var(--radius-base);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s;
+  box-shadow: 2px 2px 5px var(--btn-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Десктоп: стандартные отступы */
+@media (min-width: 768px) {
+  .baseButton {
+    padding: 8px 16px;
+    margin: 5px 15px;
+  }
+}
+
+.baseButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.baseButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Вариант: обычная кнопка */
+.normal {
+  background-color: var(--btn-normal-bg);
+  color: var(--btn-normal-text);
+}
+
+.normal:hover:not(:disabled) {
+  background-color: var(--btn-normal-hover-bg);
+  color: var(--btn-normal-hover-text);
+}
+
+/* Вариант: акцентная кнопка */
+.accent {
+  background-color: var(--btn-accent-bg);
+  color: var(--btn-accent-text);
+}
+
+.accent:hover:not(:disabled) {
+  background-color: var(--btn-accent-hover-bg);
+}
+
+/* Вариант: заблокированная кнопка */
+.blocked {
+  background-color: var(--btn-blocked-bg);
+  color: var(--btn-blocked-text);
+}
+
+/* Иконочная кнопка */
+.iconButton {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--icon-color);
+  transition: color 0.2s, transform 0.2s, background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .iconButton {
+    padding: 4px;
+  }
+}
+
+.iconButton:hover:not(:disabled) {
+  color: var(--icon-hover-color);
+  background-color: var(--icon-hover-bg);
+}
+
+/* Вариант: текстовая / ссылочная кнопка */
+.out {
+  border: none;
+  background-color: transparent;
+  color: var(--btn-out-text);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.out:hover:not(:disabled) {
+  color: var(--btn-out-hover-text);
+  text-decoration: underline;
+}

@@ -1,0 +1,28 @@
+/* layouts/for_header/s.module.css — Логотип в шапке */
+
+.logotype {
+    padding: 6px 16px;
+    border: 1px solid var(--logo-border);
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+}
+
+.logoText {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--logo-color);
+    white-space: nowrap;
+}
+
+.logoText:hover {
+    color: var(--logo-hover-color);
+}
+
+.logo {
+    color: var(--logo-color);
+}
+
+.logo:hover {
+    color: var(--logo-hover-color);
+}

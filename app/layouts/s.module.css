@@ -1,0 +1,142 @@
+/* layouts/s.module.css — Главный layout: сайдбар + хедер + контент */
+
+/* Главный контейнер */
+.dashboard_layout {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Сайдбар фиксируется слева и стоит на месте при прокрутке всей страницы */
+.sidebar_container {
+    flex-shrink: 0;
+    width: var(--sidebar-width, 280px);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-default);
+    overflow-y: auto;
+    z-index: 10;
+}
+
+/* Правая часть просто занимает оставшееся место */
+.content_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Шапка прилипает сверху */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-default);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.main_content {
+    flex: 1;
+    padding: 24px;
+    background-color: var(--bg-page);
+}
+
+.burger_btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--text-main);
+}
+
+.overlay {
+    display: none;
+}
+
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .dashboard_layout {
+        flex-direction: column;
+    }
+
+    .burger_btn {
+        display: block;
+    }
+
+    .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--overlay-bg);
+        z-index: 99;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .overlay_active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .sidebar_container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: var(--sidebar-width, 280px);
+        z-index: 100;
+        box-shadow: 4px 0 16px var(--sidebar-shadow);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar_open {
+        transform: translateX(0);
+    }
+}
+
+/* Закладка-триггер для открытия меню */
+.menuToggleTab {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    /* Расположение по высоте (можно отрегулировать под ваш хедер) */
+    z-index: 100;
+    width: 28px;
+    height: 48px;
+    background-color: var(--bg-secondary, #ffffff);
+    color: var(--text-primary, #111827);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-left: none;
+    /* Сливается с краем или аккуратно выступает */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: client;
+    padding-left: 4px;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.2s, width 0.2s;
+}
+
+.menuToggleTab:hover {
+    background-color: var(--accent-color, #3b82f6);
+    color: #ffffff;
+    width: 32px;
+}

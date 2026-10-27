@@ -1,0 +1,55 @@
+/* ui/elements/forms/f.module.css — Обёртки форм */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.socialSection {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Разделитель "или" между формой и соц. кнопками */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--form-divider-text);
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--form-divider-line);
+}
+
+.divider:not(:empty)::before { margin-right: .5em; }
+.divider:not(:empty)::after  { margin-left: .5em; }
+
+.socialGrid {
+  display: flex;
+  flex-direction: column; /* Mobile First */
+  gap: 12px;
+}
