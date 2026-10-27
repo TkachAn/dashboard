@@ -1,5 +1,9 @@
 .flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 10px;
+}
+
+.card4 {
+    width: 350px;
 }

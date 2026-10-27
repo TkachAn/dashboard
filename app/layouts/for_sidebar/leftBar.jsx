@@ -88,7 +88,13 @@ export function SmartMenu() {
             ))}
         </ul>
     );
+    return (
+        <nav className={s.anchorNav}>
+            {NavList}
+        </nav>
+    );
 
+    /*
     return (
         <nav className={s.anchorNav}>
             {isMobile ? (
@@ -100,5 +106,5 @@ export function SmartMenu() {
                 NavList
             )}
         </nav>
-    );
+    );*/
 }

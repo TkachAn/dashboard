@@ -23,7 +23,7 @@ export const LED = ({ id, title, state = 'unknown', icon = <Cpu /> }) => {
                     aria-label={statusText}
                     title={statusText}
                 />
-                {id && <span className={s.id}>#{id}</span>}
+
             </div>
             <div className={s.info}>
                 {title && <h3 className={s.title}>{title}</h3>}
@@ -32,3 +32,7 @@ export const LED = ({ id, title, state = 'unknown', icon = <Cpu /> }) => {
         </div>
     );
 };
+
+/*
+{id && <span className={s.id}>#{id}</span>}
+*/

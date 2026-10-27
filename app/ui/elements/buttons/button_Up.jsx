@@ -1,7 +1,9 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react"; // Используем иконку из вашего package.json
 
-export default function ScrollToTopButton() {
+export function ScrollToTopButton() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {

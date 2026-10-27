@@ -110,33 +110,41 @@
     }
 }
 
-/* Закладка-триггер для открытия меню */
-.menuToggleTab {
+/* Фиксированная кнопка гамбургера для мобильных и планшетов */
+.burger_btn {
+    display: none;
+    /* На десктопе скрыта */
     position: fixed;
-    left: 0;
-    top: 80px;
-    /* Расположение по высоте (можно отрегулировать под ваш хедер) */
-    z-index: 100;
-    width: 28px;
-    height: 48px;
+    top: 16px;
+    left: 16px;
+    z-index: 1100;
+    /* Поверх всех окон и сайдбара */
+    width: 42px;
+    height: 42px;
     background-color: var(--bg-secondary, #ffffff);
     color: var(--text-primary, #111827);
     border: 1px solid var(--border-color, #e5e7eb);
-    border-left: none;
-    /* Сливается с краем или аккуратно выступает */
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    display: flex;
+    border-radius: 8px;
+    font-size: 20px;
     align-items: center;
-    justify-content: client;
-    padding-left: 4px;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
-    transition: background-color 0.2s, width 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
 }
 
-.menuToggleTab:hover {
-    background-color: var(--accent-color, #3b82f6);
-    color: #ffffff;
-    width: 32px;
+.burger_btn:hover {
+    background-color: var(--bg-toggle-hover, #f3f4f6);
+}
+
+/* Класс для скрытия гамбургера, когда меню открыто */
+.burger_hidden {
+    display: none !important;
+}
+
+/* Показываем кнопку только на планшетах и мобильных (настройте брейкпоинт под вашу сетку, например 1024px) */
+@media (max-width: 768px) {
+    .burger_btn {
+        display: flex;
+    }
 }

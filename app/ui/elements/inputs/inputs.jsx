@@ -1,3 +1,5 @@
+"use client";
+
 /* inputsGPT.jsx */
 import { useState, useEffect, forwardRef, useRef } from "react";
 import { Eye, EyeOff } from "lucide-react";

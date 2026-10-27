@@ -1,397 +1,363 @@
 /* ============================================================
-   DESIGN SYSTEM — CSS Custom Properties
-   Светлая тема задаётся в :root, тёмная — в .dark / [data-theme="dark"]
-   и через @media (prefers-color-scheme: dark).
-
-   ГРУППЫ ПЕРЕМЕННЫХ:
-   1. Фоны (backgrounds)
-   2. Текст (typography)
-   3. Границы и разделители (borders)
-   4. Акценты и ссылки (accents & links)
-   5. Меню и навигация (navigation)
-   6. Кнопки (buttons)
-   7. Чекбоксы (checkbox)
-   8. Инпуты и формы (inputs & forms)
-   9. Иконки (icons)
-   10. Подсказки / хинты (hints)
-   11. Оверлей (overlay)
-   12. Логотип (logotype)
-   13. Карточки и структура (cards & structure)
-   14. LED-индикаторы (LED widget)
-   15. Размеры и радиусы (dimensions & radii)
+   DESIGN SYSTEM — CSS Custom Properties & Tokenized Palette
    ============================================================ */
 
 :root {
-  /* ── 1. ФОНЫ ── */
-  --bg-page: #f9fafb;
-  /* Фон всей страницы */
-  --bg-surface: #ffffff;
-  /* Фон карточек, модалок и других поверхностей */
-  --bg-sidebar: #ffffff;
-  /* Фон боковой панели */
-  --bg-header: #ffffff;
-  /* Фон шапки */
+    /* ────────────────────────────────────────────────────────────
+     1. БАЗОВАЯ ПАЛИТРА (COLOR PALETTE / PRIMITIVES)
+     Сокращенный единый источник правды для всех цветов системы.
+     ──────────────────────────────────────────────────────────── */
 
-  /* ── 2. ТЕКСТ ── */
-  --text-main: #111827;
-  /* Основной текст */
-  --text-muted: #6b7280;
-  /* Вторичный / приглушённый текст */
+    /* Нейтральные (Neutral & Gray Scale) */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-50: #f9fafb;
+    --color-gray-200: #e5e7eb;
+    --color-gray-500: #6b7280;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
 
-  /* ── 3. ГРАНИЦЫ И РАЗДЕЛИТЕЛИ ── */
-  --border-default: #e5e7eb;
-  /* Стандартная граница (карточки, хедер, сайдбар) */
-  --border-subtle: #d1d5db;
-  /* Тонкая граница (вложенные элементы) */
+    /* Акцент (Blue) */
+    --color-blue-500: #3b82f6;
+    --color-blue-600: #2563eb;
 
-  /* ── 4. АКЦЕНТЫ И ССЫЛКИ ── */
-  --accent-primary: #3b82f6;
-  /* Основной акцент (кнопки, фокус) */
-  --accent-primary-hover: #2563eb;
-  /* Hover акцента */
-  --link-section: #0070f3;
-  /* Ссылка первого уровня (секция) */
-  --link-article: #10b981;
-  /* Ссылка второго уровня (статья) */
-  --link-hover: #0070f3;
-  /* Hover любой ссылки навигации */
+    /* Семантика статусов (Status colors) */
+    --color-green: #10b981;
+    --color-amber: #d97706;
+    --color-red: #dc3545;
 
-  /* ── 5. МЕНЮ И НАВИГАЦИЯ ── */
-  --nav-text: #374151;
-  /* Цвет текста пунктов навигации */
-  --nav-title: #1f2937;
-  /* Заголовок раздела навигации */
-  --nav-hover: #0070f3;
-  /* Hover пунктов навигации */
+    /* ────────────────────────────────────────────────────────────
+     2. СВЕТЛАЯ ТЕМА (SEMANTIC TOKENS)
+     ──────────────────────────────────────────────────────────── */
 
-  /* ── 6. КНОПКИ ── */
-  /* Normal */
-  --btn-normal-bg: #f0f0f0;
-  --btn-normal-text: #333333;
-  --btn-normal-hover-bg: #0070f3;
-  --btn-normal-hover-text: #ffffff;
-  /* Accent */
-  --btn-accent-bg: #0070f3;
-  --btn-accent-text: #ffffff;
-  --btn-accent-hover-bg: #0057c2;
-  /* Blocked / Disabled */
-  --btn-blocked-bg: #dddddd;
-  --btn-blocked-text: #888888;
-  /* Semantic (elem.module.css) */
-  --btn-default-bg: #e0e0e0;
-  --btn-default-text: #000000;
-  --btn-success-bg: #28a745;
-  --btn-success-text: #ffffff;
-  --btn-warning-bg: #ffc107;
-  --btn-warning-text: #000000;
-  --btn-danger-bg: #dc3545;
-  --btn-danger-text: #ffffff;
-  --btn-disabled-bg: #cccccc;
-  --btn-disabled-text: #666666;
-  /* Out (text-link style) */
-  --btn-out-text: #007bff;
-  --btn-out-hover-text: #0000ff;
-  /* Close button */
-  --btn-close-text: #666666;
-  --btn-close-hover-text: #000000;
-  /* Shadow */
-  --btn-shadow: rgba(0, 0, 0, 0.15);
+    /* ── Фоны ── */
+    --bg-page: var(--color-white);
+    --bg-surface: var(--color-gray-50);
+    --bg-sidebar: var(--color-white);
+    --bg-header: var(--color-white);
 
-  /* ── 7. ЧЕКБОКСЫ ── */
-  --checkbox-border: #888888;
-  /* Граница незаполненного чекбокса */
-  --checkbox-checked-bg: #007bff;
-  /* Фон активного чекбокса */
-  --checkbox-check-color: #ffffff;
-  /* Цвет галочки */
-  --checkbox-label-text: #333333;
-  /* Текст метки чекбокса */
+    /* ── Текст ── */
+    --text-main: var(--color-gray-900);
+    --text-muted: var(--color-gray-500);
 
-  /* ── ТОГГЛ ── */
-  --toggle-slider-bg: #cccccc;
-  /* Фон ползунка в состоянии off */
-  --toggle-slider-thumb: #ffffff;
-  /* Цвет "шарика" ползунка */
-  --toggle-slider-checked-bg: #4caf50;
-  /* Фон ползунка в состоянии on */
+    /* ── Границы ── */
+    --border-default: var(--color-gray-200);
+    --border-subtle: var(--color-gray-200);
 
-  /* ── 8. ИНПУТЫ И ФОРМЫ ── */
-  --input-border: #cccccc;
-  /* Граница поля ввода */
-  --input-border-focus: #2684ff;
-  /* Граница поля в фокусе */
-  --input-bg: #ffffff;
-  /* Фон поля ввода */
-  --input-text: #111827;
-  /* Текст внутри поля */
-  --input-error-text: #d32f2f;
-  /* Сообщение об ошибке */
-  --input-intro-text: #333333;
-  /* Вводный / подписной текст */
-  /* Форма — разделитель */
-  --form-divider-text: #888888;
-  --form-divider-line: #eeeeee;
+    /* ── Акценты и ссылки ── */
+    --accent-primary: var(--color-blue-500);
+    --accent-primary-hover: var(--color-blue-600);
+    --link-section: var(--color-blue-500);
+    --link-article: var(--color-green);
+    --link-hover: var(--color-blue-600);
 
-  /* ── 9. ИКОНКИ ── */
-  --icon-color: #333333;
-  /* Цвет иконки по умолчанию */
-  --icon-hover-color: crimson;
-  /* Цвет иконки при наведении */
-  --icon-hover-bg: rgba(0, 0, 0, 0.05);
-  /* Фон иконки при наведении */
+    /* ── Меню и навигация ── */
+    --nav-text: var(--color-gray-800);
+    --nav-title: var(--color-gray-900);
+    --nav-hover: var(--color-blue-500);
 
-  /* ── 10. ПОДСКАЗКИ / ХИНТЫ ── */
-  --hint-text: #2b6cb0;
-  /* Цвет текста подсказки */
-  --hint-bg: #ebf8ff;
-  /* Фон подсказки */
+    /* ── Кнопки ── */
+    --btn-normal-bg: var(--color-gray-200);
+    --btn-normal-text: var(--color-gray-900);
+    --btn-normal-hover-bg: var(--color-blue-500);
+    --btn-normal-hover-text: var(--color-white);
 
-  /* ── 11. ОВЕРЛЕЙ ── */
-  --overlay-bg: rgba(0, 0, 0, 0.4);
-  /* Полупрозрачный фон при открытом сайдбаре на мобиле */
+    --btn-accent-bg: var(--color-blue-500);
+    --btn-accent-text: var(--color-white);
+    --btn-accent-hover-bg: var(--color-blue-600);
 
-  /* ── 12. ЛОГОТИП ── */
-  --logo-color: #111827;
-  /* Цвет логотипа / текста лого */
-  --logo-hover-color: #3b82f6;
-  /* Цвет логотипа при наведении */
-  --logo-border: #e5e7eb;
-  /* Граница вокруг логотипа */
+    --btn-blocked-bg: var(--color-gray-200);
+    --btn-blocked-text: var(--color-gray-500);
 
-  /* ── 13. КАРТОЧКИ И СТРУКТУРА ── */
-  --card-bg: #ffffff;
-  /* Фон карточки */
-  --card-text: #1a1a1a;
-  /* Текст внутри карточки */
-  --card-border: #dddddd;
-  /* Граница карточки */
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  /* Тень карточки */
-  /* Тень мобильного сайдбара */
-  --sidebar-shadow: rgba(0, 0, 0, 0.1);
+    --btn-default-bg: var(--color-gray-200);
+    --btn-default-text: var(--color-black);
+    --btn-success-bg: var(--color-green);
+    --btn-success-text: var(--color-white);
+    --btn-warning-bg: var(--color-amber);
+    --btn-warning-text: var(--color-white);
+    --btn-danger-bg: var(--color-red);
+    --btn-danger-text: var(--color-white);
+    --btn-disabled-bg: var(--color-gray-200);
+    --btn-disabled-text: var(--color-gray-500);
 
-  /* ── 14. LED-ИНДИКАТОРЫ ── */
-  /* Цвета передаются через inline-стиль (--clr-id, --clr-title, --clr-comment)
-     как кастомные пропсы компонента — не переопределяем здесь */
+    --btn-out-text: var(--color-blue-500);
+    --btn-out-hover-text: var(--color-blue-600);
+    --btn-close-text: var(--color-gray-500);
+    --btn-close-hover-text: var(--color-gray-900);
+    --btn-shadow: rgba(0, 0, 0, 0.1);
 
-  /* ── 15. РАЗМЕРЫ И РАДИУСЫ ── */
-  --header-height: 64px;
-  --sidebar-width: 280px;
-  --radius-sm: 4px;
-  --radius-base: 8px;
-  --radius-lg: 16px;
+    /* ── Чекбоксы и тогглы ── */
+    --checkbox-border: var(--color-gray-500);
+    --checkbox-checked-bg: var(--color-blue-500);
+    --checkbox-check-color: var(--color-white);
+    --checkbox-label-text: var(--color-gray-800);
+
+    --toggle-slider-bg: var(--color-gray-200);
+    --toggle-slider-thumb: var(--color-white);
+    --toggle-slider-checked-bg: var(--color-green);
+
+    /* ── Инпуты и формы ── */
+    --input-border: var(--color-gray-200);
+    --input-border-focus: var(--color-blue-500);
+    --input-bg: var(--color-white);
+    --input-text: var(--color-gray-900);
+    --input-error-text: var(--color-red);
+    --input-intro-text: var(--color-gray-800);
+    --form-divider-text: var(--color-gray-500);
+    --form-divider-line: var(--color-gray-200);
+
+    /* ── Иконки и хинты ── */
+    --icon-color: var(--color-gray-800);
+    --icon-hover-color: var(--color-red);
+    --icon-hover-bg: rgba(0, 0, 0, 0.05);
+
+    --hint-text: var(--color-blue-600);
+    --hint-bg: var(--color-gray-50);
+
+    /* ── Структура, оверлей и карточки ── */
+    --overlay-bg: rgba(0, 0, 0, 0.4);
+    --logo-color: var(--color-gray-900);
+    --logo-hover-color: var(--color-blue-500);
+    --logo-border: var(--color-gray-200);
+
+    --card-bg: var(--color-white);
+    --card-text: var(--color-gray-900);
+    --card-border: var(--color-gray-200);
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --sidebar-shadow: rgba(0, 0, 0, 0.1);
+
+    /* ── Размеры и радиусы ── */
+    --header-height: 64px;
+    --sidebar-width: 280px;
+    --radius-sm: 4px;
+    --radius-base: 8px;
+    --radius-lg: 16px;
 }
 
 /* ============================================================
-   ТЁМНАЯ ТЕМА — принудительная через класс или data-атрибут
+   3. ТЁМНАЯ ТЕМА (SEMANTIC TOKENS RE-MAP)
+   Принудительный выбор через [data-theme="dark"] / .dark
    ============================================================ */
 .dark,
 [data-theme="dark"] {
-  /* ── 1. ФОНЫ ── */
-  --bg-page: #111827;
-  --bg-surface: #1f2937;
-  --bg-sidebar: #1f2937;
-  --bg-header: #1f2937;
+    /* ── Фоны ── */
+    --bg-page: var(--color-gray-900);
+    --bg-surface: var(--color-gray-800);
+    --bg-sidebar: var(--color-gray-800);
+    --bg-header: var(--color-gray-800);
 
-  /* ── 2. ТЕКСТ ── */
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
+    /* ── Текст ── */
+    --text-main: var(--color-gray-50);
+    --text-muted: var(--color-gray-500);
 
-  /* ── 3. ГРАНИЦЫ ── */
-  --border-default: #374151;
-  --border-subtle: #4b5563;
+    /* ── Границы ── */
+    --border-default: var(--color-gray-500);
+    --border-subtle: var(--color-gray-200);
 
-  /* ── 4. АКЦЕНТЫ И ССЫЛКИ ── */
-  --link-section: #38bdf8;
-  --link-article: #34d399;
-  --link-hover: #38bdf8;
+    /* ── Акценты и ссылки ── */
+    --accent-primary: var(--color-blue-500);
+    --accent-primary-hover: var(--color-blue-600);
+    --link-section: var(--color-blue-500);
+    --link-article: var(--color-green);
+    --link-hover: var(--color-blue-500);
 
-  /* ── 5. НАВИГАЦИЯ ── */
-  --nav-text: #e5e7eb;
-  --nav-title: #f3f4f6;
-  --nav-hover: #38bdf8;
+    /* ── Меню и навигация ── */
+    --nav-text: var(--color-gray-50);
+    --nav-title: var(--color-white);
+    --nav-hover: var(--color-blue-500);
 
-  /* ── 6. КНОПКИ ── */
-  --btn-normal-bg: #374151;
-  --btn-normal-text: #f9fafb;
-  --btn-normal-hover-bg: #38bdf8;
-  --btn-normal-hover-text: #111827;
-  --btn-accent-bg: #38bdf8;
-  --btn-accent-text: #111827;
-  --btn-accent-hover-bg: #0ea5e9;
-  --btn-blocked-bg: #4b5563;
-  --btn-blocked-text: #9ca3af;
-  --btn-default-bg: #374151;
-  --btn-default-text: #f9fafb;
-  --btn-success-bg: #16a34a;
-  --btn-success-text: #f0fdf4;
-  --btn-warning-bg: #d97706;
-  --btn-warning-text: #fffbeb;
-  --btn-danger-bg: #b91c1c;
-  --btn-danger-text: #fef2f2;
-  --btn-disabled-bg: #374151;
-  --btn-disabled-text: #6b7280;
-  --btn-out-text: #38bdf8;
-  --btn-out-hover-text: #7dd3fc;
-  --btn-close-text: #9ca3af;
-  --btn-close-hover-text: #f9fafb;
-  --btn-shadow: rgba(0, 0, 0, 0.4);
+    /* ── Кнопки ── */
+    --btn-normal-bg: var(--color-gray-800);
+    --btn-normal-text: var(--color-gray-50);
+    --btn-normal-hover-bg: var(--color-blue-500);
+    --btn-normal-hover-text: var(--color-white);
 
-  /* ── 7. ЧЕКБОКСЫ ── */
-  --checkbox-border: #6b7280;
-  --checkbox-checked-bg: #38bdf8;
-  --checkbox-check-color: #111827;
-  --checkbox-label-text: #e5e7eb;
+    --btn-accent-bg: var(--color-blue-500);
+    --btn-accent-text: var(--color-white);
+    --btn-accent-hover-bg: var(--color-blue-600);
 
-  /* ── ТОГГЛ ── */
-  --toggle-slider-bg: #4b5563;
-  --toggle-slider-thumb: #f9fafb;
-  --toggle-slider-checked-bg: #22c55e;
+    --btn-blocked-bg: var(--color-gray-800);
+    --btn-blocked-text: var(--color-gray-500);
 
-  /* ── 8. ИНПУТЫ И ФОРМЫ ── */
-  --input-border: #4b5563;
-  --input-border-focus: #38bdf8;
-  --input-bg: #1f2937;
-  --input-text: #f9fafb;
-  --input-error-text: #f87171;
-  --input-intro-text: #d1d5db;
-  --form-divider-text: #6b7280;
-  --form-divider-line: #374151;
+    --btn-default-bg: var(--color-gray-800);
+    --btn-default-text: var(--color-gray-50);
+    --btn-success-bg: var(--color-green);
+    --btn-success-text: var(--color-white);
+    --btn-warning-bg: var(--color-amber);
+    --btn-warning-text: var(--color-white);
+    --btn-danger-bg: var(--color-red);
+    --btn-danger-text: var(--color-white);
+    --btn-disabled-bg: var(--color-gray-800);
+    --btn-disabled-text: var(--color-gray-500);
 
-  /* ── 9. ИКОНКИ ── */
-  --icon-color: #d1d5db;
-  --icon-hover-color: #f87171;
-  --icon-hover-bg: rgba(255, 255, 255, 0.08);
-
-  /* ── 10. ПОДСКАЗКИ / ХИНТЫ ── */
-  --hint-text: #7dd3fc;
-  --hint-bg: #0c4a6e;
-
-  /* ── 11. ОВЕРЛЕЙ ── */
-  --overlay-bg: rgba(0, 0, 0, 0.6);
-
-  /* ── 12. ЛОГОТИП ── */
-  --logo-color: #f9fafb;
-  --logo-hover-color: #38bdf8;
-  --logo-border: #374151;
-
-  /* ── 13. КАРТОЧКИ И СТРУКТУРА ── */
-  --card-bg: #1f2937;
-  --card-text: #f9fafb;
-  --card-border: #374151;
-  --card-shadow: rgba(0, 0, 0, 0.35);
-  --sidebar-shadow: rgba(0, 0, 0, 0.4);
-}
-
-/* ============================================================
-   ТЁМНАЯ ТЕМА — автоматически по системным настройкам
-   ============================================================ */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not([data-theme="dark"]) {
-    --bg-page: #111827;
-    --bg-surface: #1f2937;
-    --bg-sidebar: #1f2937;
-    --bg-header: #1f2937;
-
-    --text-main: #f9fafb;
-    --text-muted: #9ca3af;
-
-    --border-default: #374151;
-    --border-subtle: #4b5563;
-
-    --link-section: #38bdf8;
-    --link-article: #34d399;
-    --link-hover: #38bdf8;
-
-    --nav-text: #e5e7eb;
-    --nav-title: #f3f4f6;
-    --nav-hover: #38bdf8;
-
-    --btn-normal-bg: #374151;
-    --btn-normal-text: #f9fafb;
-    --btn-normal-hover-bg: #38bdf8;
-    --btn-normal-hover-text: #111827;
-    --btn-accent-bg: #38bdf8;
-    --btn-accent-text: #111827;
-    --btn-accent-hover-bg: #0ea5e9;
-    --btn-blocked-bg: #4b5563;
-    --btn-blocked-text: #9ca3af;
-    --btn-default-bg: #374151;
-    --btn-default-text: #f9fafb;
-    --btn-success-bg: #16a34a;
-    --btn-success-text: #f0fdf4;
-    --btn-warning-bg: #d97706;
-    --btn-warning-text: #fffbeb;
-    --btn-danger-bg: #b91c1c;
-    --btn-danger-text: #fef2f2;
-    --btn-disabled-bg: #374151;
-    --btn-disabled-text: #6b7280;
-    --btn-out-text: #38bdf8;
-    --btn-out-hover-text: #7dd3fc;
-    --btn-close-text: #9ca3af;
-    --btn-close-hover-text: #f9fafb;
+    --btn-out-text: var(--color-blue-500);
+    --btn-out-hover-text: var(--color-blue-600);
+    --btn-close-text: var(--color-gray-500);
+    --btn-close-hover-text: var(--color-gray-50);
     --btn-shadow: rgba(0, 0, 0, 0.4);
 
-    --checkbox-border: #6b7280;
-    --checkbox-checked-bg: #38bdf8;
-    --checkbox-check-color: #111827;
-    --checkbox-label-text: #e5e7eb;
+    /* ── Чекбоксы и тогглы ── */
+    --checkbox-border: var(--color-gray-500);
+    --checkbox-checked-bg: var(--color-blue-500);
+    --checkbox-check-color: var(--color-white);
+    --checkbox-label-text: var(--color-gray-50);
 
-    --toggle-slider-bg: #4b5563;
-    --toggle-slider-thumb: #f9fafb;
-    --toggle-slider-checked-bg: #22c55e;
+    --toggle-slider-bg: var(--color-gray-800);
+    --toggle-slider-thumb: var(--color-gray-50);
+    --toggle-slider-checked-bg: var(--color-green);
 
-    --input-border: #4b5563;
-    --input-border-focus: #38bdf8;
-    --input-bg: #1f2937;
-    --input-text: #f9fafb;
-    --input-error-text: #f87171;
-    --input-intro-text: #d1d5db;
-    --form-divider-text: #6b7280;
-    --form-divider-line: #374151;
+    /* ── Инпуты и формы ── */
+    --input-border: var(--color-gray-500);
+    --input-border-focus: var(--color-blue-500);
+    --input-bg: var(--color-gray-800);
+    --input-text: var(--color-gray-50);
+    --input-error-text: var(--color-red);
+    --input-intro-text: var(--color-gray-50);
+    --form-divider-text: var(--color-gray-500);
+    --form-divider-line: var(--color-gray-800);
 
-    --icon-color: #d1d5db;
-    --icon-hover-color: #f87171;
+    /* ── Иконки и хинты ── */
+    --icon-color: var(--color-gray-50);
+    --icon-hover-color: var(--color-red);
     --icon-hover-bg: rgba(255, 255, 255, 0.08);
 
-    --hint-text: #7dd3fc;
-    --hint-bg: #0c4a6e;
+    --hint-text: var(--color-blue-500);
+    --hint-bg: var(--color-gray-800);
 
+    /* ── Структура, оверлей и карточки ── */
     --overlay-bg: rgba(0, 0, 0, 0.6);
+    --logo-color: var(--color-gray-50);
+    --logo-hover-color: var(--color-blue-500);
+    --logo-border: var(--color-gray-800);
 
-    --logo-color: #f9fafb;
-    --logo-hover-color: #38bdf8;
-    --logo-border: #374151;
-
-    --card-bg: #1f2937;
-    --card-text: #f9fafb;
-    --card-border: #374151;
+    --card-bg: var(--color-black);
+    --card-text: var(--color-gray-50);
+    --card-border: var(--color-gray-800);
     --card-shadow: rgba(0, 0, 0, 0.35);
     --sidebar-shadow: rgba(0, 0, 0, 0.4);
-  }
 }
 
 /* ============================================================
-   БАЗОВЫЕ СБРОСЫ И НАСТРОЙКИ ДОКУМЕНТА
+   4. АВТОМАТИЧЕСКАЯ СИСТЕМНАЯ ТЁМНАЯ ТЕМА
+   Работает только если пользователь еще не сделал ручной выбор
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        --bg-page: var(--color-gray-900);
+        --bg-surface: var(--color-gray-800);
+        --bg-sidebar: var(--color-gray-800);
+        --bg-header: var(--color-gray-800);
+
+        --text-main: var(--color-gray-50);
+        --text-muted: var(--color-gray-500);
+
+        --border-default: var(--color-gray-800);
+        --border-subtle: var(--color-gray-800);
+
+        --link-section: var(--color-blue-500);
+        --link-article: var(--color-green);
+        --link-hover: var(--color-blue-500);
+
+        --nav-text: var(--color-gray-50);
+        --nav-title: var(--color-white);
+        --nav-hover: var(--color-blue-500);
+
+        --btn-normal-bg: var(--color-gray-800);
+        --btn-normal-text: var(--color-gray-50);
+        --btn-normal-hover-bg: var(--color-blue-500);
+        --btn-normal-hover-text: var(--color-white);
+
+        --btn-accent-bg: var(--color-blue-500);
+        --btn-accent-text: var(--color-white);
+        --btn-accent-hover-bg: var(--color-blue-600);
+
+        --btn-blocked-bg: var(--color-gray-800);
+        --btn-blocked-text: var(--color-gray-500);
+
+        --btn-default-bg: var(--color-gray-800);
+        --btn-default-text: var(--color-gray-50);
+        --btn-success-bg: var(--color-green);
+        --btn-success-text: var(--color-white);
+        --btn-warning-bg: var(--color-amber);
+        --btn-warning-text: var(--color-white);
+        --btn-danger-bg: var(--color-red);
+        --btn-danger-text: var(--color-white);
+        --btn-disabled-bg: var(--color-gray-800);
+        --btn-disabled-text: var(--color-gray-500);
+
+        --btn-out-text: var(--color-blue-500);
+        --btn-out-hover-text: var(--color-blue-600);
+        --btn-close-text: var(--color-gray-500);
+        --btn-close-hover-text: var(--color-gray-50);
+        --btn-shadow: rgba(0, 0, 0, 0.4);
+
+        --checkbox-border: var(--color-gray-500);
+        --checkbox-checked-bg: var(--color-blue-500);
+        --checkbox-check-color: var(--color-white);
+        --checkbox-label-text: var(--color-gray-50);
+
+        --toggle-slider-bg: var(--color-gray-800);
+        --toggle-slider-thumb: var(--color-gray-50);
+        --toggle-slider-checked-bg: var(--color-green);
+
+        --input-border: var(--color-gray-800);
+        --input-border-focus: var(--color-blue-500);
+        --input-bg: var(--color-gray-800);
+        --input-text: var(--color-gray-50);
+        --input-error-text: var(--color-red);
+        --input-intro-text: var(--color-gray-50);
+        --form-divider-text: var(--color-gray-500);
+        --form-divider-line: var(--color-gray-800);
+
+        --icon-color: var(--color-gray-50);
+        --icon-hover-color: var(--color-red);
+        --icon-hover-bg: rgba(255, 255, 255, 0.08);
+
+        --hint-text: var(--color-blue-500);
+        --hint-bg: var(--color-gray-800);
+
+        --overlay-bg: rgba(0, 0, 0, 0.6);
+        --logo-color: var(--color-gray-50);
+        --logo-hover-color: var(--color-blue-500);
+        --logo-border: var(--color-gray-800);
+
+        --card-bg: var(--color-gray-800);
+        --card-text: var(--color-gray-50);
+        --card-border: var(--color-gray-800);
+        --card-shadow: rgba(0, 0, 0, 0.35);
+        --sidebar-shadow: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* ============================================================
+   5. БАЗОВЫЕ СБРОСЫ И НАСТРОЙКИ ДОКУМЕНТА
    ============================================================ */
 html {
-  scroll-behavior: smooth;
-  max-width: 100vw;
-  overflow-x: hidden;
+    scroll-behavior: smooth;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-page);
-  color: var(--text-main);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, sans-serif;
+    box-sizing: border-box;
+
+}
+
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }

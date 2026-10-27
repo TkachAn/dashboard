@@ -4,7 +4,7 @@
   /* Mobile First: увеличенная область нажатия */
   padding: 10px 20px;
   margin: 8px;
-  border: none;
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-base);
   font-weight: 600;
   font-size: 14px;

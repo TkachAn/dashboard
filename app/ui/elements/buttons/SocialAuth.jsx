@@ -1,3 +1,4 @@
+"use client"
 // src/components/forms/SocialAuth.jsx
 import { NormButton } from "./buttons";
 // Здесь можно импортировать иконки из lucide-react или использовать SVG

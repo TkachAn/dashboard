@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "./ingpt.module.css";
 import clsx from "clsx";
