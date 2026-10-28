@@ -1,9 +1,8 @@
 
 import { Dashboard_Layout } from "./layouts/layout";
-import { ClimateWidget } from "./ui/device's/esp/esp8266/climate/bme280";
-import { DamperFanWidget } from "./ui/device's/esp/esp8266/climate/fan/DFW";
+import { ClimateWidget } from "./ui/device's/esp/esp8266/climate/bme/bme280";
 import { DamperFanIndicator } from "./ui/device's/esp/esp8266/climate/fan/DFMi";
-import { DamperFanWidgetMan } from "./ui/device's/esp/esp8266/climate/fan2/DFW_am";
+import { ClimateCompactWidget } from "./ui/device's/esp/esp8266/climate/widgets/w1";
 import { Section, Article, Card } from "./ui/structure/struct";
 import s from './s.module.css';
 import { TextInput, TextAreaInput, SelectInput, PhoneInput, NumericInput, EmailInput, PasswordInput, IntegerInput, FloatInput, PriceInput } from "./ui/elements/inputs/inputsGPT";
@@ -109,12 +108,6 @@ export default function Home() {
             <ClimateWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
             <ClimateWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
             <ClimateWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
-            <DamperFanWidget
-              currentTemp={24.5}
-              fanState={40}
-              damperOpen={60}
-              color="orange"
-            />
             <DamperFanIndicator currentTemp={24.5}
               fanState={40}
               damperOpen={60}
@@ -123,29 +116,9 @@ export default function Home() {
         </Article>
         <Article id="article4" title="NW Window ESP8266    ">
           <div className={s.flex}>
-            <ClimateWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
-            <ClimateWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
-            <ClimateWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
-            <DamperFanWidget
-              currentTemp={24.5}
-              fanState={40}
-              damperOpen={60}
-              color="orange"
-            />
-            <DamperFanWidgetMan
-              title="Заслонка и Вентилятор"
-              currentPosition={35}
-              initialTarget={50}
-              minPosition={0}
-              maxPosition={100}
-              currentFanSpeed={45}
-              initialFanTarget={50}
-              minFanSpeed={0}
-              maxFanSpeed={100}
-              currentTemp={23}
-              tempUnit="°C"
-              color="green"
-            />
+
+            <ClimateCompactWidget />
+            <ClimateCompactWidget title="NW Window ESP8266" temp='22' humidity='59' pressure='985' damper='15' />
           </div>
         </Article>
       </Section>

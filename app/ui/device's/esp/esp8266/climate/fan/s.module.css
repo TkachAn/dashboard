@@ -13,7 +13,7 @@
 
 .widgetHeader {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 8px;
 }
@@ -24,10 +24,7 @@
     color: var(--text-main, #111827);
 }
 
-.targetLabel {
-    font-size: 0.75rem;
-    color: var(--text-secondary, #6b7280);
-}
+
 
 .widgetBody {
     display: flex;
@@ -44,6 +41,8 @@
     user-select: none;
     margin: 4px 0;
 }
+
+/*s.interactiveCircle :*  ???????????????????????*/
 
 .circularSvg {
     width: 100%;
@@ -69,16 +68,35 @@
     transition: stroke-dashoffset 0.4s ease;
 }
 
-/* Позиционирование треугольника-указателя цели */
-.targetPointerContainer {
+.svgPointer {
+    fill: #ffffff;
+    stroke: #3b82f6;
+    stroke-width: 3px;
+    /* Плавное изменение координат точек внутри SVG */
+    transition: cx 0.2s ease, cy 0.2s ease;
+}
+
+
+/* Круглый ползунок-указатель цели */
+.targetCirclePointerContainer {
     position: absolute;
-    width: 0;
-    height: 0;
+    /* width: 0;
+    height: 0;*/
     transform: translate(-50%, -50%);
-    transition: left 0.1s ease, top 0.1s ease;
     pointer-events: none;
 }
 
+/*
+.circleIndicator {
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    border: 3px solid var(--column-fill, #3b82f6);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+*/
+/*
 .triangleIndicator {
     width: 0;
     height: 0;
@@ -87,8 +105,11 @@
     border-bottom: 12px solid var(--column-fill);
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
     transform: rotate(45deg);
-    /* Направлен по касательной к окружности */
-}
+
+   
+    /* Направлен по касательной к окружности transition: all 0.5s; */
+/*
+}*/
 
 /* Информация в центре круга */
 .centerInfo {
@@ -115,6 +136,12 @@
     margin-top: 2px;
 }
 
+.fanLabel,
+.targetLabel {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+}
+
 /* Панель управления вентилятором */
 .fanControlPanel {
     display: flex;
@@ -126,10 +153,11 @@
     padding-top: 10px;
 }
 
+/*
 .fanLabel {
     font-size: 0.75rem;
     color: var(--text-secondary, #6b7280);
-}
+}*/
 
 .fanButtons {
     display: flex;
@@ -174,7 +202,38 @@
     border-color: var(--column-fill) !important;
 }
 
+
+/* Контейнер-обертка находится строго в центре круга (90px, 90px) */
+.targetCirclePointerContainer {
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    /* Плавный поворот контейнера — теперь движение идет строго по дуге окружности! */
+    transition: transform 0.5s ease-out;
+}
+
+/* Сам кружок смещается вверх по оси Y на радиус (70px) */
+.circleIndicator {
+    position: absolute;
+    top: -70px;
+    /* Равно вашему радиусу radius = 70 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    border: 3px solid var(--column-fill, #3b82f6);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
 /* Панель статуса вентилятора */
+/*
 .fanInfoPanel {
     display: flex;
     justify-content: space-between;
@@ -187,16 +246,14 @@
     font-size: 0.8rem;
 }
 
-.fanLabel {
-    color: var(--text-secondary, #6b7280);
-}
-
+/*
 .fanStatusValue {
     color: var(--text-main, #111827);
     font-weight: 600;
 }
 
 /* Кнопка "Ручное управление" */
+/*
 .manualButton {
     width: 100%;
     margin-top: 12px;
@@ -210,38 +267,20 @@
     cursor: pointer;
     transition: opacity 0.2s ease;
 }
-
+/*
 .manualButton:hover {
     opacity: 0.9;
-}
+}*/
 
-/* Цветовые темы */
-.blue {
-    --column-fill: #3b82f6;
-}
 
-.green {
-    --column-fill: #10b981;
-}
 
-.orange {
-    --column-fill: #f59e0b;
-}
 
-/* Круглый ползунок-указатель цели */
-.targetCirclePointerContainer {
+/* Позиционирование треугольника-указателя цели 
+.targetPointerContainer {
     position: absolute;
     width: 0;
     height: 0;
     transform: translate(-50%, -50%);
+    transition: left 0.1s ease, top 0.1s ease;
     pointer-events: none;
-}
-
-.circleIndicator {
-    width: 12px;
-    height: 12px;
-    background-color: #ffffff;
-    border: 3px solid var(--column-fill, #3b82f6);
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+}*/

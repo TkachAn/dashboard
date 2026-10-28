@@ -21,6 +21,7 @@ export function DamperFanIndicator({
     const [isDragging, setIsDragging] = useState(false);
     const svgRef = useRef(null);
     const [mode, setMode] = useState('auto');
+    const [activeSpeed, setActiveSpeed] = useState(fanSpeed); // Состояние выбранной скорости
 
     // Параметры SVG окружности (дуга 270 градусов: от -225° до 45°)
     const radius = 70;
@@ -111,7 +112,12 @@ export function DamperFanIndicator({
         setMode(nextMode);
         if (onModeChange) onModeChange(nextMode);
     };
-
+    // Обработка клика по кнопке скорости (1, 2, 3) — переключает активную скорость
+    const handleSpeedClick = (speed) => {
+        if (mode === 'auto') return;
+        setActiveSpeed(speed);
+        if (onFanSpeedChange) onFanSpeedChange(speed);
+    };
     return (
         <div className={`${s.widgetCard} ${s[colorTheme]}`}>
             <div className={s.widgetHeader}>
@@ -144,15 +150,18 @@ export function DamperFanIndicator({
                             strokeDasharray={`${arcLength} ${circumference}`}
                             strokeDashoffset={currentStrokeDashoffset}
                         />
+
                     </svg>
 
                     {/* Круглый ползунок отображается ТОЛЬКО в ручном режиме */}
+
+
                     {mode === 'manual' && (
                         <div
                             className={s.targetCirclePointerContainer}
                             style={{
-                                left: `${targetCoords.x}px`,
-                                top: `${targetCoords.y}px`,
+                                /* Вращаем контейнер из центра на нужный угол */
+                                transform: `translate(-50%, -50%) rotate(${percentToAngle(target)}deg)`,
                             }}
                             title={`Цель заслонки: ${target}%`}
                         >
@@ -160,11 +169,12 @@ export function DamperFanIndicator({
                         </div>
                     )}
 
+
                     {/* Центральный блок: текущее открытие */}
                     <div className={s.centerInfo}>
+                        {mode === 'auto' ? <span className={s.targetLabel}>Авто</span> : <span className={s.targetLabel}>Ручной</span>}
                         <span className={s.currentVal}>{currentPosition}%</span>
                         <span className={s.subText}>Заслонка</span>
-                        {/* Отображаем цель только в ручном режиме */}
                         <span className={s.targetLabel}>Цель: {target}%</span>
                     </div>
                 </div>
@@ -178,12 +188,13 @@ export function DamperFanIndicator({
                             <button
                                 key={speed}
                                 disabled={mode === 'auto'}
-                                className={`${s.fanBtn} ${fanSpeed === speed ? s.activeFan : ''}`}
-                                onClick={() => mode === 'manual' && onFanSpeedChange && onFanSpeedChange(speed)}
+                                className={`${s.fanBtn} ${activeSpeed === speed && mode === 'manual' ? s.activeFan : ''}`}
+                                onClick={() => handleSpeedClick(speed)}
                             >
                                 {speed}
                             </button>
                         ))}
+
 
                         {/* Вместо кнопки "Выкл" теперь кнопка переключения режимов */}
                         <button
@@ -199,6 +210,44 @@ export function DamperFanIndicator({
     );
 }
 
+
+/*  {[1, 2, 3].map((speed) => (
+                            <button
+                                key={speed}
+                                disabled={mode === 'auto'}
+                                className={`${s.fanBtn} ${fanSpeed === speed ? s.activeFan : ''}`}
+                                onClick={() => mode === 'manual' && onFanSpeedChange && onFanSpeedChange(speed)}
+                            >
+                                {speed}
+                            </button>
+                        ))}
+*/
+
+
+
 /*
 {mode === 'manual' && <span className={s.targetLabel}>Цель: {target}%</span>}
+
+ /* Круглый ползунок отображается ТОЛЬКО в ручном режиме 
+                    {mode === 'manual' && (
+                        <div
+                            className={s.targetCirclePointerContainer}
+                            style={{
+                                left: `${targetCoords.x}px`,
+                                top: `${targetCoords.y}px`,
+                            }}
+                            title={`Цель заслонки: ${target}%`}
+                        >
+                            <div className={s.circleIndicator} />
+                        </div>
+                    )}
+
+                                            <circle
+                            cx={targetCoords.x}
+                            cy={targetCoords.y}
+                            r="7"
+                            className={s.svgPointer}
+                        />
+
+
 */
