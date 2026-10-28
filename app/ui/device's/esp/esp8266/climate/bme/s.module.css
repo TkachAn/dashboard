@@ -1,14 +1,14 @@
 .widgetCard {
     display: flex;
     flex-direction: column;
-    background-color: var(--card-bg, #ffffff);
-    border: 1px solid var(--border-default, #e5e7eb);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-default);
     border-radius: 12px;
     padding: 16px;
     width: 100%;
     max-width: 200px;
     box-sizing: border-box;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 6px var(--card-shadow);
 }
 
 .widgetHeader {
@@ -21,12 +21,12 @@
 .title {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text-main, #111827);
+    color: var(--text-main);
 }
 
 .targetLabel {
     font-size: 0.75rem;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-muted);
 }
 
 .widgetBody {
@@ -51,7 +51,7 @@
     justify-content: space-between;
     height: 100%;
     font-size: 0.75rem;
-    color: var(--text-secondary, #9ca3af);
+    color: var(--text-muted);
     text-align: right;
     padding-right: 2px;
 }
@@ -61,8 +61,8 @@
     position: relative;
     width: 20px;
     height: 100%;
-    background-color: var(--bg-column-empty, #f3f4f6);
-    border: 2px solid var(--column-border);
+    background-color: var(--border-default);
+    border: 2px solid var(--column-border, var(--accent-primary));
     border-radius: 6px;
     overflow: hidden;
 }
@@ -72,7 +72,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--column-fill);
+    background-color: var(--column-fill, var(--accent-primary));
     transition: height 0.4s ease;
 }
 
@@ -96,7 +96,7 @@
     height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-right: 8px solid var(--column-fill);
+    border-right: 8px solid var(--column-fill, var(--accent-primary));
 }
 
 .currentValueContainer {
@@ -107,28 +107,28 @@
 .currentVal {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--text-main, #111827);
+    color: var(--text-main);
 }
 
 .unit {
     font-size: 0.85rem;
     font-weight: 400;
     margin-left: 2px;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-muted);
 }
 
 /* Цветовые темы */
 .blue {
-    --column-border: #3b82f6;
-    --column-fill: #3b82f6;
+    --column-border: var(--accent-primary);
+    --column-fill: var(--accent-primary);
 }
 
 .green {
-    --column-border: #10b981;
-    --column-fill: #10b981;
+    --column-border: var(--color-green);
+    --column-fill: var(--color-green);
 }
 
 .orange {
-    --column-border: #f59e0b;
-    --column-fill: #f59e0b;
+    --column-border: var(--color-amber);
+    --column-fill: var(--color-amber);
 }

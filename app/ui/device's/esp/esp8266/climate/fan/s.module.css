@@ -1,14 +1,14 @@
 .widgetCard {
     display: flex;
     flex-direction: column;
-    background-color: var(--card-bg, #ffffff);
-    border: 1px solid var(--border-default, #e5e7eb);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-default);
     border-radius: 12px;
     padding: 16px;
     width: 100%;
     max-width: 260px;
     box-sizing: border-box;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 6px var(--card-shadow);
 }
 
 .widgetHeader {
@@ -21,10 +21,8 @@
 .title {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text-main, #111827);
+    color: var(--text-main);
 }
-
-
 
 .widgetBody {
     display: flex;
@@ -42,8 +40,6 @@
     margin: 4px 0;
 }
 
-/*s.interactiveCircle :*  ???????????????????????*/
-
 .circularSvg {
     width: 100%;
     height: 100%;
@@ -54,7 +50,7 @@
 /* Фоновая незаполненная линия */
 .bgTrack {
     fill: none;
-    stroke: var(--bg-column-empty, #f3f4f6);
+    stroke: var(--border-default);
     stroke-width: 12;
     stroke-linecap: round;
 }
@@ -62,30 +58,26 @@
 /* Динамически заполняемая линия текущего положения */
 .progressTrack {
     fill: none;
-    stroke: var(--column-fill, #3b82f6);
+    stroke: var(--column-fill, var(--accent-primary));
     stroke-width: 12;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.4s ease;
 }
 
 .svgPointer {
-    fill: #ffffff;
-    stroke: #3b82f6;
+    fill: var(--card-bg);
+    stroke: var(--column-fill, var(--accent-primary));
     stroke-width: 3px;
     /* Плавное изменение координат точек внутри SVG */
     transition: cx 0.2s ease, cy 0.2s ease;
 }
 
-
 /* Круглый ползунок-указатель цели */
 .targetCirclePointerContainer {
     position: absolute;
-    /* width: 0;
-    height: 0;*/
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
-
 
 /* Информация в центре круга */
 .centerInfo {
@@ -102,20 +94,20 @@
 .currentVal {
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--text-main, #111827);
+    color: var(--text-main);
     line-height: 1.1;
 }
 
 .subText {
     font-size: 0.75rem;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-muted);
     margin-top: 2px;
 }
 
 .fanLabel,
 .targetLabel {
     font-size: 0.75rem;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-muted);
 }
 
 /* Панель управления вентилятором */
@@ -125,11 +117,9 @@
     width: 100%;
     margin-top: 12px;
     gap: 6px;
-    border-top: 1px solid var(--border-default, #f3f4f6);
+    border-top: 1px solid var(--border-default);
     padding-top: 10px;
 }
-
-
 
 .fanButtons {
     display: flex;
@@ -139,42 +129,48 @@
 
 .fanBtn {
     flex: 1;
-    background-color: var(--btn-normal-bg, #f9fafb);
-    border: 1px solid var(--border-default, #e5e7eb);
+    background-color: var(--btn-normal-bg);
+    border: 1px solid var(--border-default);
     border-radius: 6px;
     padding: 6px 0;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--btn-normal-text, #374151);
+    color: var(--btn-normal-text);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.fanBtn:hover {
-    background-color: var(--bg-btn-hover, #f3f4f6);
+.fanBtn:hover:not(:disabled) {
+    background-color: var(--btn-normal-hover-bg);
+    color: var(--btn-normal-hover-text);
+}
+
+.fanBtn:disabled {
+    background-color: var(--btn-disabled-bg);
+    color: var(--btn-disabled-text);
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* Цветовые темы (в тон вашим климатическим виджетам) */
 .blue {
-    --column-fill: #3b82f6;
+    --column-fill: var(--accent-primary);
 }
 
 .green {
-    --column-fill: #10b981;
+    --column-fill: var(--color-green);
 }
 
 .orange {
-    --column-fill: #f59e0b;
+    --column-fill: var(--color-amber);
 }
 
 /* Активная скорость вентилятора */
 .activeFan {
     background-color: var(--btn-accent-bg) !important;
-    color: var(--btn-accent-text);
-    /*#ffffff !important;*/
-    border-color: var(--column-fill) !important;
+    color: var(--btn-accent-text) !important;
+    border-color: var(--column-fill, var(--btn-accent-bg)) !important;
 }
-
 
 /* Контейнер-обертка находится строго в центре круга (90px, 90px) */
 .targetCirclePointerContainer {
@@ -197,8 +193,8 @@
     transform: translate(-50%, -50%);
     width: 18px;
     height: 18px;
-    background-color: #ffffff;
-    border: 3px solid var(--column-fill, #3b82f6);
+    background-color: var(--card-bg);
+    border: 3px solid var(--column-fill, var(--accent-primary));
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px var(--card-shadow);
 }
