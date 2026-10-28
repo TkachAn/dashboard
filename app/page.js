@@ -50,7 +50,7 @@ export default function Home() {
 
             </Card>
             <Card title="card 3" id={'c3'}>
-              <ScrollToTopButton />
+
               <NormButton>Norm Button</NormButton>
               <SubmitButton>Submit Button</SubmitButton>
               <DeleteButton>Delete Button</DeleteButton>
@@ -92,6 +92,8 @@ export default function Home() {
           </div>
         </Article>
         <Article id="article2" title="article 2">
+          <ScrollToTopButton />
+
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
 
 
