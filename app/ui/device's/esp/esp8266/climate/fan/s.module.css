@@ -1,0 +1,175 @@
+.widgetCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-default, #e5e7eb);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 260px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.widgetHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main, #111827);
+}
+
+.targetLabel {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+}
+
+.widgetBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Контейнер круговой шкалы */
+.circularContainer {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    user-select: none;
+    margin: 4px 0;
+}
+
+.circularSvg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(135deg);
+    /* Поворот шкалы, чтобы разрез был снизу */
+}
+
+/* Фоновая незаполненная линия */
+.bgTrack {
+    fill: none;
+    stroke: var(--bg-column-empty, #f3f4f6);
+    stroke-width: 12;
+    stroke-linecap: round;
+}
+
+/* Динамически заполняемая линия текущего положения */
+.progressTrack {
+    fill: none;
+    stroke: var(--column-fill, #3b82f6);
+    stroke-width: 12;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+/* Позиционирование треугольника-указателя цели */
+.targetPointerContainer {
+    position: absolute;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    transition: left 0.1s ease, top 0.1s ease;
+    pointer-events: none;
+}
+
+.triangleIndicator {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 12px solid var(--column-fill);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    transform: rotate(45deg);
+    /* Направлен по касательной к окружности */
+}
+
+/* Информация в центре круга */
+.centerInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.currentVal {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main, #111827);
+    line-height: 1.1;
+}
+
+.subText {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+    margin-top: 2px;
+}
+
+/* Панель управления вентилятором */
+.fanControlPanel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 12px;
+    gap: 6px;
+    border-top: 1px solid var(--border-default, #f3f4f6);
+    padding-top: 10px;
+}
+
+.fanLabel {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+}
+
+.fanButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.fanBtn {
+    flex: 1;
+    background-color: var(--bg-btn, #f9fafb);
+    border: 1px solid var(--border-default, #e5e7eb);
+    border-radius: 6px;
+    padding: 6px 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-main, #374151);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fanBtn:hover {
+    background-color: var(--bg-btn-hover, #f3f4f6);
+}
+
+/* Цветовые темы (в тон вашим климатическим виджетам) */
+.blue {
+    --column-fill: #3b82f6;
+}
+
+.green {
+    --column-fill: #10b981;
+}
+
+.orange {
+    --column-fill: #f59e0b;
+}
+
+/* Активная скорость вентилятора */
+.activeFan {
+    background-color: var(--column-fill) !important;
+    color: #ffffff !important;
+    border-color: var(--column-fill) !important;
+}

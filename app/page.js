@@ -1,5 +1,7 @@
 
 import { Dashboard_Layout } from "./layouts/layout";
+import { ClimateWidget } from "./ui/device's/esp/esp8266/climate/bme280";
+import { DamperFanWidget } from "./ui/device's/esp/esp8266/climate/fan/DFW";
 import { Section, Article, Card } from "./ui/structure/struct";
 import s from './s.module.css';
 import { TextInput, TextAreaInput, SelectInput, PhoneInput, NumericInput, EmailInput, PasswordInput, IntegerInput, FloatInput, PriceInput } from "./ui/elements/inputs/inputsGPT";
@@ -99,20 +101,32 @@ export default function Home() {
 
         </Article>
       </Section>
-      <Section id={'2'} title={'hello world'}>
-        <Article id="article3" title="article 3">
-          <p>hello children</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+      <Section id={'2'} title={'Climate control'}>
+        <Article id="article3" title="SE Window ESP8266" >
+          <div className={s.flex}>
+            <ClimateWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
+            <ClimateWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
+            <ClimateWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
+            <DamperFanWidget
+              currentTemp={24.5}
+              fanState={40}
+              damperOpen={60}
+              color="orange"
+            />
+          </div>
         </Article>
-        <Article id="article4" title="article 4">
-          <p>hello children</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
+        <Article id="article4" title="NW Window ESP8266    ">
+          <div className={s.flex}>
+            <ClimateWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
+            <ClimateWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
+            <ClimateWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
+            <DamperFanWidget
+              currentTemp={24.5}
+              fanState={40}
+              damperOpen={60}
+              color="orange"
+            />
+          </div>
         </Article>
       </Section>
     </Dashboard_Layout>

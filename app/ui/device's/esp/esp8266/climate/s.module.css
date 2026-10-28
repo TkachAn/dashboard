@@ -1,0 +1,134 @@
+.widgetCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-default, #e5e7eb);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.widgetHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main, #111827);
+}
+
+.targetLabel {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+}
+
+.widgetBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Группа элементов, собранная близко друг к другу */
+.scaleGroup {
+    display: flex;
+    align-items: center;
+    height: 180px;
+    gap: 6px;
+    /* Минимальный отступ между элементами */
+}
+
+/* Цифры градаций */
+.graduations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #9ca3af);
+    text-align: right;
+    padding-right: 2px;
+}
+
+/* Полый столбец */
+.hollowColumn {
+    position: relative;
+    width: 20px;
+    height: 100%;
+    background-color: var(--bg-column-empty, #f3f4f6);
+    border: 2px solid var(--column-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.fillLevel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--column-fill);
+    transition: height 0.4s ease;
+}
+
+/* Зона указателя цели */
+.targetSliderArea {
+    position: relative;
+    width: 16px;
+    height: 100%;
+}
+
+.targetPointer {
+    position: absolute;
+    left: 0;
+    transform: translateY(50%);
+    transition: bottom 0.4s ease;
+}
+
+/* Треугольник смотрит острием влево (прямо на столбец) */
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 8px solid var(--column-fill);
+}
+
+.currentValueContainer {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.currentVal {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main, #111827);
+}
+
+.unit {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-left: 2px;
+    color: var(--text-secondary, #6b7280);
+}
+
+/* Цветовые темы */
+.blue {
+    --column-border: #3b82f6;
+    --column-fill: #3b82f6;
+}
+
+.green {
+    --column-border: #10b981;
+    --column-fill: #10b981;
+}
+
+.orange {
+    --column-border: #f59e0b;
+    --column-fill: #f59e0b;
+}
