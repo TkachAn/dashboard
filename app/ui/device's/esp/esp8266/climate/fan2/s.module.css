@@ -1,0 +1,202 @@
+.widgetCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-default, #e5e7eb);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.3s ease;
+}
+
+.editActive {
+    border-color: var(--column-fill, #3b82f6);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.widgetHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main, #111827);
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modeIndicatorText {
+    font-size: 0.7rem;
+    color: var(--text-secondary, #9ca3af);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Кнопка переключения режима в виде иконки */
+.modeToggleBtn {
+    background: transparent;
+    border: 1px solid var(--border-default, #e5e7eb);
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary, #6b7280);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modeToggleBtn:hover {
+    background-color: var(--bg-hover, #f3f4f6);
+    color: var(--text-main, #111827);
+}
+
+.activeModeBtn {
+    background-color: var(--column-fill, #3b82f6);
+    color: #ffffff;
+    border-color: var(--column-fill, #3b82f6);
+}
+
+.widgetBody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Обертка для двух одинаковых столбцов */
+.columnsWrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.columnUnit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.columnTitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+    margin-bottom: 8px;
+}
+
+/* Группа шкалы (идентичная BME280) */
+.scaleGroup {
+    display: flex;
+    align-items: center;
+    height: 160px;
+    gap: 4px;
+}
+
+.scaleGroup.interactive {
+    cursor: pointer;
+    user-select: none;
+}
+
+.graduations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-size: 0.7rem;
+    color: var(--text-secondary, #9ca3af);
+    text-align: right;
+    padding-right: 2px;
+}
+
+.hollowColumn {
+    position: relative;
+    width: 18px;
+    height: 100%;
+    background-color: var(--bg-column-empty, #f3f4f6);
+    border: 2px solid var(--column-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.fillLevel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--column-fill, #3b82f6);
+    transition: height 0.4s ease;
+}
+
+.targetSliderArea {
+    position: relative;
+    width: 14px;
+    height: 100%;
+}
+
+.targetPointer {
+    position: absolute;
+    left: 0;
+    transform: translateY(50%);
+    transition: bottom 0.1s ease;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 8px solid var(--column-fill, #3b82f6);
+}
+
+.columnValueBottom {
+    margin-top: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.valNumber {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main, #111827);
+}
+
+.valUnit {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #6b7280);
+}
+
+.targetSubLabel {
+    font-size: 0.7rem;
+    color: var(--column-fill, #3b82f6);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Цветовые темы */
+.blue {
+    --column-border: #3b82f6;
+    --column-fill: #3b82f6;
+}
+
+.green {
+    --column-border: #10b981;
+    --column-fill: #10b981;
+}
+
+.orange {
+    --column-border: #f59e0b;
+    --column-fill: #f59e0b;
+}

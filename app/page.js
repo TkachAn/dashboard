@@ -2,6 +2,8 @@
 import { Dashboard_Layout } from "./layouts/layout";
 import { ClimateWidget } from "./ui/device's/esp/esp8266/climate/bme280";
 import { DamperFanWidget } from "./ui/device's/esp/esp8266/climate/fan/DFW";
+import { DamperFanIndicator } from "./ui/device's/esp/esp8266/climate/fan/DFMi";
+import { DamperFanWidgetMan } from "./ui/device's/esp/esp8266/climate/fan2/DFW_am";
 import { Section, Article, Card } from "./ui/structure/struct";
 import s from './s.module.css';
 import { TextInput, TextAreaInput, SelectInput, PhoneInput, NumericInput, EmailInput, PasswordInput, IntegerInput, FloatInput, PriceInput } from "./ui/elements/inputs/inputsGPT";
@@ -113,6 +115,10 @@ export default function Home() {
               damperOpen={60}
               color="orange"
             />
+            <DamperFanIndicator currentTemp={24.5}
+              fanState={40}
+              damperOpen={60}
+              color="orange" />
           </div>
         </Article>
         <Article id="article4" title="NW Window ESP8266    ">
@@ -125,6 +131,20 @@ export default function Home() {
               fanState={40}
               damperOpen={60}
               color="orange"
+            />
+            <DamperFanWidgetMan
+              title="Заслонка и Вентилятор"
+              currentPosition={35}
+              initialTarget={50}
+              minPosition={0}
+              maxPosition={100}
+              currentFanSpeed={45}
+              initialFanTarget={50}
+              minFanSpeed={0}
+              maxFanSpeed={100}
+              currentTemp={23}
+              tempUnit="°C"
+              color="green"
             />
           </div>
         </Article>

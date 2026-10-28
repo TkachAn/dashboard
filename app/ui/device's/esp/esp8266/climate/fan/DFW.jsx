@@ -147,7 +147,7 @@ export function DamperFanWidget({
                         />
                     </svg>
 
-                    {/* Треугольный ползунок-указатель цели на окружности */}
+                    {/* Треугольный ползунок-указатель цели на окружности 
                     <div
                         className={s.targetPointerContainer}
                         style={{
@@ -157,8 +157,17 @@ export function DamperFanWidget({
                         title={`Цель заслонки: ${target}%`}
                     >
                         <div className={s.triangleIndicator} />
+                    </div>*/}
+                    <div
+                        className={s.targetCirclePointerContainer}
+                        style={{
+                            left: `${targetCoords.x}px`,
+                            top: `${targetCoords.y}px`,
+                        }}
+                        title={`Цель заслонки: ${target}%`}
+                    >
+                        <div className={s.circleIndicator} />
                     </div>
-
                     {/* Центральный блок: текущее открытие и статус вентилятора */}
                     <div className={s.centerInfo}>
                         <span className={s.currentVal}>{currentPosition}%</span>

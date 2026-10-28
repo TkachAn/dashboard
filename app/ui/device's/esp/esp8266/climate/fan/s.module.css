@@ -173,3 +173,75 @@
     color: #ffffff !important;
     border-color: var(--column-fill) !important;
 }
+
+/* Панель статуса вентилятора */
+.fanInfoPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 10px;
+    background-color: var(--bg-sub, #f9fafb);
+    border-radius: 8px;
+    font-size: 0.8rem;
+}
+
+.fanLabel {
+    color: var(--text-secondary, #6b7280);
+}
+
+.fanStatusValue {
+    color: var(--text-main, #111827);
+    font-weight: 600;
+}
+
+/* Кнопка "Ручное управление" */
+.manualButton {
+    width: 100%;
+    margin-top: 12px;
+    background-color: var(--column-fill, #3b82f6);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.manualButton:hover {
+    opacity: 0.9;
+}
+
+/* Цветовые темы */
+.blue {
+    --column-fill: #3b82f6;
+}
+
+.green {
+    --column-fill: #10b981;
+}
+
+.orange {
+    --column-fill: #f59e0b;
+}
+
+/* Круглый ползунок-указатель цели */
+.targetCirclePointerContainer {
+    position: absolute;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.circleIndicator {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border: 3px solid var(--column-fill, #3b82f6);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
