@@ -198,7 +198,7 @@ export function DamperFanIndicator({
 
                         {/* Вместо кнопки "Выкл" теперь кнопка переключения режимов */}
                         <button
-                            className={`${s.fanBtn} ${s.modeToggleBtn}`}
+                            className={s.fanBtn}
                             onClick={handleModeToggle}
                         >
                             {mode === 'auto' ? 'Ручн.' : 'Авто'}
@@ -211,7 +211,10 @@ export function DamperFanIndicator({
 }
 
 
-/*  {[1, 2, 3].map((speed) => (
+/* 
+className={`${s.fanBtn} ${s.modeToggleBtn}`}
+
+{[1, 2, 3].map((speed) => (
                             <button
                                 key={speed}
                                 disabled={mode === 'auto'}
