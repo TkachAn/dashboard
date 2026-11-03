@@ -7,3 +7,68 @@
 .card4 {
     width: 350px;
 }
+
+.blinds {
+    width: 500px;
+}
+
+
+/******/
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Центрирует элементы по горизонтали */
+    justify-content: center;
+    /* Центрирует элементы по вертикали (если родитель достаточно высокий) */
+    text-align: center;
+    padding: 50px 20px;
+    /* Установите минимальную высоту, чтобы контент не был сжат */
+    min-height: 50vh;
+}
+
+/* Код ошибки */
+.errorCode {
+    font-size: 8rem;
+    /* Очень большой размер */
+    font-weight: 900;
+    color: var(--text-error, #e74c3c);
+    /* Используйте ваш основной цвет или красный */
+    margin: 0;
+    line-height: 1;
+}
+
+/* Основное сообщение */
+.message {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--clr-ntf-msg-text, #333);
+}
+
+/* Подробное описание */
+.description {
+    font-size: 1.1rem;
+    color: var(--clr-ntf-desc-text, #666);
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+/* Ссылка на главную */
+.homeLink {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--clr-ntf-btn-bg, #3498db);
+    color: var(--clr-ntf-btn-text, #ffffff);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.homeLink:hover {
+    background-color: var(--clr-ntf-btn-hover-bg, #2980b9);
+}

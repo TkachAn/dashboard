@@ -1,9 +1,14 @@
 
 import { Dashboard_Layout } from "./layouts/layout";
-import { ClimateWidget } from "./ui/device's/esp/esp8266/climate/bme/bme280";
-import { DamperFanIndicator } from "./ui/device's/esp/esp8266/climate/fan/DFMi";
-import { ClimateCompactWidget } from "./ui/device's/esp/esp8266/climate/widgets/w1";
+import { VerticalBlindsControl } from "./ui/devices/esp/esp8266/climate/widgets/galusi/gal";
+
+import { ClimateWidget } from "./ui/devices/esp/esp8266/climate/bme/bme280";
+import { DamperFanIndicator } from "./ui/devices/esp/esp8266/climate/fan/DFMi";
+import { ClimateCompactWidget } from "./ui/devices/esp/esp8266/climate/widgets/w1";
+import { ColumnSetWidget } from "./ui/widgets/SetColumn/column";
+import { Bme280Widget } from "./ui/devices/esp/esp8266/climate/widgets/indicator";
 import { Section, Article, Card } from "./ui/structure/struct";
+import { CircleSetWidget } from "./ui/widgets/SetCircle/circle";
 import s from './s.module.css';
 import { TextInput, TextAreaInput, SelectInput, PhoneInput, NumericInput, EmailInput, PasswordInput, IntegerInput, FloatInput, PriceInput } from "./ui/elements/inputs/inputsGPT";
 import { Toggle } from "./ui/elements/buttons/toggle/toggle";
@@ -21,6 +26,7 @@ import {
   Camera,
 } from "lucide-react";
 import { Forma } from "./ui/elements/forms/form";
+
 const Icons = [
   { icon: <Camera />, title: 'Камера', state: 'unknown' },
   { icon: <Server />, title: 'Сервер', state: 'loading' },
@@ -37,28 +43,18 @@ export default function Home() {
       <Section id={'1'} title={'Dashboard'}>
         <Article id="article1" title="article 1">
           <div className={s.flex}>
-            <Card title="card 1" >
-              <TextInput placeholder="placeholder" name={'t1'} />
-              <TextAreaInput name={'ta1'} />
-              <TextInput placeholder="placeholder" />
-              <TextAreaInput />
+            <VerticalBlindsControl />
+            <VerticalBlindsControl />
+            <Card title="card 1" className={s.blinds}>
+              <Bme280Widget />
+
             </Card>
             <Card title="card 2" >
-              <SelectInput name={'SelectInput'} options={[{ value: '1', label: '1' }, { value: '2', label: '2' }]} />
-              <PhoneInput name={'PhoneInput'} country="UA" placeholder="+380" />
-              <NumericInput name={'NumericInput'} />
-
-              <IntegerInput name={'IntegerInput'} />
-              <FloatInput name={'FloatInput'} />
+              <CircleSetWidget />
 
             </Card>
             <Card title="card 3" id={'c3'}>
-
-              <NormButton>Norm Button</NormButton>
-              <SubmitButton>Submit Button</SubmitButton>
-              <DeleteButton>Delete Button</DeleteButton>
-              <AddButton>Add Button</AddButton>
-              <EditButton>Edit Button</EditButton>
+              <ColumnSetWidget />
             </Card>
             <Card title="card 4" id={'c4'} className={s.card4}>
               <ThemeToggle />
