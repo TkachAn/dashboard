@@ -10,8 +10,8 @@ export function CircleSetWidget({
     min = 15,
     max = 27,
     unit = 'ед.',
-    colorTheme,
-    onTargetChange = 'blue',
+    colorTheme = 'blue',
+    onTargetChange,
 }) {
     const [target, setTarget] = useState(initialTarget);
     const [isDragging, setIsDragging] = useState(false);
