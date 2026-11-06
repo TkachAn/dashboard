@@ -8,7 +8,10 @@ import { ClimateCompactWidget } from "./ui/devices/esp/esp8266/climate/widgets/w
 import { ColumnSetWidget } from "./ui/widgets/SetColumn/column";
 import { Bme280Widget } from "./ui/devices/esp/esp8266/climate/widgets/indicator";
 import { Section, Article, Card } from "./ui/structure/struct";
+
 import { CircleSetWidget } from "./ui/widgets/SetCircle/circle";
+
+
 import s from './s.module.css';
 import { TextInput, TextAreaInput, SelectInput, PhoneInput, NumericInput, EmailInput, PasswordInput, IntegerInput, FloatInput, PriceInput } from "./ui/elements/inputs/inputsGPT";
 import { Toggle } from "./ui/elements/buttons/toggle/toggle";
@@ -44,13 +47,13 @@ export default function Home() {
         <Article id="article1" title="article 1">
           <div className={s.flex}>
             <VerticalBlindsControl />
-            <VerticalBlindsControl />
+            <CircleSetWidget />
+            <CircleSetWidget unit='%' colorTheme='red' min={0} max={100} current={60} />
+            <Bme280Widget />
             <Card title="card 1" className={s.blinds}>
-              <Bme280Widget />
 
             </Card>
             <Card title="card 2" >
-              <CircleSetWidget />
 
             </Card>
             <Card title="card 3" id={'c3'}>
@@ -110,7 +113,7 @@ export default function Home() {
               color="orange" />
           </div>
         </Article>
-        <Article id="article4" title="NW Window ESP8266    ">
+        <Article id="article4" title="NW Window ESP8266">
           <div className={s.flex}>
 
             <ClimateCompactWidget />

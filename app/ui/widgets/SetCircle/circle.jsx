@@ -4,37 +4,40 @@ import React, { useState, useRef, useEffect } from 'react';
 import s from './s.module.css';
 
 export function CircleSetWidget({
-    title = "Параметр",
-    currentPosition = 35,
-    initialTarget = 50,
+    title = "Параметр:",
+    current = 18,
+    initialTarget = 22,
     min = 15,
-    max = 90,
-    unit = '%',
-    colorTheme = 'blue',
-    onTargetChange,
-
+    max = 27,
+    unit = 'ед.',
+    colorTheme,
+    onTargetChange = 'blue',
 }) {
-    // Состояние режима: 'auto' (авто) или 'manual' (ручной)
     const [target, setTarget] = useState(initialTarget);
     const [isDragging, setIsDragging] = useState(false);
     const svgRef = useRef(null);
+
+    const clamp = (val, minVal, maxVal) => Math.max(minVal, Math.min(maxVal, val));
+
     // Параметры SVG окружности (дуга 270 градусов: от -225° до 45°)
     const radius = 70;
     const circumference = 2 * Math.PI * radius;
     const arcLength = circumference * 0.75;
 
-    // Конвертируем значение 0-100% в угол по дуге
-    const percentToAngle = (val) => {
-        const clamped = Math.max(0, Math.min(100, val));
-        return -135 + (clamped / 100) * 270;
+    // Конвертируем значение в проценты шкалы (0-100%) на основе min и max
+    const currentPercent = ((clamp(current, min, max) - min) / (max - min)) * 100;
+    const targetPercent = ((clamp(target, min, max) - min) / (max - min)) * 100;
+
+    // Перевод процента заполнения (0-100) в угол дуги (-135° ... +135°)
+    const percentToAngle = (percent) => {
+        const clampedPercent = clamp(percent, 0, 100);
+        return -135 + (clampedPercent / 100) * 270;
     };
 
-    const currentPercent = Math.max(0, Math.min(100, currentPosition));
-
-    // Расчет процента заполнения для SVG дуги
+    // Расчет процента заполнения для SVG дуги текущего значения
     const currentStrokeDashoffset = arcLength - (currentPercent / 100) * arcLength;
 
-    // Вычисление положения круглого ползунка-указателя на окружности по углам
+    // Вычисление положения указателя цели на окружности
     const getCoordinatesForPercent = (percent) => {
         const angleDeg = percentToAngle(percent);
         const angleRad = (angleDeg - 90) * (Math.PI / 180);
@@ -46,10 +49,10 @@ export function CircleSetWidget({
         };
     };
 
-    const targetCoords = getCoordinatesForPercent(target);
+    const targetCoords = getCoordinatesForPercent(targetPercent);
 
-    // Обработка клика/перетаскивания по кругу для изменения цели (только в ручном режиме)
-    const updateTargetFromMouse = (clientX, clientY) => {
+    // Функция расчёта значения по позиции мыши вокруг центра окружности
+    const calculateValueFromPosition = (clientX, clientY) => {
         if (!svgRef.current) return;
         const rect = svgRef.current.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
@@ -67,39 +70,53 @@ export function CircleSetWidget({
         if (scaleVal < -135) scaleVal = -135;
         if (scaleVal > 135) scaleVal = 135;
 
-        const newPercent = ((scaleVal + 135) / 270) * 100;
-        const rounded = Math.round(newPercent);
+        // Переводим угол в процент шкалы (0-100)
+        const percentage = (scaleVal + 135) / 270;
 
-        setTarget(rounded);
-        if (onTargetChange) onTargetChange(rounded);
+        // Мапим процент в диапазон min...max
+        const rawValue = min + percentage * (max - min);
+        const newValue = Math.round(rawValue * 10) / 10;
+
+        return clamp(newValue, min, max);
     };
 
     const handleMouseDown = (e) => {
-
         e.preventDefault();
         setIsDragging(true);
-        updateTargetFromMouse(e.clientX, e.clientY);
+        const newValue = calculateValueFromPosition(e.clientX, e.clientY);
+        if (newValue !== undefined) {
+            setTarget(newValue);
+            if (onTargetChange) onTargetChange(newValue);
+        }
     };
 
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!isDragging) return;
-            updateTargetFromMouse(e.clientX, e.clientY);
+            const newValue = calculateValueFromPosition(e.clientX, e.clientY);
+            if (newValue !== undefined) {
+                setTarget(newValue);
+                if (onTargetChange) onTargetChange(newValue);
+            }
         };
 
         const handleMouseUp = () => {
-            if (isDragging) setIsDragging(false);
+            if (isDragging) {
+                setIsDragging(false);
+            }
         };
 
         if (isDragging) {
             window.addEventListener('mousemove', handleMouseMove);
             window.addEventListener('mouseup', handleMouseUp);
         }
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [isDragging]);
+    }, [isDragging, min, max]);
+
     return (
         <div className={`${s.widgetCard} ${s[colorTheme]}`}>
             <div className={s.widgetHeader}>
@@ -111,6 +128,7 @@ export function CircleSetWidget({
                     className={`${s.circularContainer} ${s.interactiveCircle}`}
                     ref={svgRef}
                     onMouseDown={handleMouseDown}
+                    style={{ cursor: 'pointer', userSelect: 'none' }}
                 >
                     <svg className={s.circularSvg} viewBox="0 0 180 180">
                         {/* Фоновая полая дуга шкалы */}
@@ -121,7 +139,7 @@ export function CircleSetWidget({
                             r={radius}
                             strokeDasharray={`${arcLength} ${circumference}`}
                         />
-                        {/* Заполняющаяся дуга текущего положения заслонки */}
+                        {/* Заполняющаяся дуга текущего положения */}
                         <circle
                             className={s.progressTrack}
                             cx="90"
@@ -131,21 +149,29 @@ export function CircleSetWidget({
                             strokeDashoffset={currentStrokeDashoffset}
                         />
                     </svg>
+                    {/* Подписи Min и Max по краям шкалы (начало и конец дуги 270°) */}
+                    <span className={s.scaleMinLabel} style={{ position: 'absolute', bottom: '15px', left: '25px', fontSize: '11px', opacity: 0.7 }}>
+                        min:{min}
+                    </span>
+                    <span className={s.scaleMaxLabel} style={{ position: 'absolute', bottom: '15px', right: '25px', fontSize: '11px', opacity: 0.7 }}>
+                        max:{max}
+                    </span>
+                    {/* Поворот указателя цели по шкале с учетом min/max */}
                     <div
                         className={s.targetCirclePointerContainer}
                         style={{
-                            /* Вращаем контейнер из центра на нужный угол */
-                            transform: `translate(-50%, -50%) rotate(${percentToAngle(target)}deg)`,
+                            transform: `translate(-50%, -50%) rotate(${percentToAngle(targetPercent)}deg)`,
                         }}
-                        title={`Цель: ${target}%`}
+                        title={`Цель: ${target}${unit}`}
                     >
                         <div className={s.circleIndicator} />
                     </div>
+
                     {/* Центральный блок: текущее открытие */}
                     <div className={s.centerInfo}>
-                        <span className={s.currentVal}>{currentPosition}<small>{unit}</small></span>
+                        <span className={s.currentVal}>{current}<small>{unit}</small></span>
                         <span className={s.subText}>|</span>
-                        <span className={s.targetLabel}>Цель: {target} <small>{unit}</small> </span>
+                        <span className={s.targetLabel}>Цель: <b>{target}</b>{unit}</span>
                     </div>
                 </div>
             </div>
