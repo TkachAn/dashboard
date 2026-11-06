@@ -10,7 +10,7 @@ export function ColumnSetWidget({
     min = 15,
     max = 27,
     unit = 'ед.изм.',
-    colorTheme = 'blue',
+    colorTheme = 'orange',
     onTargetChange, // Опциональный колбэк для передачи нового значения наверх/в ESP8266
 }) {
     const [target, setTarget] = useState(initialTarget);

@@ -48,7 +48,7 @@ export default function Home() {
           <div className={s.flex}>
             <VerticalBlindsControl />
             <CircleSetWidget />
-            <CircleSetWidget unit='%' colorTheme='red' min={0} max={100} current={60} />
+            <CircleSetWidget unit='%' colorTheme='orange' min={0} max={100} current={60} />
             <Bme280Widget />
             <Card title="card 1" className={s.blinds}>
 
@@ -60,19 +60,7 @@ export default function Home() {
               <ColumnSetWidget />
             </Card>
             <Card title="card 4" id={'c4'} className={s.card4}>
-              <ThemeToggle />
-              <Toggle />
-              <SocialAuth />
-              <Checkbox id="checkbox1" label="Checkbox 1" />
-              <LoginIconButton />
-              <CloseIconButton />
-              <DeleteIconButton />
-              <EditIconButton />
-              <AddIconButton />
-              <UserAddIconButton />
-              <UserEditIconButton />
-              <MenuIconButton />
-              <LogOutIconButton />
+
             </Card>
             <Card title="card 5" id={'c5'}>
               <ul style={{ listStyleType: 'none' }}>
@@ -104,9 +92,9 @@ export default function Home() {
       <Section id={'2'} title={'Climate control'}>
         <Article id="article3" title="SE Window ESP8266" >
           <div className={s.flex}>
-            <ClimateWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
-            <ClimateWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
-            <ClimateWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
+            <ColumnSetWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
+            <ColumnSetWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
+            <ColumnSetWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
             <DamperFanIndicator currentTemp={24.5}
               fanState={40}
               damperOpen={60}
@@ -124,3 +112,21 @@ export default function Home() {
     </Dashboard_Layout>
   );
 }
+/*
+
+<ThemeToggle />
+            <Toggle />
+            <SocialAuth />
+            <Checkbox id="checkbox1" label="Checkbox 1" />
+            <LoginIconButton />
+            <CloseIconButton />
+            <DeleteIconButton />
+            <EditIconButton />
+            <AddIconButton />
+            <UserAddIconButton />
+            <UserEditIconButton />
+            <MenuIconButton />
+            <LogOutIconButton />
+
+
+*/

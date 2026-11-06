@@ -11,7 +11,7 @@ export function DamperFanIndicator({
     currentPosition = 35,
     initialTarget = 50,
     fanSpeed = 1,
-    colorTheme = 'blue',
+    colorTheme = 'green',
     onTargetChange,
     onFanSpeedChange,
     onModeChange,

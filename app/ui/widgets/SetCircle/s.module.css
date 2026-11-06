@@ -171,3 +171,20 @@
 .scaleMaxLabel {
     right: 25px;
 }
+
+
+/* Цветовые темы */
+.blue {
+    --column-border: var(--accent-primary);
+    --column-fill: var(--accent-primary);
+}
+
+.green {
+    --column-border: var(--color-green);
+    --column-fill: var(--color-green);
+}
+
+.orange {
+    --column-border: var(--color-amber);
+    --column-fill: var(--color-amber);
+}
