@@ -125,3 +125,49 @@
     font-size: 0.75rem;
     color: var(--text-main);
 }
+
+/* Кнопки-подписи Min и Max */
+.scaleMinLabel,
+.scaleMaxLabel {
+    position: absolute;
+    bottom: 15px;
+    font-size: 11px;
+    opacity: 0.7;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    color: var(--text-main);
+    cursor: pointer;
+    user-select: none;
+    line-height: inherit;
+    transition: opacity 0.15s ease;
+    z-index: 2;
+}
+
+.scaleMinLabel:hover,
+.scaleMaxLabel:hover {
+    opacity: 1;
+}
+
+.scaleMinLabel:focus {
+    outline: none;
+}
+
+.scaleMaxLabel:focus {
+    outline: none;
+}
+
+.scaleMinLabel:focus-visible,
+.scaleMaxLabel:focus-visible {
+    outline: 1px dashed var(--accent-primary);
+}
+
+.scaleMinLabel {
+    left: 25px;
+}
+
+.scaleMaxLabel {
+    right: 25px;
+}

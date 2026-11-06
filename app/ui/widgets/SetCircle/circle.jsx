@@ -90,6 +90,18 @@ export function CircleSetWidget({
         }
     };
 
+    const handleSetMin = (e) => {
+        e.stopPropagation();
+        setTarget(min);
+        if (onTargetChange) onTargetChange(min);
+    };
+
+    const handleSetMax = (e) => {
+        e.stopPropagation();
+        setTarget(max);
+        if (onTargetChange) onTargetChange(max);
+    };
+
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!isDragging) return;
@@ -149,13 +161,23 @@ export function CircleSetWidget({
                             strokeDashoffset={currentStrokeDashoffset}
                         />
                     </svg>
-                    {/* Подписи Min и Max по краям шкалы (начало и конец дуги 270°) */}
-                    <span className={s.scaleMinLabel} style={{ position: 'absolute', bottom: '15px', left: '25px', fontSize: '11px', opacity: 0.7 }}>
+                    {/* Подписи-кнопки Min и Max по краям шкалы (начало и конец дуги 270°) */}
+                    <button
+                        type="button"
+                        className={s.scaleMinLabel}
+                        onClick={handleSetMin}
+                        onMouseDown={(e) => e.stopPropagation()}
+                    >
                         min:{min}
-                    </span>
-                    <span className={s.scaleMaxLabel} style={{ position: 'absolute', bottom: '15px', right: '25px', fontSize: '11px', opacity: 0.7 }}>
+                    </button>
+                    <button
+                        type="button"
+                        className={s.scaleMaxLabel}
+                        onClick={handleSetMax}
+                        onMouseDown={(e) => e.stopPropagation()}
+                    >
                         max:{max}
-                    </span>
+                    </button>
                     {/* Поворот указателя цели по шкале с учетом min/max */}
                     <div
                         className={s.targetCirclePointerContainer}
