@@ -11,6 +11,7 @@
     /* Нейтральные (Neutral & Gray Scale) */
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-gray: gray;
     --color-gray-50: #f9fafb;
     --color-gray-200: #e5e7eb;
     --color-gray-500: #6b7280;
@@ -23,8 +24,15 @@
 
     /* Семантика статусов (Status colors) */
     --color-green: #10b981;
-    --color-amber: #d97706;
-    --color-red: #dc3545;
+    --color-green-d: green;
+    --color-amber-d: #d97706;
+    --color-orange: orange;
+    --color-red-d: #dc3545;
+    --color-red: red;
+    --color-yellow: yellow;
+    --color-blue: blue;
+
+
 
     /* ────────────────────────────────────────────────────────────
      2. СВЕТЛАЯ ТЕМА (SEMANTIC TOKENS)

@@ -6,14 +6,14 @@ import s from './s.module.css';
 export function ClimateWidget({
     title = "Климат",
     current = 18,
-    initialTarget = 22,
+    initial = 22,
     min = 15,
     max = 27,
     unit = '°C',
     colorTheme = 'blue',
     onTargetChange, // Опциональный колбэк для передачи нового значения наверх/в ESP8266
 }) {
-    const [target, setTarget] = useState(initialTarget);
+    const [target, setTarget] = useState(initial);
     const [isDragging, setIsDragging] = useState(false);
     const scaleRef = useRef(null);
 
