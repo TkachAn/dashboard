@@ -4,6 +4,13 @@
 
     padding-bottom: 30px;
     padding-top: 30px;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 }
 
 /* Контейнер для выравнивания иконки и заголовка по центру */

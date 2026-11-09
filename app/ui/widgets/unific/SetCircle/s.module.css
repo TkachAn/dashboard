@@ -1,0 +1,190 @@
+.widgetCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 260px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+.widgetHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.widgetBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Контейнер круговой шкалы */
+.circularContainer {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    user-select: none;
+    margin: 4px 0;
+}
+
+.interactiveCircle {
+    /*cursor: pointer;*/
+}
+
+.circularSvg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(135deg);
+    /* Поворот шкалы, чтобы разрез был снизу */
+}
+
+/* Фоновая незаполненная линия */
+.bgTrack {
+    fill: none;
+    stroke: var(--border-default);
+    stroke-width: 12;
+    stroke-linecap: round;
+}
+
+/* Динамически заполняемая линия текущего положения */
+.progressTrack {
+    fill: none;
+    stroke: var(--column-fill, var(--accent-primary));
+    stroke-width: 12;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+/* Круглый ползунок-указатель цели */
+
+.targetCirclePointerContainer {
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    /* Плавный поворот контейнера — теперь движение идет строго по дуге окружности! */
+    transition: transform 0.5s ease-out;
+}
+
+/* Сам кружок смещается вверх по оси Y на радиус (70px) */
+.circleIndicator {
+    position: absolute;
+    top: -70px;
+    /* Равно вашему радиусу radius = 70 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background-color: var(--card-bg);
+    border: 3px solid var(--column-fill, var(--accent-primary));
+    border-radius: 50%;
+    box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+/* Информация в центре круга */
+.centerInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.currentVal {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.subText {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.targetLabel {
+    font-size: 0.75rem;
+    color: var(--text-main);
+}
+
+/* Кнопки-подписи Min и Max */
+.scaleMinLabel,
+.scaleMaxLabel {
+    position: absolute;
+    bottom: 15px;
+    font-size: 11px;
+    opacity: 0.7;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    color: var(--text-main);
+    cursor: pointer;
+    user-select: none;
+    line-height: inherit;
+    transition: opacity 0.15s ease;
+    z-index: 2;
+}
+
+.scaleMinLabel:hover,
+.scaleMaxLabel:hover {
+    opacity: 1;
+}
+
+.scaleMinLabel:focus {
+    outline: none;
+}
+
+.scaleMaxLabel:focus {
+    outline: none;
+}
+
+.scaleMinLabel:focus-visible,
+.scaleMaxLabel:focus-visible {
+    outline: 1px dashed var(--accent-primary);
+}
+
+.scaleMinLabel {
+    left: 25px;
+}
+
+.scaleMaxLabel {
+    right: 25px;
+}
+
+
+/* Цветовые темы */
+.blue {
+    --column-border: var(--accent-primary);
+    --column-fill: var(--accent-primary);
+}
+
+.green {
+    --column-border: var(--color-green);
+    --column-fill: var(--color-green);
+}
+
+.orange {
+    --column-border: var(--color-amber);
+    --column-fill: var(--color-amber);
+}

@@ -6,6 +6,7 @@ import s from "./s.module.css";
 import { Logotype } from "../layouts/for_header/logotype";
 import { SmartMenu } from "../layouts/for_sidebar/leftBar";
 import { ThemeToggle } from "../ui/elements/buttons/IconButtons";
+import { ScrollToTopButton } from '@/app/ui/elements/buttons/button_Up'
 
 export function Dashboard_Layout({ children, sidebar, title }) {
     // Состояние для мобильного меню (открыто / закрыто)
@@ -54,6 +55,7 @@ export function Dashboard_Layout({ children, sidebar, title }) {
                     {children}
                 </Main>
             </Wrapper>
+            <ScrollToTopButton />
         </Container>
     );
 }

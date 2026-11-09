@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ClimateWidget } from '../../bme/bme280';
-import { Blinds } from "lucide-react"
-
 import styles from './s.module.css';
+import React, { useState } from 'react';
+/*import { ColumnSetWidget } from '../../unific/SetColumn/column';*/
+import { ColumnSetWidget } from '@/app/ui/widgets/unific/SetColumn/column';
 /**
  * Компонент управления вертикальными жалюзи (Спальня)
  * @param {string} title - Название виджета
@@ -221,7 +220,7 @@ export function VerticalBlindsControl({
 
                         {/* Вставляем ваш готовый компонент уставки и задаем ему значения для люксов */}
                         <div className={styles.modalBody}>
-                            <ClimateWidget
+                            <ColumnSetWidget
                                 title=""
                                 current={currentLightIndoor}    // Передаст текущее значение (650)
                                 initialTarget={lightThreshold}    // Передаст уставку порога (400)

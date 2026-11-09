@@ -21,17 +21,17 @@ export function Sidebar({ children, id, className }) {
 }
 
 
-export function Wrapper({ id, children }) {
+export function Wrapper({ id, children, className }) {
     return (
-        <div id={id} className={s.main_wrapper}>
+        <div id={id} className={`${s.main_wrapper} ${className || ""}`}>
             {children}
         </div>
     );
 }
 
-export function Main({ children, id }) {
+export function Main({ children, id, className }) {
     return (
-        <main id={id} className={s.main}>
+        <main id={id} className={`${s.main} ${className || ""}`}>
             {children}
         </main>
     );

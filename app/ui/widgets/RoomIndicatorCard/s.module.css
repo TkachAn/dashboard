@@ -1,0 +1,202 @@
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    flex: 1 1 320px;
+    max-width: 420px;
+    min-width: 290px;
+    outline: none;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg, 16px);
+    padding: 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--card-shadow);
+    border-color: var(--accent-primary);
+}
+
+.cardLink:focus-visible .card {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.iconWrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background-color: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.titleBlock {
+    min-width: 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subtitle {
+    margin: 2px 0 0 0;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
+    color: var(--color-green);
+    padding: 3px 7px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Metrics Grid */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.metricItem {
+    background-color: var(--bg-surface);
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.metricLabel {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.metricValueRow {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    min-width: 0;
+}
+
+.metricValue {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.metricUnit {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Specific metric colors */
+.orange .metricValue,
+.amber .metricValue {
+    color: var(--color-amber-d, #d97706);
+}
+
+.green .metricValue {
+    color: var(--color-green, #10b981);
+}
+
+.blue .metricValue {
+    color: var(--accent-primary, #3b82f6);
+}
+
+.red .metricValue {
+    color: var(--color-red, #dc3545);
+}
+
+.purple .metricValue {
+    color: #8b5cf6;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-default);
+    font-size: 0.75rem;
+}
+
+.statusText {
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.actionLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+}
+
+.card:hover .actionLink {
+    transform: translateX(3px);
+}

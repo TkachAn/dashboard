@@ -1,42 +1,45 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react"; // Используем иконку из вашего package.json
+import { ArrowUp } from "lucide-react";
+import styles from "./button_Up.module.css";
 
-export function ScrollToTopButton() {
+export function ScrollToTopButton({ className = "", threshold = 300 } = {}) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const toggleVisibility = () => {
-            // Кнопка появится, если прокрутить страницу вниз больше чем на 400 пикселей
-            if (window.scrollY > 400) {
+            // Кнопка появляется, если прокрутить страницу вниз больше порога (по умолчанию 300px)
+            if (window.scrollY > threshold) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
             }
         };
 
-        window.addEventListener("scroll", toggleVisibility);
+        // Первичная проверка при монтировании
+        toggleVisibility();
 
-        // Обязательно очищаем слушатель событий при размонтировании
+        window.addEventListener("scroll", toggleVisibility, { passive: true });
         return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
+    }, [threshold]);
 
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: "smooth", // Благодаря вашему стилю в index.css это будет супер-плавно
+            behavior: "smooth",
         });
     };
 
-    // Если прокрутки мало, компонент ничего не рендерит
-    if (!isVisible) return null;
-
     return (
         <button
+            type="button"
             onClick={scrollToTop}
-            className="back-to-top-btn"
+            className={`${styles.scrollToTopBtn} ${isVisible ? styles.visible : ""} ${className}`.trim()}
             aria-label="Вернуться наверх"
+            title="Вернуться наверх"
+            aria-hidden={!isVisible}
+            tabIndex={isVisible ? 0 : -1}
         >
             <ArrowUp size={24} />
         </button>

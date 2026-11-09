@@ -370,3 +370,19 @@ p {
 *::after {
     box-sizing: inherit;
 }
+/* Полное удаление любых полос прокрутки в aside и сайдбаре */
+aside,
+[class*="sidebar"],
+[class*="sidebar_container"] {
+    overflow-x: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+aside::-webkit-scrollbar,
+[class*="sidebar"]::-webkit-scrollbar,
+[class*="sidebar_container"]::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+}

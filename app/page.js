@@ -1,132 +1,200 @@
+'use client';
 
-import { Dashboard_Layout } from "./layouts/layout";
-import { VerticalBlindsControl } from "./ui/devices/esp/esp8266/climate/widgets/galusi/gal";
-
-import { ClimateWidget } from "./ui/devices/esp/esp8266/climate/bme/bme280";
-import { DamperFanIndicator } from "./ui/devices/esp/esp8266/climate/fan/DFMi";
-import { ClimateCompactWidget } from "./ui/devices/esp/esp8266/climate/widgets/w1";
-import { ColumnSetWidget } from "./ui/widgets/SetColumn/column";
-import { Bme280Widget } from "./ui/devices/esp/esp8266/climate/widgets/indicator";
-import { Section, Article, Card } from "./ui/structure/struct";
-
-import { CircleSetWidget } from "./ui/widgets/SetCircle/circle";
-
-
-import s from './s.module.css';
-import { TextInput, TextAreaInput, SelectInput, PhoneInput, NumericInput, EmailInput, PasswordInput, IntegerInput, FloatInput, PriceInput } from "./ui/elements/inputs/inputsGPT";
-import { Toggle } from "./ui/elements/buttons/toggle/toggle";
-import { ScrollToTopButton } from "./ui/elements/buttons/button_Up";
-import { SocialAuth } from "./ui/elements/buttons/SocialAuth";
-import { NormButton, SubmitButton, DeleteButton, AddButton, EditButton } from "./ui/elements/buttons/buttons";
-import { LoginIconButton, CloseIconButton, DeleteIconButton, EditIconButton, AddIconButton, UserAddIconButton, UserEditIconButton, MenuIconButton, LogOutIconButton, ThemeToggle } from "./ui/elements/buttons/IconButtons";
-import { Checkbox } from "./ui/elements/buttons/checkBox/checkbox";
-import { LED } from "./ui/elements/widgets/indicators/LED";
+import React from 'react';
+import { Dashboard_Layout } from '@/app/layouts/layout';
+import { Section, Article } from '@/app/ui/structure/struct';
+import { RoomIndicatorCard } from '@/app/ui/widgets/RoomIndicatorCard/RoomIndicatorCard';
 import {
-  Server,
-  Router,
-  Radio,
-  Network,
-  Camera,
-} from "lucide-react";
-import { Forma } from "./ui/elements/forms/form";
+    Compass,
+    Wind,
+    Tv,
+    Bed,
+    Wrench,
+    Utensils,
+    Bath,
+    DoorOpen,
+    Route
+} from 'lucide-react';
 
-const Icons = [
-  { icon: <Camera />, title: 'Камера', state: 'unknown' },
-  { icon: <Server />, title: 'Сервер', state: 'loading' },
-  { icon: <Router />, title: 'Роутер', state: 'ready' },
-  { icon: <Radio />, title: 'Радио', state: 'warning' },
-  { icon: <Network />, title: 'Сеть', state: 'error' },
-
-]
-
+const ROOMS_DATA = [
+    {
+        id: 'se-balcony',
+        href: '/rooms/se-balcony',
+        title: 'Лоджия Юго-Восточная',
+        subtitle: 'Внешний метеоузел & Приток',
+        icon: Compass,
+        metrics: [
+            { label: 'Температура', value: '23.4', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '45', unit: '%', color: 'green' },
+            { label: 'Давление', value: '1014', unit: 'гПа', color: 'blue' },
+            { label: 'Яркость (люкс)', value: '1200', unit: 'лк', color: 'amber' },
+        ],
+        statusText: 'Заслонка 35%, вентилятор выкл (ручной режим)',
+        badge: 'Метео'
+    },
+    {
+        id: 'nw-balcony',
+        href: '/rooms/nw-balcony',
+        title: 'Лоджия Северо-Западная',
+        subtitle: 'Внешний метеоузел & Приток',
+        icon: Wind,
+        metrics: [
+            { label: 'Температура', value: '21.8', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '52', unit: '%', color: 'green' },
+            { label: 'Давление', value: '1013', unit: 'гПа', color: 'blue' },
+            { label: 'Яркость (люкс)', value: '850', unit: 'лк', color: 'amber' },
+        ],
+        statusText: 'Заслонка 15%, вентилятор выкл (ручной режим)',
+        badge: 'Метео'
+    },
+    {
+        id: 'living-room',
+        href: '/rooms/living-room',
+        title: 'Гостиная (Зал)',
+        subtitle: 'Модульный обзор: Свет, Жалюзи, Климат',
+        icon: Tv,
+        metrics: [
+            { label: 'Свет (5 зон)', value: '2 из 5', unit: 'горит', color: 'amber' },
+            { label: 'Жалюзи', value: 'Только дверь', unit: '', color: 'blue' },
+            { label: 'Температура', value: '24.0', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '48', unit: '%', color: 'green' },
+        ],
+        statusText: 'Компактные блоки: Свет (5 ламп), Жалюзи, Климат',
+        badge: '3 блока'
+    },
+    {
+        id: 'bedroom',
+        href: '/rooms/bedroom',
+        title: 'Спальня',
+        subtitle: 'Зона сна & Мультисенсор',
+        icon: Bed,
+        metrics: [
+            { label: 'Температура (цель 21°)', value: '22.2', unit: '°C', color: 'orange' },
+            { label: 'Влажность (цель 50%)', value: '50', unit: '%', color: 'green' },
+            { label: 'Шум в покое', value: '28', unit: 'дБ', color: 'blue' },
+            { label: 'Вентиляторы', value: 'Авто (Тихий)', unit: '', color: 'green' },
+        ],
+        statusText: 'Тихий ночной климат поддерживается автоматически',
+        badge: 'Авто'
+    },
+    {
+        id: 'workshop',
+        href: '/rooms/workshop',
+        title: 'Мастерская',
+        subtitle: 'Серверный узел & Рабочее место',
+        icon: Wrench,
+        metrics: [
+            { label: 'Температура (цель 22°)', value: '23.8', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '44', unit: '%', color: 'green' },
+            { label: 'Сеть (LAN)', value: '1.0', unit: 'Гбит/с', color: 'blue' },
+            { label: 'Серверы', value: '3 / 3', unit: 'онлайн', color: 'green' },
+        ],
+        statusText: 'ТВ-бокс, Orange Pi, роутер работают штатно',
+        badge: 'Online'
+    },
+    {
+        id: 'kitchen',
+        href: '/rooms/kitchen',
+        title: 'Кухня',
+        subtitle: 'Приточно-вытяжная вентиляция',
+        icon: Utensils,
+        metrics: [
+            { label: 'Температура (цель 22°)', value: '24.5', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '56', unit: '%', color: 'green' },
+            { label: 'Качество возд.', value: '98', unit: '%', color: 'green' },
+            { label: 'Вытяжка', value: 'Авто', unit: '', color: 'blue' },
+        ],
+        statusText: 'Воздух чистый, вытяжка ждёт готовки',
+        badge: 'Авто'
+    },
+    {
+        id: 'bathroom',
+        href: '/rooms/bathroom',
+        title: 'Ванная & Бойлерная',
+        subtitle: 'Защита от протечек & Водоснабжение',
+        icon: Bath,
+        metrics: [
+            { label: 'Температура', value: '25.2', unit: '°C', color: 'orange' },
+            { label: 'Влажность (порог 60%)', value: '68', unit: '%', color: 'red' },
+            { label: 'Давление воды', value: '2.8', unit: 'бар', color: 'blue' },
+            { label: 'Бойлер (цель 55°)', value: '55', unit: '°C', color: 'orange' },
+        ],
+        statusText: 'Влажность выше уставки: вытяжка открыта на 70%',
+        badge: 'Авто'
+    },
+    {
+        id: 'hallway',
+        href: '/rooms/hallway',
+        title: 'Прихожая',
+        subtitle: 'Электрощит & Энергомониторинг',
+        icon: DoorOpen,
+        metrics: [
+            { label: 'Мощность сети', value: '0.68', unit: 'кВт', color: 'orange' },
+            { label: 'Напряжение', value: '228', unit: 'В', color: 'blue' },
+            { label: 'Температура', value: '22.6', unit: '°C', color: 'orange' },
+            { label: 'Датчик движ.', value: 'Свет авто', unit: '', color: 'green' },
+        ],
+        statusText: 'Стояк открыт (наличие людей в доме)',
+        badge: 'Авто'
+    },
+    {
+        id: 'corridor-1',
+        href: '/rooms/corridor-1',
+        title: 'Коридор 1 (Общий)',
+        subtitle: 'Центральный хаб BroadLink RM Pro+',
+        icon: Route,
+        metrics: [
+            { label: 'Температура', value: '23.1', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '47', unit: '%', color: 'green' },
+            { label: 'Давление', value: '1014', unit: 'гПа', color: 'blue' },
+            { label: 'Шум', value: '32', unit: 'дБ', color: 'blue' },
+        ],
+        statusText: 'Автоматика координирует RF и ИК команды',
+        badge: 'ОК'
+    },
+    {
+        id: 'corridor-2',
+        href: '/rooms/corridor-2',
+        title: 'Коридор 2 (Внутренний)',
+        subtitle: 'Транзитная зона & Ночной свет',
+        icon: Route,
+        metrics: [
+            { label: 'Температура', value: '22.9', unit: '°C', color: 'orange' },
+            { label: 'Влажность', value: '49', unit: '%', color: 'green' },
+            { label: 'Датчик движ.', value: 'Готов', unit: '', color: 'green' },
+            { label: 'Подсветка', value: 'Дежурная', unit: '', color: 'purple' },
+        ],
+        statusText: 'Автоматическое включение дежурного света ночью',
+        badge: 'Авто'
+    }
+];
 
 export default function Home() {
-  return (
-    <Dashboard_Layout id={"0"} sw_h1={true} title="Home" >
-      <Section id={'1'} title={'Dashboard'}>
-        <Article id="article1" title="article 1">
-          <div className={s.flex}>
-            <VerticalBlindsControl />
-            <CircleSetWidget />
-            <CircleSetWidget unit='%' colorTheme='orange' min={0} max={100} current={60} />
-            <Bme280Widget />
-            <Card title="card 1" className={s.blinds}>
-
-            </Card>
-            <Card title="card 2" >
-
-            </Card>
-            <Card title="card 3" id={'c3'}>
-              <ColumnSetWidget />
-            </Card>
-            <Card title="card 4" id={'c4'} className={s.card4}>
-
-            </Card>
-            <Card title="card 5" id={'c5'}>
-              <ul style={{ listStyleType: 'none' }}>
-                {Icons.map((item, index) => (
-                  <li key={index} >
-                    <LED id={index} icon={item.icon} title={item.title} state={item.state} />
-                  </li>
-                ))}
-              </ul>
-            </Card>
-            <Card title="card 6" id={'c6'} className={s.card6}>
-              <Forma>
-                <EmailInput />
-                <PasswordInput />
-                <TextInput placeholder="placeholder" name={'t1'} />
-                <PriceInput />
-              </Forma>
-            </Card>
-          </div>
-        </Article>
-        <Article id="article2" title="article 2">
-          <ScrollToTopButton />
-
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quisquam voluptatibus nostrum odit, in quia? Quas, quia, aspernatur ducimus, voluptas autem laborum repellendus saepe quod vel ullam aperiam officia doloremque?</p>
-
-
-        </Article>
-      </Section>
-      <Section id={'2'} title={'Climate control'}>
-        <Article id="article3" title="SE Window ESP8266" >
-          <div className={s.flex}>
-            <ColumnSetWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
-            <ColumnSetWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
-            <ColumnSetWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
-            <DamperFanIndicator currentTemp={24.5}
-              fanState={40}
-              damperOpen={60}
-              color="orange" />
-          </div>
-        </Article>
-        <Article id="article4" title="NW Window ESP8266">
-          <div className={s.flex}>
-
-            <ClimateCompactWidget />
-            <ClimateCompactWidget title="NW Window ESP8266" temp='22' humidity='59' pressure='985' damper='15' />
-          </div>
-        </Article>
-      </Section>
-    </Dashboard_Layout>
-  );
+    return (
+        <Dashboard_Layout title="Дашборд — Обзор помещений">
+            <Section title="Все помещения умного дома">
+                <Article title="Текущее состояние и уставки автоматики 10 зон (кликните по помещению для перехода):">
+                    <div style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '16px',
+                        width: '100%'
+                    }}>
+                        {ROOMS_DATA.map((room) => (
+                            <RoomIndicatorCard
+                                key={room.id}
+                                href={room.href}
+                                title={room.title}
+                                subtitle={room.subtitle}
+                                icon={room.icon}
+                                metrics={room.metrics}
+                                statusText={room.statusText}
+                                badge={room.badge}
+                            />
+                        ))}
+                    </div>
+                </Article>
+            </Section>
+        </Dashboard_Layout>
+    );
 }
-/*
-
-<ThemeToggle />
-            <Toggle />
-            <SocialAuth />
-            <Checkbox id="checkbox1" label="Checkbox 1" />
-            <LoginIconButton />
-            <CloseIconButton />
-            <DeleteIconButton />
-            <EditIconButton />
-            <AddIconButton />
-            <UserAddIconButton />
-            <UserEditIconButton />
-            <MenuIconButton />
-            <LogOutIconButton />
-
-
-*/

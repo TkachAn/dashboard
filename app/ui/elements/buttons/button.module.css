@@ -21,7 +21,7 @@
 @media (min-width: 768px) {
   .baseButton {
     padding: 8px 16px;
-    margin: 5px 15px;
+    /*margin: 5px 15px;*/
   }
 }
 

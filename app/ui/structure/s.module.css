@@ -11,9 +11,7 @@
 .article,
 .card {
     box-sizing: border-box;
-
     padding: 4px;
-
 }
 
 /* Секция */
@@ -61,19 +59,29 @@
     border-right: 1px solid var(--border-default);
     position: sticky;
     top: 0;
+    overflow-x: hidden;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
     z-index: 10;
 }
 
+.sidebar_container::-webkit-scrollbar {
+    display: none;
+}
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: var(--sidebar-width, 280px);
-    padding-left: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 30px;
-    background-color: var(--bg-sidebar);
-    border-right: 1px solid var(--border-default);
+    background-color: transparent;
+    border-right: none;
+    overflow: hidden;
 }
 
 /* Правая часть (хедер + контент) имеет собственный вертикальный скролл */
@@ -166,6 +174,14 @@
         box-shadow: 4px 0 16px var(--sidebar-shadow);
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .sidebar_container::-webkit-scrollbar {
+        display: none;
     }
 
     .sidebar_open {
@@ -174,12 +190,8 @@
 }
 
 @media (min-width: 1200px) {
-
-
-
     .card {
         padding: 24px;
-        /*box-shadow: 0px 4px 12px var(--card-shadow);*/
     }
 
     .article,
@@ -187,5 +199,4 @@
         padding-right: 24px;
         padding-left: 24px;
     }
-
 }

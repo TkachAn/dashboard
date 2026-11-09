@@ -152,16 +152,21 @@
 
 /* Цветовые темы */
 .blue {
-    --column-border: var(--accent-primary);
+    --column-border: var(--color-blue);
     --column-fill: var(--accent-primary);
 }
 
 .green {
-    --column-border: var(--color-green);
+    --column-border: var(--color-green-d);
     --column-fill: var(--color-green);
 }
 
 .orange {
     --column-border: var(--color-amber);
-    --column-fill: var(--color-amber);
+    --column-fill: var(--color-orange);
+}
+
+.red {
+    --column-border: var(--color-red-d);
+    --column-fill: var(--color-red);
 }

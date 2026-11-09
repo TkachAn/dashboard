@@ -1,18 +1,30 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { Thermometer, Droplet, Gauge, Sun } from 'lucide-react';
 import s from './s.module.css';
 
-export function ClimateWidget({
-    title = "Климат",
+
+// Карта иконок для быстрого поиска по строковому имени
+const iconMap = {
+    thermometer: Thermometer,
+    droplet: Droplet,
+    gauge: Gauge,
+    sun: Sun
+};
+
+export function ColumnSetWidget({
+    title = "Параметр",
     current = 18,
     initial = 22,
     min = 15,
     max = 27,
-    unit = '°C',
-    colorTheme = 'blue',
+    unit = 'ед.изм.',
+    colorTheme = 'red',
+    iconName, // Принимаем иконку как компонент (с заглавной буквы)
     onTargetChange, // Опциональный колбэк для передачи нового значения наверх/в ESP8266
 }) {
+    const IconComponent = iconName ? iconMap[iconName] : null;
     const [target, setTarget] = useState(initial);
     const [isDragging, setIsDragging] = useState(false);
     const scaleRef = useRef(null);
@@ -79,6 +91,8 @@ export function ClimateWidget({
     return (
         <div className={`${s.widgetCard} ${s[colorTheme]}`}>
             <div className={s.widgetHeader}>
+                {/* Рендерим иконку, если она передана, и вешаем на неё класс для стилизации */}
+                {IconComponent && <IconComponent className={s.widgetIcon} size={20} />}
                 <span className={s.title}>{title}</span>
                 <span className={s.currentVal}>
                     {current}
