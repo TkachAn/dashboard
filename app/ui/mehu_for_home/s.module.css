@@ -1,0 +1,87 @@
+/* layouts/for_sidebar/s.module.css — Основная навигация сайдбара */
+
+.navContainer {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-x: hidden;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.groupTitle {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 0 10px;
+    margin-bottom: 2px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: var(--radius-base, 8px);
+    text-decoration: none;
+    color: var(--nav-text, var(--text-main));
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.link:hover {
+    background-color: var(--icon-hover-bg, rgba(0, 0, 0, 0.05));
+    color: var(--accent-primary);
+}
+
+.activeLink {
+    background-color: color-mix(in srgb, var(--accent-primary) 14%, transparent);
+    color: var(--accent-primary) !important;
+    font-weight: 600;
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: inherit;
+}
+
+.linkLabel {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}

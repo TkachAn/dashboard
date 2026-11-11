@@ -4,6 +4,7 @@ import React from 'react';
 import { Dashboard_Layout } from '@/app/layouts/layout';
 import { Section, Article } from '@/app/ui/structure/struct';
 import { RoomIndicatorCard } from '@/app/ui/widgets/RoomIndicatorCard/RoomIndicatorCard';
+import { AiMenu } from '@/app/ui/mehu_for_home/leftBarCopy';
 import {
     Compass,
     Wind,
@@ -15,6 +16,7 @@ import {
     DoorOpen,
     Route
 } from 'lucide-react';
+import { Room } from './pages/home/livroom/room';
 
 const ROOMS_DATA = [
     {
@@ -171,10 +173,20 @@ const ROOMS_DATA = [
 
 export default function Home() {
     return (
-        <Dashboard_Layout title="Дашборд — Обзор помещений">
-            <Section title="Все помещения умного дома">
-                <Article title="Текущее состояние и уставки автоматики 10 зон (кликните по помещению для перехода):">
-                    <div style={{
+        <Dashboard_Layout sidebar={<AiMenu />} title="Дашборд — Обзор помещений">
+            <Section id='1' title="Все помещения умного дома">
+                <Article id='11' title="Текущее состояние и уставки автоматики 10 зон (кликните по помещению для перехода):">
+                    <Room />
+                </Article>
+            </Section>
+        </Dashboard_Layout>
+    );
+}
+
+
+
+/*
+<div style={{
                         display: 'flex',
                         flexWrap: 'wrap',
                         gap: '16px',
@@ -182,6 +194,7 @@ export default function Home() {
                     }}>
                         {ROOMS_DATA.map((room) => (
                             <RoomIndicatorCard
+                                id={room.id}
                                 key={room.id}
                                 href={room.href}
                                 title={room.title}
@@ -193,8 +206,5 @@ export default function Home() {
                             />
                         ))}
                     </div>
-                </Article>
-            </Section>
-        </Dashboard_Layout>
-    );
-}
+
+*/

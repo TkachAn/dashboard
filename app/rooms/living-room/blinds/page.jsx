@@ -10,7 +10,7 @@ import { ArrowLeft } from 'lucide-react';
 export default function LivingRoomBlindsPage() {
     return (
         <Dashboard_Layout title="Гостиная — Вертикальные жалюзи">
-            <div style={{ marginBottom: 16 }}>
+            <Section id='2' titlt='ququ' style={{ marginBottom: 16 }}>
                 <Link
                     href="/rooms/living-room"
                     style={{
@@ -30,10 +30,10 @@ export default function LivingRoomBlindsPage() {
                     <ArrowLeft size={16} />
                     <span>Вернуться в Гостиную</span>
                 </Link>
-            </div>
+            </Section>
 
-            <Section title="Управление вертикальными жалюзи">
-                <Article title="Оконный блок и балконная дверь: регулировка положения и угла ламелей">
+            <Section id='1' title="Управление вертикальными жалюзи">
+                <Article id='11' title="Оконный блок и балконная дверь: регулировка положения и угла ламелей">
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
                         <VerticalBlindsControl />
                     </div>

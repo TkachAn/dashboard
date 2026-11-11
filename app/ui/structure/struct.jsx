@@ -73,7 +73,7 @@ export function Card({ children, id, className, title }) {
 export function Panel({ children, id, className, title }) {
     return (
         <div id={id} className={`${s.panel} ${className || ""}`}>
-            {title && <h4 className={s.panel_title}>{title}</h4>}
+            {title && <h5 className={s.panel_title}>{title}</h5>}
             {children}
         </div>
     );

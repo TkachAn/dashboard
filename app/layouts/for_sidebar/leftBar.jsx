@@ -1,85 +1,150 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import s from './s.module.css';
-import {
-    LayoutDashboard,
-    Compass,
-    Wind,
-    Tv,
-    Bed,
-    Wrench,
-    Utensils,
-    Bath,
-    DoorOpen,
-    Route,
-    Thermometer,
-    FlaskConical
-} from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import s from "./s.module.css";
 
-const MENU_GROUPS = [
-    {
-        title: 'Обзор',
-        items: [
-            { href: '/', label: 'Главный дашборд', icon: LayoutDashboard }
-        ]
-    },
-    {
-        title: 'Помещения',
-        items: [
-            { href: '/rooms/se-balcony', label: 'Лоджия ЮВ', icon: Compass },
-            { href: '/rooms/nw-balcony', label: 'Лоджия СЗ', icon: Wind },
-            { href: '/rooms/living-room', label: 'Гостиная (Зал)', icon: Tv },
-            { href: '/rooms/bedroom', label: 'Спальня', icon: Bed },
-            { href: '/rooms/workshop', label: 'Мастерская', icon: Wrench },
-            { href: '/rooms/kitchen', label: 'Кухня', icon: Utensils },
-            { href: '/rooms/bathroom', label: 'Ванная комната', icon: Bath },
-            { href: '/rooms/hallway', label: 'Прихожая', icon: DoorOpen },
-            { href: '/rooms/corridor-1', label: 'Коридор 1 (Общий)', icon: Route },
-            { href: '/rooms/corridor-2', label: 'Коридор 2 (Внутр.)', icon: Route },
-        ]
-    },
-    {
-        title: 'Сервисы и лаборатория',
-        items: [
-            { href: '/climate', label: 'Климат-контроль', icon: Thermometer },
-            { href: '/pages/test', label: 'Тестовая страница', icon: FlaskConical },
-        ]
-    }
-];
 
+
+const IGNORE_CLASS = "ignore-smart-menu";
 export function SmartMenu() {
-    const pathname = usePathname();
+    const [anchors, setAnchors] = useState([]);
+
+    const [isMobile, setIsMobile] = useState(false);
+
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 1038);
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+
+        const updateAnchors = () => {
+            const elements = document.querySelectorAll(`[id][title]:not(.${IGNORE_CLASS})`);
+
+            const foundAnchors = [];
+
+
+            elements.forEach((el) => {
+                const id = el.getAttribute("id")?.trim();
+
+
+                const title = el.getAttribute("title")?.trim();
+
+
+                if (!id || !title) return;
+
+
+                let level = 1;
+
+
+                let parent = el.parentElement;
+
+
+                while (parent) {
+                    const isIgnored = parent.classList?.contains(IGNORE_CLASS);
+
+
+                    const pId = parent.getAttribute("id")?.trim();
+
+                    const pTitle = parent.getAttribute("title")?.trim();
+
+
+                    if (!isIgnored && pId && pTitle) {
+                        level++;
+
+                    }
+                    parent = parent.parentElement;
+
+
+                }
+
+                foundAnchors.push({ id, title, level });
+
+            });
+
+
+            setAnchors(foundAnchors);
+
+        };
+        updateAnchors();
+
+        window.addEventListener("content-updated", updateAnchors);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+
+            window.removeEventListener("content-updated", updateAnchors);
+
+        };
+
+    }, []);
+
+
+    if (anchors.length === 0) return null;
+
+
+    // Плавный скролл к секции при клике
+
+    const handleClick = (e, id) => {
+        e.preventDefault();
+
+        const targetElement = document.getElementById(id);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // Обновляем хэш в строке браузера без резкого прыжка
+            window.history.pushState(null, '', `#${id}`);
+
+        }
+    };
+
+    const NavList = (
+        <ul className={s.list}>
+
+            {anchors.map((anchor) => (
+                <li key={anchor.id} className={s.item}>
+
+                    <a
+
+                        href={`#${anchor.id}`}
+
+                        onClick={(e) => handleClick(e, anchor.id)}
+
+                        style={{
+
+                            '--level': anchor.level,
+
+                            paddingLeft: `calc((${anchor.level} - 1) * 20px)`
+
+                        }}
+
+                        className={s.link}
+
+                    >
+
+                        {anchor.title}
+
+                    </a>
+
+                </li>
+
+            ))}
+
+        </ul>
+
+    );
 
     return (
-        <nav className={s.navContainer} aria-label="Основная навигация">
-            {MENU_GROUPS.map((group, groupIdx) => (
-                <div key={groupIdx} className={s.group}>
-                    <div className={s.groupTitle}>{group.title}</div>
-                    <ul className={s.list}>
-                        {group.items.map((item) => {
-                            const Icon = item.icon;
-                            const isActive = pathname === item.href;
 
-                            return (
-                                <li key={item.href} className={s.item}>
-                                    <Link
-                                        href={item.href}
-                                        className={`${s.link} ${isActive ? s.activeLink : ''}`}
-                                    >
-                                        <span className={s.iconWrapper}>
-                                            <Icon size={18} />
-                                        </span>
-                                        <span className={s.linkLabel}>{item.label}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            ))}
+        <nav className={s.anchorNav}>
+
+            {NavList}
         </nav>
+
     );
+
 }
