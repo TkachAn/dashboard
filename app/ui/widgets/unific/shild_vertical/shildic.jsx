@@ -10,6 +10,7 @@ const iconMap = {
     sun: Sun
 };
 
+
 export function Shildind({ id, className, param, iconName, unit, val, min = 0, max = 100 }) {
     const IconComponent = iconName ? iconMap[iconName] : null;
     const clamp = (val1, minVal, maxVal) => Math.max(minVal, Math.min(maxVal, val1));
@@ -17,9 +18,11 @@ export function Shildind({ id, className, param, iconName, unit, val, min = 0, m
 
     return (
         <div id={id} className={`${s.shild} ${className || ""}`}>
+            <div className={s.damperRow}>
+                {param && <span className={s.label}>{param}</span>}
+                {IconComponent && <IconComponent className={s.widgetIcon} size={20} />}
+            </div>
 
-
-            {/* Основной блок: вертикальная шкала и значение рядом */}
             <div className={s.verticalIndicatorContainer}>
                 <div className={s.miniGaugeVertical}>
                     <div
@@ -27,21 +30,17 @@ export function Shildind({ id, className, param, iconName, unit, val, min = 0, m
                         style={{ height: `${percent}%` }}
                     />
                 </div>
-                {/* Верхняя строка с иконкой и названием параметра */}
-                <div className={s.column}>
-                    {param && <span className={s.label}>{param}</span>}
-                    <div>
-                        {IconComponent && <IconComponent className={s.widgetIcon} size={20} />}
+                <div>
+                    <div className={s.flex}>
+                        <span className={s.shildVal}>{val}</span>
+                        <span className={s.shildUnit}>{unit}</span>
                     </div>
-                    <div className={s.shild_val}>{val} {unit}</div>
                 </div>
 
             </div>
         </div>
     );
 }
-
-
 /*
  
             <div className={s.damperRow}>

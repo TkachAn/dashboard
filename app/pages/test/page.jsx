@@ -51,8 +51,8 @@ export default function TestPage() {
   }
 
   return (
-    <Dashboard_Layout id={"0"} sw_h1={true} title="Тестовая лаборатория" >
-      <Section id={'0'} title={'Тестирование ошибок и компонентов'}>
+    <Dashboard_Layout id={"0111"} sw_h1={true} title="Тестовая лаборатория" >
+      <Section id={'kk0'} title={'Тестирование ошибок и компонентов'}>
         <Article id="err-test" title="Проверка error boundary">
           <div style={{ padding: '10px 0' }}>
             <button
@@ -95,7 +95,7 @@ export default function TestPage() {
                 ))}
               </ul>
             </Card>
-            <Card title="card 6" id={'c6'} className={s.card6}>
+            <Card title="card 6" id='c6' className={s.card6}>
               <Forma>
                 <EmailInput />
                 <PasswordInput />
@@ -133,8 +133,8 @@ export default function TestPage() {
           </div>
         </Article>
       </Section>
-      <Section id={'41'} title={'TECT'}>
-        <Article id={'test'} title={'TECT'}>
+      <Section id='41' title={'TECT'}>
+        <Article >
           <Card className={s.card_loc} title={'юго-восточное окно'}>
 
 

@@ -1,18 +1,24 @@
 .card {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    border-radius: 12px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 8px 0;
+    background-color: var(--card-bg);
+
+}
+
+.panel {
+    color: var(--text-main);
+    /*--text-main  --text-muted*/
 
 }
 
 .flex {
     display: flex;
+    flex-direction: row;
+    gap: 15px;
     /* justify-content: space-between;*/
 
+}
+
+.fl {
+    display: block;
 }

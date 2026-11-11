@@ -6,6 +6,8 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 8px;
+    min-width: 130px;
+    height: 90px;
 }
 
 .label {
@@ -13,35 +15,42 @@
     color: var(--text-muted);
 }
 
-.value {
+.flex {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 5px;
+
+}
+
+.shildVal {
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-main);
     line-height: 1.2;
 }
 
+.shildUnit {
+    color: var(--text-muted);
+}
+
 .damperRow {
     display: flex;
-    justify-content: space-between;
+    justify-content: baseline;
     align-items: center;
     gap: 8px;
 }
 
-.column {
-    display: block;
-}
-
-/* Контейнер для вертикального индикатора и значения */
 .verticalIndicatorContainer {
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
     gap: 12px;
-    height: 90px;
-    /* Задайте желаемую высоту вертикального индикатора */
+    height: 50px;
     padding: 4px 0;
 }
 
-/* Вертикальная полоса шкалы */
 .miniGaugeVertical {
     width: 8px;
     height: 100%;
@@ -50,10 +59,8 @@
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    /* Заполнение шкалы начинается снизу */
 }
 
-/* Заполнение вертикальной шкалы */
 .gaugeFillVertical {
     width: 100%;
     background-color: var(--accent-primary);
@@ -62,5 +69,5 @@
 }
 
 .widgetIcon {
-    color: aquamarine;
+    color: var(--accent-primary);
 }

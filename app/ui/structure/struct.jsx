@@ -1,5 +1,5 @@
 import s from "./s.module.css";
-
+import { Bot } from "lucide-react";
 
 export function Container({ children, className }) {
     return <div className={`${s.container} ${className || ""}`}>{children}</div>;
@@ -70,10 +70,13 @@ export function Card({ children, id, className, title }) {
         </div>
     );
 }
-export function Panel({ children, id, className, title }) {
+export function Panel({ children, id, className, title, icon = <Bot /> }) {
     return (
         <div id={id} className={`${s.panel} ${className || ""}`}>
-            {title && <h5 className={s.panel_title}>{title}</h5>}
+            <div className={s.flex}>
+                {title && <h5 className={s.panel_title}>{title}</h5>}
+                {icon && icon}
+            </div>
             {children}
         </div>
     );
