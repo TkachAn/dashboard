@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import s from '@/app/s.module.css';
+import s from './s.module.css';
 import { Dashboard_Layout } from '@/app/layouts/layout';
 import { Section, Article, Card } from '@/app/ui/structure/struct';
 
@@ -10,6 +10,7 @@ import { DamperFanIndicator } from "@/app/ui/widgets/original/fan/DFMi";
 import { ClimateCompactWidget } from "@/app/ui/widgets/original/compact/w1";
 import { ColumnSetWidget } from "@/app/ui/widgets/SetColumn/column";
 import { CircleSetWidget } from "@/app/ui/widgets/SetCircle/circle";
+import { Shildic, Shildind } from '@/app/ui/widgets/unific/shild/shildic';
 
 import { TextInput, EmailInput, PasswordInput, PriceInput } from "@/app/ui/elements/inputs/inputsGPT";
 import { LED } from "@/app/ui/widgets/original/indicators/LED";
@@ -22,13 +23,24 @@ import {
 } from "lucide-react";
 import { Forma } from "@/app/ui/elements/forms/form";
 
+
 const Icons = [
   { icon: <Camera />, title: 'Камера', state: 'unknown' },
   { icon: <Server />, title: 'Сервер', state: 'loading' },
   { icon: <Router />, title: 'Роутер', state: 'ready' },
   { icon: <Radio />, title: 'Радио', state: 'warning' },
   { icon: <Network />, title: 'Сеть', state: 'error' },
+
 ];
+
+/*
+ thermometer: Thermometer,
+    droplet: Droplet,
+    gauge: Gauge,
+    sun: Sun
+
+*/
+
 
 export default function TestPage() {
   const [shouldCrash, setShouldCrash] = useState(false);
@@ -96,7 +108,7 @@ export default function TestPage() {
 
         <Article id="article2" title="Унифицированные колонки и заслонки">
           <div className={s.flex}>
-            <ColumnSetWidget title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
+            <ColumnSetWidget iconName="thermometer" title="Температура" current={25} target={28} min={15} max={28} unit="°C" colorTheme="orange" />
             <ColumnSetWidget title="Влажность" current={60} target={30} min={20} max={80} unit="%" colorTheme="green" />
             <ColumnSetWidget title="Давление" current={1017} target={1020} min={900} max={1100} unit="гПа" colorTheme="blue" />
             <DamperFanIndicator
@@ -112,7 +124,7 @@ export default function TestPage() {
       <Section id={'2'} title={'Климат-контроль (Окна)'}>
         <Article id="article3" title="SE Window">
           <div className={s.flex}>
-            <ClimateCompactWidget />
+            <ClimateCompactWidget /><Shildic param='Температура' val={70} unit='°C' iconName="thermometer" />
           </div>
         </Article>
         <Article id="article4" title="NW Window">
@@ -121,6 +133,23 @@ export default function TestPage() {
           </div>
         </Article>
       </Section>
+      <Section id={'41'} title={'TECT'}>
+        <Article id={'test'} title={'TECT'}>
+          <Card className={s.card_loc} title={'юго-восточное окно'}>
+
+
+            <Shildind param='Температура' val={70} unit='°C' iconName="thermometer" />
+            <Shildind param='Влажность' val={60} unit='%' iconName="droplet" />
+            <Shildind param='Давление' val={1000} unit='гПа' iconName="gauge" min={700} max={1100} />
+            <Shildind param='Освещение' val={1000} unit='лк' iconName="sun" min={100} max={5000} />
+          </Card>
+        </Article>
+      </Section>
     </Dashboard_Layout>
   );
 }
+/*
+ </Card>
+          <Card className={s.card_loc}>
+
+*/

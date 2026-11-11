@@ -1,0 +1,11 @@
+/*
+*/
+.card_loc {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 170px;
+    justify-content: space-between;
+    gap: 10px;
+    /*background-color: var(--card-bg);*/
+}

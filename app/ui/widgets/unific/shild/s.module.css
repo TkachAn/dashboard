@@ -1,0 +1,56 @@
+.shild {
+    background-color: var(--bg-surface);
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+
+.value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.valueRow {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+/* Мини-шкала заслонки */
+.damperRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.gaugeFill {
+    height: 100%;
+
+    background-color: var(--accent-primary);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.miniGauge {
+    flex: 1;
+    height: 6px;
+    background-color: var(--border-default);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.widgetIcon {
+    color: aquamarine;
+}

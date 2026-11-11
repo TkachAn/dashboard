@@ -70,3 +70,12 @@ export function Card({ children, id, className, title }) {
         </div>
     );
 }
+export function Panel({ children, id, className, title }) {
+    return (
+        <div id={id} className={`${s.panel} ${className || ""}`}>
+            {title && <h4 className={s.panel_title}>{title}</h4>}
+            {children}
+        </div>
+    );
+}
+

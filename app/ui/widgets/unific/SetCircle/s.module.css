@@ -54,7 +54,7 @@
 /* Фоновая незаполненная линия */
 .bgTrack {
     fill: none;
-    stroke: var(--border-default);
+    stroke: var(--column-border);
     stroke-width: 12;
     stroke-linecap: round;
 }
