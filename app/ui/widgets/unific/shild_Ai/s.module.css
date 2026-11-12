@@ -13,10 +13,10 @@
 }
 
 .bar {
-    width: 16px;
-    height: 80px;
+    width: 12px;
+    height: 60px;
     border: 2px solid var(--column-border);
-    border-radius: 8px;
+    border-radius: 5px;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -100,7 +100,8 @@
 
 /* Цветовые темы */
 .blue {
-    --column-border: var(--color-blue);
+    --column-border: var(--accent-primary);
+    /* var(--color-blue);*/
     --column-fill: var(--accent-primary);
 }
 
@@ -110,7 +111,8 @@
 }
 
 .orange {
-    --column-border: var(--color-amber);
+    --column-border: var(--color-orange);
+    /*var(--color-amber);*/
     --column-fill: var(--color-orange);
 }
 
@@ -120,6 +122,6 @@
 }
 
 .yellow {
-    --column-border: yellow;
-    --column-fill: yellow;
+    --column-border: var(--color-yellow);
+    --column-fill: var(--color-yellow);
 }
