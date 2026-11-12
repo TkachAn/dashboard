@@ -4,10 +4,17 @@ import { Card, Panel } from '@/app/ui/structure/struct';
 import s from './s.module.css';
 import { Shildind } from '@/app/ui/widgets/unific/shild_vertical/shildic';
 import { Thermometer, Droplet, Gauge, Sun } from 'lucide-react';
+import Widget from '@/app/ui/widgets/unific/shild_Ai/shild';
 
 export const Room = () => {
     return (
         <Card title='Гостиная' className={s.card}>
+
+
+
+            <div>
+                <Widget out={20} in={10} target={22} max={40} />
+            </div>
             <div className={s.fl}>
 
                 <Panel className={s.panel} title='Температура' icon={<Thermometer />}>

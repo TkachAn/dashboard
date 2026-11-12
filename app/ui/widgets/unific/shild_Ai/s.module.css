@@ -1,0 +1,98 @@
+.box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1.5px solid var(--border-default);
+    border-radius: 6px;
+    background: var(--bg-surface);
+    color: var(--text-main);
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+}
+
+.bar {
+    width: 16px;
+    height: 80px;
+    border: 2px solid #aa0000;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--bg-surface);
+    padding: 2px;
+    /* Создает тот самый белый просвет по контуру */
+    box-sizing: border-box;
+}
+
+.fill {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    background: #ee0000;
+    border-radius: 0 0 5px 5px;
+    transition: height 0.3s ease;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.ttl {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1.2;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.main {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.main .lbl {
+    color: var(--text-muted);
+}
+
+.main .val {
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.lbl {
+    color: var(--text-main);
+}
+
+.val {
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
+    .box {
+        max-width: 180px;
+    }
+}
