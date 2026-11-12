@@ -8,6 +8,7 @@ export default function Widget({
     target,
     min = 0,
     max = 100,
+    colorTheme = 'red',
 }) {
     const currentVal = inVal ?? outVal ?? min;
     const clamp = (val, minVal, maxVal) => Math.max(minVal, Math.min(maxVal, val));
@@ -15,7 +16,7 @@ export default function Widget({
 
     return (
         <div className={s.box}>
-            <div className={s.bar}>
+            <div className={`${s.bar} ${s[colorTheme]} `}>
                 <div className={s.fill} style={{ height: `${percent}%` }} />
             </div>
 

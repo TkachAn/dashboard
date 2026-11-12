@@ -10,8 +10,16 @@ export const Room = () => {
     return (
         <Card title='Гостиная' className={s.card}>
 
-
-
+            <div>
+                <Widget colorTheme='yellow' title='Свет' unit='lx' out={500} in={900} target={800} min={100} max={1000} />
+            </div>
+            <div>
+                <Widget colorTheme='green' title='Давление' unit='гПа' out={800} in={900} target={800} min={650} max={1200} />
+            </div>
+            <div>
+                <Widget colorTheme='blue' title='Влажность' unit='%' out={80} in={45} target={60} />
+            </div>
+            <br />
             <div>
                 <Widget out={20} in={10} target={22} max={40} />
             </div>
