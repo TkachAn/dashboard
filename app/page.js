@@ -17,6 +17,8 @@ import {
     Route
 } from 'lucide-react';
 import { Room } from './pages/home/livroom/room';
+import CircularScheduler from './ui/widgets/unific/Sheduler/sheduler';
+import SchedulerWidget from './ui/widgets/unific/Sheduler/wrapper';
 
 const ROOMS_DATA = [
     {
@@ -175,8 +177,12 @@ export default function Home() {
     return (
         <Dashboard_Layout sidebar={<AiMenu />} title="Дашборд — Обзор помещений">
             <Section id='1' title="Все помещения умного дома">
-                <Article id='11' title="Текущее состояние и уставки автоматики 10 зон (кликните по помещению для перехода):">
+                <Article id='11' title="Climate wigets: ">
                     <Room />
+                </Article>
+                <Article id='12' title="Sheduler: ">
+
+                    <SchedulerWidget />
                 </Article>
             </Section>
         </Dashboard_Layout>
@@ -186,6 +192,8 @@ export default function Home() {
 
 
 /*
+<CircularScheduler />
+
 <div style={{
                         display: 'flex',
                         flexWrap: 'wrap',

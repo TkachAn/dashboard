@@ -11,11 +11,13 @@ export const Room = () => {
         <Card title='Гостиная' className={s.card}>
 
             <div>
-                <Widget colorTheme='yellow' title='Свет' unit='lx' out={500} in={900} target={800} min={100} max={1000} />
+                <Widget colorTheme='yellow' title='Свет' unit='lx' out={1000} in={300} target={400} min={100} max={1000} />
             </div>
+            <br />
             <div>
                 <Widget colorTheme='green' title='Давление' unit='гПа' out={800} in={900} target={800} min={650} max={1200} />
             </div>
+            <br />
             <div>
                 <Widget colorTheme='blue' title='Влажность' unit='%' out={80} in={45} target={60} />
             </div>
@@ -23,6 +25,7 @@ export const Room = () => {
             <div>
                 <Widget out={20} in={10} target={22} max={40} />
             </div>
+            <br />
             <div className={s.fl}>
 
                 <Panel className={s.panel} title='Температура' icon={<Thermometer />}>

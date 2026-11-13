@@ -1,0 +1,205 @@
+/* Mobile First базовые переменные и контейнер */
+.container {
+    --scheduler-size: 280px;
+    --scheduler-bg: #ffffff;
+    --scheduler-track-color: #8c8c8c;
+    --scheduler-active-color: #f5821f;
+    --scheduler-tick-color: #a0a0a0;
+    --scheduler-tick-major-color: #4a4a4a;
+    --scheduler-text-primary: #333333;
+    --scheduler-text-secondary: #757575;
+    --scheduler-handle-bg: #ffffff;
+    --scheduler-handle-core: #e65100;
+    --scheduler-now-color: #f5a623;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--scheduler-size);
+    margin: 0 auto;
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.svgWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    touch-action: none;
+    /* Критично для корректного drag на мобильных устройствах */
+}
+
+.svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: block;
+}
+
+/* Базовое кольцо (неактивное время) 
+.trackCircle {
+    fill: none;
+    stroke: var(--scheduler-track-color);
+    stroke-width: 14;
+}
+
+/* Активная дуга интервала 
+.activeArc {
+    fill: none;
+    stroke: var(--scheduler-active-color);
+    stroke-width: 14;
+    stroke-linecap: butt;
+    transition: stroke 0.2s ease;
+}
+*/
+/* Базовое кольцо (неактивное время) */
+.trackCircle {
+    fill: none;
+    stroke: var(--scheduler-track-color);
+    stroke-width: 12;
+}
+
+/* Активная дуга интервала */
+.activeArc {
+    position: absolute;
+    fill: none;
+    stroke: var(--scheduler-active-color);
+    stroke-width: 12;
+    stroke-linecap: butt;
+    transition: stroke 0.2s ease;
+}
+
+
+/* Деления циферблата */
+.tickMinor {
+    stroke: var(--scheduler-tick-color);
+    stroke-width: 1.2;
+}
+
+.tickMajor {
+    stroke: var(--scheduler-tick-major-color);
+    stroke-width: 2;
+}
+
+/* Подписи 24, 6, 12, 18 */
+.hourLabel {
+    fill: var(--scheduler-text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+}
+
+/* Индикатор текущего времени */
+.nowDot {
+    fill: var(--scheduler-now-color);
+    pointer-events: none;
+}
+
+/* Бегунки (хэндлы) */
+.handleGroup {
+    cursor: grab;
+    transition: transform 0.1s ease;
+}
+
+.handleGroup:active,
+.handleDragging {
+    cursor: grabbing;
+}
+
+/* Увеличенная невидимая область для комфортного захвата пальцем */
+.handleHitArea {
+    fill: transparent;
+}
+
+.handleOuter {
+    fill: var(--scheduler-handle-bg);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+}
+
+.handleInner {
+    fill: var(--scheduler-handle-core);
+    transition: r 0.15s ease;
+}
+
+.handleGroup:hover .handleInner,
+.handleDragging .handleInner {
+    r: 6;
+}
+
+/* Центральный блок с текстом */
+.centerContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--scheduler-text-secondary);
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+}
+
+.intervalsList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.intervalItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intervalLabel {
+    font-size: 11px;
+    color: var(--scheduler-text-secondary);
+    line-height: 1.1;
+}
+
+.intervalTime {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--scheduler-text-primary);
+    letter-spacing: 0.3px;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Адаптация под планшеты и десктоп */
+@media (min-width: 768px) {
+    .container {
+        --scheduler-size: 320px;
+    }
+
+    .title {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .intervalLabel {
+        font-size: 12px;
+    }
+
+    .intervalTime {
+        font-size: 19px;
+    }
+
+    .hourLabel {
+        font-size: 12px;
+    }
+}
