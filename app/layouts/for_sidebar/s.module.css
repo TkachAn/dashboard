@@ -34,11 +34,18 @@
     font-weight: 500;
     transition: background-color 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
+
+    /* Убираем запрет на перенос и обрезание */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+
+    /* Включаем корректный перенос длинных слов */
+    word-break: break-word;
+    overflow-wrap: break-word;
     width: 100%;
     min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* Обязательно для корректной работы flex-элемента */
 }
 
 .link:hover {

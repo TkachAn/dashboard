@@ -72,3 +72,28 @@
 .homeLink:hover {
     background-color: var(--clr-ntf-btn-hover-bg, #2980b9);
 }
+
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+
+}
+
+.panel {
+    color: var(--text-main);
+    /*--text-main  --text-muted*/
+
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    /* justify-content: space-between;*/
+
+}
+
+.fl {
+    display: block;
+}

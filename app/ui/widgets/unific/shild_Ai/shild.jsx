@@ -1,6 +1,6 @@
 import s from './s.module.css';
 
-export default function Widget({
+export function Widget({
     title = 'Температура',
     unit = '°C',
     out: outVal,

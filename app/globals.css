@@ -7,16 +7,37 @@
      1. БАЗОВАЯ ПАЛИТРА (COLOR PALETTE / PRIMITIVES)
      Сокращенный единый источник правды для всех цветов системы.
      ──────────────────────────────────────────────────────────── */
+    --clr-gray1: #101010;
+    --clr-gray2: #202020;
+    --clr-gray3: #303030;
+    --clr-gray4: #404040;
+    --clr-gray5: #505050;
+    --clr-gray6: #606060;
+    --clr-gray7: #707070;
+    --clr-gray8: #808080;
+    --clr-gray9: #909090;
+    --clr-grayA: #a0a0a0;
+    --clr-grayB: #b0b0b0;
+    --clr-grayC: #c0c0c0;
+    --clr-grayD: #d0d0d0;
+    --clr-grayE: #e0e0e0;
+    --clr-grayF8: #f8f8f8;
+    --clr-grayF: #f0f0f0;
 
     /* Нейтральные (Neutral & Gray Scale) */
     --color-white: #ffffff;
     --color-black: #000000;
     --color-gray: gray;
-    --color-gray-50: #f9fafb;
-    --color-gray-200: #e5e7eb;
-    --color-gray-500: #6b7280;
-    --color-gray-800: #1f2937;
-    --color-gray-900: #111827;
+    --color-gray-50: var(--clr-grayF8, #f9fafb);
+    --color-gray-200: var(--clr-grayE, #e5e7eb);
+    --color-gray-300: var(--clr-grayA, #a0a0a0);
+    --color-gray-400: var(--clr-gray8, #8c8c8c);
+    --color-gray-450: var(--clr-gray7, #757575);
+    --color-gray-500: var(--clr-gray6, #6b7280);
+    --color-gray-700: var(--clr-gray4, #4a4a4a);
+    --color-gray-750: var(--clr-gray3, #333333);
+    --color-gray-800: var(--clr-gray2, #1f2937);
+    --color-gray-900: var(--clr-gray1, #111827);
 
     /* Акцент (Blue) */
     --color-blue-500: #3b82f6;
@@ -25,8 +46,11 @@
     /* Семантика статусов (Status colors) */
     --color-green: #10b981;
     --color-green-d: green;
+    --color-amber: #f5821f;
     --color-amber-d: #d97706;
+    --color-amber-c: #f5a623;
     --color-orange: orange;
+    --color-red: #e65100;
     --color-red-d: #dc3545;
     --color-red: red;
     --color-yellow: yellow;
@@ -40,13 +64,13 @@
 
     /* ── Фоны ── */
     --bg-page: var(--color-white);
-    --bg-surface: var(--color-gray-50);
-    --bg-sidebar: var(--color-white);
+    --bg-surface: var(--clr-grayF8);
+    --bg-sidebar: var(--clr-grayF8);
     --bg-header: var(--color-white);
 
     /* ── Текст ── */
-    --text-main: var(--color-gray-900);
-    --text-muted: var(--color-gray-500);
+    --text-main: var(--clr-gray1);
+    --text-muted: var(--clr-gray7);
     --text-error: var(--color-red);
     /* ── Границы ── */
     --border-default: var(--color-gray-200);
@@ -140,6 +164,20 @@
     --radius-sm: 4px;
     --radius-base: 8px;
     --radius-lg: 16px;
+
+    /*--виджеты--*/
+
+    --scheduler-bg: var(--color-white, #ffffff);
+    --scheduler-track-color: var(--color-gray-400, #8c8c8c);
+    --scheduler-active-color: var(--color-amber, #f5821f);
+    --scheduler-tick-color: var(--color-gray-300, #a0a0a0);
+    --scheduler-tick-major-color: var(--color-gray-700, #4a4a4a);
+    --scheduler-text-primary: var(--color-gray-750, #333333);
+    --scheduler-text-secondary: var(--color-gray-450, #757575);
+    --scheduler-handle-bg: var(--color-white, #ffffff);
+    --scheduler-handle-core: var(--color-red, #e65100);
+    --scheduler-now-color: var(--color-amber-c, #f5a623);
+
 }
 
 /* ============================================================
@@ -243,6 +281,19 @@
     --card-border: var(--color-gray-800);
     --card-shadow: rgba(0, 0, 0, 0.35);
     --sidebar-shadow: rgba(0, 0, 0, 0.4);
+
+    /*--виджеты--*/
+
+    --scheduler-bg: var(--color-white, #ffffff);
+    --scheduler-track-color: var(--color-gray-400, #8c8c8c);
+    --scheduler-active-color: var(--color-amber, #f5821f);
+    --scheduler-tick-color: var(--color-gray-300, #a0a0a0);
+    --scheduler-tick-major-color: var(--color-gray-700, #4a4a4a);
+    --scheduler-text-primary: var(--color-gray-750, #333333);
+    --scheduler-text-secondary: var(--color-gray-450, #757575);
+    --scheduler-handle-bg: var(--color-white, #ffffff);
+    --scheduler-handle-core: var(--color-red, #e65100);
+    --scheduler-now-color: var(--color-amber-c, #f5a623);
 }
 
 /* ============================================================
@@ -335,6 +386,19 @@
         --card-border: var(--color-gray-800);
         --card-shadow: rgba(0, 0, 0, 0.35);
         --sidebar-shadow: rgba(0, 0, 0, 0.4);
+
+        /*--виджеты--*/
+
+        --scheduler-bg: var(--color-white, #ffffff);
+        --scheduler-track-color: var(--color-gray-400, #8c8c8c);
+        --scheduler-active-color: var(--color-amber, #f5821f);
+        --scheduler-tick-color: var(--color-gray-300, #a0a0a0);
+        --scheduler-tick-major-color: var(--color-gray-700, #4a4a4a);
+        --scheduler-text-primary: var(--color-gray-750, #333333);
+        --scheduler-text-secondary: var(--color-gray-450, #757575);
+        --scheduler-handle-bg: var(--color-white, #ffffff);
+        --scheduler-handle-core: var(--color-red, #e65100);
+        --scheduler-now-color: var(--color-amber-c, #f5a623);
     }
 }
 
@@ -370,6 +434,7 @@ p {
 *::after {
     box-sizing: inherit;
 }
+
 /* Полное удаление любых полос прокрутки в aside и сайдбаре */
 aside,
 [class*="sidebar"],

@@ -130,7 +130,7 @@ export default function CircularScheduler({
     };
 
     // Геометрия циферблата (фиксированная сетка viewBox 280x280)
-    const size = 280;
+    const size = 200;
     const center = size / 2; // 140
     const radius = 85;       // Единый радиус для серого кольца, дуг и бегунков
 
@@ -140,8 +140,8 @@ export default function CircularScheduler({
         const isMajor = m % 180 === 0; // Каждые 3 часа — основные риски
         const angle = minutesToAngle(m);
         const rad = (angle * Math.PI) / 180;
-        const innerR = isMajor ? radius - 15 : radius - 10;
-        const outerR = radius - 7;
+        const innerR = isMajor ? radius - 15 : radius - 13;
+        const outerR = radius - 8;
 
         ticks.push({
             id: m,

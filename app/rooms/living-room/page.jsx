@@ -43,9 +43,10 @@ export default function LivingRoomOverviewPage() {
             </div>
 
             <Section id='1' title="Гостиная (Зал)" className={s.widgetGrid}>
-                <Article id='11' title="Модульный обзор помещения — короткая сводка по блокам (кликните по блоку для перехода к подробным настройкам):">
-
-
+                <Article id='11' title="Модульный обзор помещения ">
+                    <span> <b>короткая сводка по блокам :</b> </span><br />
+                    <span>(кликните по блоку для перехода к подробным настройкам)</span>
+                    <br />
                     {/* 1. БЛОК ОСВЕЩЕНИЯ (5 ИСТОЧНИКОВ СВЕТА) */}
                     <Link href="/rooms/living-room/lighting" className={s.cardLink}>
                         <div className={s.blockCard}>

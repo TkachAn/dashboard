@@ -1,32 +1,26 @@
 /* Mobile First базовые переменные и контейнер */
 .container {
-    --scheduler-size: 280px;
-    --scheduler-bg: #ffffff;
-    --scheduler-track-color: #8c8c8c;
-    --scheduler-active-color: #f5821f;
-    --scheduler-tick-color: #a0a0a0;
-    --scheduler-tick-major-color: #4a4a4a;
-    --scheduler-text-primary: #333333;
-    --scheduler-text-secondary: #757575;
-    --scheduler-handle-bg: #ffffff;
-    --scheduler-handle-core: #e65100;
-    --scheduler-now-color: #f5a623;
-
+    --scheduler-size: 235px;
+    max-width: var(--scheduler-size);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: var(--scheduler-size);
     margin: 0 auto;
     user-select: none;
     -webkit-user-select: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-surface);
+    border-radius: 8px;
+
+
+    /*container-type: inline-size;*/
+
 }
 
 .svgWrapper {
     position: relative;
-    width: 100%;
     aspect-ratio: 1 / 1;
     touch-action: none;
     /* Критично для корректного drag на мобильных устройствах */
@@ -39,22 +33,6 @@
     display: block;
 }
 
-/* Базовое кольцо (неактивное время) 
-.trackCircle {
-    fill: none;
-    stroke: var(--scheduler-track-color);
-    stroke-width: 14;
-}
-
-/* Активная дуга интервала 
-.activeArc {
-    fill: none;
-    stroke: var(--scheduler-active-color);
-    stroke-width: 14;
-    stroke-linecap: butt;
-    transition: stroke 0.2s ease;
-}
-*/
 /* Базовое кольцо (неактивное время) */
 .trackCircle {
     fill: none;
@@ -145,7 +123,9 @@
 }
 
 .title {
-    font-size: 13px;
+    font-size: calc(var(--scheduler-size) * 0.07);
+    /*13px;*/
+    /*font-size: 2cqw;*/
     font-weight: 600;
     color: var(--scheduler-text-secondary);
     margin: 0 0 6px 0;
@@ -157,6 +137,7 @@
     flex-direction: column;
     gap: 4px;
     width: 100%;
+
 }
 
 .intervalItem {
@@ -166,21 +147,25 @@
 }
 
 .intervalLabel {
-    font-size: 11px;
+    font-size: calc(var(--scheduler-size) * 0.05);
+    /*font-size: 11px;
+    /*font-size: 1cqw;*/
     color: var(--scheduler-text-secondary);
     line-height: 1.1;
 }
 
 .intervalTime {
-    font-size: 17px;
+    font-size: calc(var(--scheduler-size) * 0.09) !important;
+    /*font-size: 17px;
+    /*font-size: 3cqw;*/
     font-weight: 500;
-    color: var(--scheduler-text-primary);
+    color: var(--scheduler-track-color);
     letter-spacing: 0.3px;
     line-height: 1.25;
-    font-variant-numeric: tabular-nums;
+    /*font-variant-numeric: tabular-nums;*/
 }
 
-/* Адаптация под планшеты и десктоп */
+/* Адаптация под планшеты и десктоп 
 @media (min-width: 768px) {
     .container {
         --scheduler-size: 320px;
@@ -202,4 +187,4 @@
     .hourLabel {
         font-size: 12px;
     }
-}
+}*/
