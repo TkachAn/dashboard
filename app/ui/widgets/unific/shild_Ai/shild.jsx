@@ -24,15 +24,15 @@ export function Widget({
                 <h3 className={s.ttl}>{title}</h3>
 
                 <div className={s.list}>
+                    <div className={`${s.row} ${s.main}`}>
+                        <span className={s.lbl}>внутри:</span>
+                        <span className={s.val}>{inVal ?? '--'} {unit}</span>
+                    </div>
                     <div className={s.row}>
                         <span className={s.lbl}>снаружи:</span>
                         <span className={s.val}>{outVal ?? '--'} {unit}</span>
                     </div>
 
-                    <div className={`${s.row} ${s.main}`}>
-                        <span className={s.lbl}>внутри:</span>
-                        <span className={s.val}>{inVal ?? '--'} {unit}</span>
-                    </div>
 
                     <div className={s.row}>
                         <span className={s.lbl}>задано:</span>

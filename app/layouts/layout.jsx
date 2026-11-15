@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Container, Header, Sidebar, Wrapper, Main } from "../ui/structure/struct";
 import s from "./s.module.css";
 import { Logotype } from "../layouts/for_header/logotype";
+import { AuthWidget } from "../layouts/for_header/AuthWidget";
 import { SmartMenu } from "../layouts/for_sidebar/leftBar";
 import { ThemeToggle } from "../ui/elements/buttons/IconButtons";
 import { ScrollToTopButton } from '@/app/ui/elements/buttons/button_Up'
@@ -48,6 +49,7 @@ export function Dashboard_Layout({ children, sidebar, title }) {
             <Wrapper className={s.content_wrapper}>
                 <Header title={title} id="0" className={s.header}>
                     <Logotype />
+                    <AuthWidget />
                     <ThemeToggle />
                 </Header>
 

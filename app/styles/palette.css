@@ -1,0 +1,40 @@
+:root {
+    /* Базовые */
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    /* Ваша шкала серого (символ = яркость HEX) */
+    --clr-gray1: #101010;
+    --clr-gray2: #202020;
+    --clr-gray3: #303030;
+    --clr-gray4: #404040;
+    --clr-gray5: #505050;
+    --clr-gray6: #606060;
+    --clr-gray7: #707070;
+    --clr-gray8: #808080;
+    --clr-gray9: #909090;
+    --clr-grayA: #a0a0a0;
+    --clr-grayB: #b0b0b0;
+    --clr-grayC: #c0c0c0;
+    --clr-grayD: #d0d0d0;
+    --clr-grayE: #e0e0e0;
+    --clr-grayF: #f0f0f0;
+    --clr-grayF8: #f8f8f8;
+
+    /* Акценты и статусы */
+    --color-blue: #3b82f6;
+    --color-blue-d: #2563eb;
+    --color-green: #10b981;
+    --color-amber: #f5821f;
+    --color-amber-c: #f5a623;
+    --color-amber-d: #d97706;
+    --color-red: #e65100;
+    --color-red-d: #dc3545;
+
+    /* Размеры и радиусы */
+    --header-height: 64px;
+    --sidebar-width: 280px;
+    --radius-sm: 4px;
+    --radius-base: 8px;
+    --radius-lg: 16px;
+}

@@ -1,0 +1,95 @@
+:root {
+    /* Фоны и поверхности */
+    --bg-page: var(--color-white);
+    --bg-surface: var(--clr-grayF8);
+    --bg-sidebar: var(--clr-grayF8);
+    --bg-header: var(--color-white);
+    --overlay-bg: rgba(0, 0, 0, 0.4);
+
+    /* Текст и ссылки */
+    --text-main: var(--clr-gray1);
+    --text-muted: var(--clr-gray7);
+    --text-error: var(--color-red);
+
+    --accent-primary: var(--color-blue);
+    --accent-primary-hover: var(--color-blue-d);
+    --link-section: var(--color-blue);
+    --link-article: var(--color-green);
+    --link-hover: var(--color-blue-d);
+
+    /* Границы и тени */
+    --border-default: var(--clr-grayE);
+    --border-subtle: var(--clr-grayE);
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --sidebar-shadow: rgba(0, 0, 0, 0.1);
+    --btn-shadow: rgba(0, 0, 0, 0.1);
+
+    /* Навигация и лого */
+    --nav-text: var(--clr-gray2);
+    --nav-title: var(--clr-gray1);
+    --nav-hover: var(--color-blue);
+    --logo-color: var(--clr-gray1);
+    --logo-hover-color: var(--color-blue);
+    --logo-border: var(--clr-grayE);
+
+    /* Кнопки */
+    --btn-normal-bg: var(--clr-grayE);
+    --btn-normal-text: var(--clr-gray1);
+    --btn-normal-hover-bg: var(--color-blue);
+    --btn-normal-hover-text: var(--color-white);
+
+    --btn-default-bg: var(--clr-grayE);
+    --btn-default-text: var(--color-black);
+
+    --btn-accent-bg: var(--color-blue);
+    --btn-accent-text: var(--color-white);
+    --btn-accent-hover-bg: var(--color-blue-d);
+
+    --btn-disabled-bg: var(--clr-grayE);
+    --btn-disabled-text: var(--clr-gray6);
+    --btn-blocked-bg: var(--btn-disabled-bg);
+    --btn-blocked-text: var(--btn-disabled-text);
+
+    --btn-success-bg: var(--color-green);
+    --btn-success-text: var(--color-white);
+    --btn-warning-bg: var(--color-amber);
+    --btn-warning-text: var(--color-white);
+    --btn-danger-bg: var(--color-red);
+    --btn-danger-text: var(--color-white);
+
+    --btn-out-text: var(--color-blue);
+    --btn-out-hover-text: var(--color-blue-d);
+    --btn-close-text: var(--clr-gray6);
+    --btn-close-hover-text: var(--clr-gray1);
+
+    /* Формы, инпуты, чекбоксы */
+    --input-bg: var(--color-white);
+    --input-text: var(--clr-gray1);
+    --input-border: var(--clr-grayE);
+    --input-border-focus: var(--color-blue);
+    --input-error-text: var(--color-red);
+    --input-intro-text: var(--clr-gray2);
+    --form-divider-text: var(--clr-gray6);
+    --form-divider-line: var(--clr-grayE);
+
+    --checkbox-border: var(--clr-gray6);
+    --checkbox-checked-bg: var(--color-blue);
+    --checkbox-check-color: var(--color-white);
+    --checkbox-label-text: var(--clr-gray2);
+
+    --toggle-slider-bg: var(--clr-grayE);
+    --toggle-slider-thumb: var(--color-white);
+    --toggle-slider-checked-bg: var(--color-green);
+
+    /* Карточки, иконки, хинты */
+    --card-bg: var(--color-white);
+    --card-text: var(--clr-gray1);
+    --card-border: var(--clr-grayE);
+
+    --icon-color: var(--clr-gray2);
+    --icon-hover-color: var(--color-blue);
+    --icon-hover-bg: rgba(0, 0, 0, 0.05);
+
+    --hint-text: var(--color-blue-d);
+    --hint-bg: var(--clr-grayF8);
+}

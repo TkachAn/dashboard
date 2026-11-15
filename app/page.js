@@ -20,6 +20,7 @@ import { Room } from './pages/home/livroom/room';
 import CircularScheduler from './ui/widgets/unific/Sheduler/sheduler';
 import SchedulerWidget from './ui/widgets/unific/Sheduler/wrapper';
 import { Widget } from '@/app/ui/widgets/unific/shild_Ai/shild';
+import { FabricCurtainControl } from './ui/widgets/original/shtors/sh';
 
 const ROOMS_DATA = [
     {
@@ -181,26 +182,51 @@ export default function Home() {
 
                 <Article id='11' title="Climate wigets: ">
                     <Card title='Гостиная' className={s.card}>
-
                         <div>
                             <Widget colorTheme='yellow' title='Свет' unit='lx' out={500} in={350} target={800} min={100} max={1000} />
                         </div>
-                        <br />
+
                         <div>
                             <Widget colorTheme='green' title='Давление' unit='гПа' out={800} in={900} target={800} min={650} max={1200} />
                         </div>
-
-
-
                     </Card>
                     <Card title="Sheduler" className={s.card} >
                         <SchedulerWidget />
+                    </Card>
+                    <Card title='Гостиная' className={s.card}>
+                        <div>
+                            <Widget colorTheme='blue' title='Влажность' unit='%' out={80} in={45} target={60} />
+                        </div>
+
+                        <div>
+                            <Widget colorTheme='orange' out={20} in={10} target={22} max={40} />
+                        </div>
                     </Card>
                 </Article>
-
+                <br />
                 <Article id='12' title="Sheduler test: ">
-                    <Card title="Sheduler" className={s.card} >
-                        <SchedulerWidget />
+                    <Card title="Гардины" className={s.card} >
+                        <FabricCurtainControl />
+                    </Card>
+                    <Card title='Гостиная' className={s.card}>
+                        <div className={s.card_grid}>
+
+                            <div>
+                                <Widget colorTheme='yellow' title='Свет' unit='lx' out={500} in={350} target={800} min={100} max={1000} />
+                            </div>
+
+                            <div>
+                                <Widget colorTheme='green' title='Давление' unit='гПа' out={800} in={900} target={800} min={650} max={1200} />
+                            </div>
+
+                            <div>
+                                <Widget colorTheme='blue' title='Влажность' unit='%' out={80} in={45} target={60} />
+                            </div>
+
+                            <div>
+                                <Widget colorTheme='orange' out={20} in={10} target={22} max={40} />
+                            </div>
+                        </div>
                     </Card>
                 </Article>
                 <Article id='13' title="ROOM test: ">

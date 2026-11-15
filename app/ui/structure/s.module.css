@@ -2,7 +2,7 @@
 
 /* Ограничивающий контейнер страницы */
 .container {
-    max-width: calc(100vw - 5rem);
+    max-width: calc(100vw - 1rem);
     width: 100%;
     margin: 0 auto;
 }
@@ -131,7 +131,7 @@
 }
 
 /* МОБИЛЬНАЯ АДАПТАЦИЯ (экран меньше 768px) */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .dashboard_layout {
         flex-direction: column;
         height: auto;

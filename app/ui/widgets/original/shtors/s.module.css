@@ -1,0 +1,142 @@
+.curtainCard {
+    background: #1e1e24;
+    border-radius: 16px;
+    padding: 16px;
+    color: #ffffff;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.modeToggleBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #4da6ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modeToggleBtn:hover {
+    background: rgba(77, 166, 255, 0.2);
+    border-color: #4da6ff;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Общий стиль информационных блоков в обеих сетках */
+.autoStateContainer,
+.manualStateContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.infoBlock,
+.controlBlock {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.blockLabel {
+    font-size: 0.75rem;
+    color: #9090a0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.blockValueHighlight {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4da6ff;
+}
+
+.lightValuesRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.lightBadge {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.lightBadge b {
+    color: #fff;
+}
+
+.statusSubRow {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+/* Группа кнопок ручной позиции */
+.posButtonsGroup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.posBtn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    padding: 8px 4px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.posBtn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.posBtn.active {
+    background: #4da6ff;
+    border-color: #4da6ff;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(77, 166, 255, 0.4);
+}

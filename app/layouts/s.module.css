@@ -21,13 +21,16 @@
     border-right: 1px solid var(--border-default);
     overflow-x: hidden;
     overflow-y: auto;
-    scrollbar-width: none; /* Скрываем полосу прокрутки в Firefox */
-    -ms-overflow-style: none; /* Скрываем полосу прокрутки в IE / Edge */
+    scrollbar-width: none;
+    /* Скрываем полосу прокрутки в Firefox */
+    -ms-overflow-style: none;
+    /* Скрываем полосу прокрутки в IE / Edge */
     z-index: 10;
 }
 
 .sidebar_container::-webkit-scrollbar {
-    display: none; /* Скрываем полосу прокрутки в Chrome / Safari / Edge */
+    display: none;
+    /* Скрываем полосу прокрутки в Chrome / Safari / Edge */
 }
 
 /* Правая часть просто занимает оставшееся место */
@@ -72,7 +75,7 @@
 }
 
 /* МОБИЛЬНАЯ АДАПТАЦИЯ */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .dashboard_layout {
         flex-direction: column;
     }
@@ -157,8 +160,9 @@
     display: none !important;
 }
 
-/* Показываем кнопку только на планшетах и мобильных (настройте брейкпоинт под вашу сетку, например 1024px) */
-@media (max-width: 768px) {
+/* Показываем кнопку только на планшетах и мобильных 
+(настройте брейкпоинт под вашу сетку, например 1024px) */
+@media (max-width: 1024px) {
     .burger_btn {
         display: flex;
     }

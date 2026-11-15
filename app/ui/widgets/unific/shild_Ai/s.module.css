@@ -1,20 +1,20 @@
 .box {
     background: var(--bg-surface);
     border-radius: 6px;
-    padding: 10px;
+    padding: 10px 15px;
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1.5px solid var(--border-default);
+    /*border: 1.5px solid var(--border-default);*/
     color: var(--text-main);
     width: 100%;
-    max-width: 200px;
+    min-width: 180px;
     /* box-sizing: border-box;*/
 }
 
 .bar {
     width: 12px;
-    height: 60px;
+    height: 80px;
     border: 2px solid var(--column-border);
     border-radius: 5px;
     position: relative;
@@ -22,6 +22,8 @@
     flex-shrink: 0;
     background: var(--bg-surface);
     padding: 2px;
+    margin-right: 5px;
+
     /* Создает тот самый белый просвет по контуру 
     box-sizing: border-box;*/
 }
@@ -55,7 +57,7 @@
 .list {
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    /*padding-left: 5px;*/
     gap: 4px;
 }
 
@@ -63,13 +65,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.2;
 }
 
 .main {
     font-size: 14px;
     font-weight: 700;
+    margin-top: 5px;
+    /*margin-bottom: 5px;*/
 }
 
 .main .lbl {
@@ -83,6 +87,7 @@
 
 .lbl {
     color: var(--text-muted);
+    margin-right: 5px;
 }
 
 .val {
