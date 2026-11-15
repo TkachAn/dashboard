@@ -51,9 +51,7 @@ const BADGE_CLASS = {
   guest: s.badgeGuest,
 };
 
-const USERS_STORAGE_KEY = "smarthome_users";
-
-/** Начальные данные — единственный администратор */
+/** Начальные данные на случай задержки сети */
 const INITIAL_USERS = [
   {
     id: "usr_001",
@@ -99,9 +97,9 @@ function EditModal({ user, users, onSave, onClose }) {
 
   // Определяем доступные роли для редактирования
   const editRoleOptions = isAdmin
-    ? ROLE_OPTIONS_WITH_ADMIN // Админ может остаться админом
+    ? ROLE_OPTIONS_WITH_ADMIN
     : hasAdmin
-      ? ROLE_OPTIONS // Если админ уже есть — нельзя стать вторым
+      ? ROLE_OPTIONS
       : ROLE_OPTIONS_WITH_ADMIN;
 
   const handleSave = () => {
@@ -110,13 +108,11 @@ function EditModal({ user, users, onSave, onClose }) {
       return;
     }
 
-    // Нельзя назначить второго админа
     if (role === "admin" && !isAdmin && hasAdmin) {
       setError("В системе уже есть администратор. Может быть только один.");
       return;
     }
 
-    // Нельзя снять роль admin с единственного администратора
     if (isAdmin && role !== "admin") {
       setError("Невозможно сменить роль единственного администратора системы.");
       return;
@@ -223,7 +219,6 @@ function ConfirmDeleteModal({ user, onConfirm, onClose }) {
    ГЛАВНЫЙ КОМПОНЕНТ: UserManagement
    ═══════════════════════════════════════════ */
 export default function UserManagement() {
-  // ── Состояние ──
   const [users, setUsers] = useState(INITIAL_USERS);
   const [alert, setAlert] = useState({ type: "", message: "" });
 
@@ -238,43 +233,50 @@ export default function UserManagement() {
   const [editingUser, setEditingUser] = useState(null);
   const [deletingUser, setDeletingUser] = useState(null);
 
-  // Синхронизация с localStorage
+  // ── Загрузка пользователей через fetch с сервера (users.json) ──
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(USERS_STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setUsers(parsed);
-          return;
+    fetch("/api/users")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setUsers(data);
         }
-      }
-      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(INITIAL_USERS));
-    } catch (e) {
-      console.warn("Ошибка чтения smarthome_users:", e);
-    }
+      })
+      .catch((e) => {
+        console.warn("Ошибка загрузки пользователей с сервера:", e);
+      });
   }, []);
 
-  const saveUsersToStorage = (updatedUsers) => {
-    setUsers(updatedUsers);
+  // ── Сохранение пользователей через fetch на сервер ──
+  const saveUsersToServer = async (updatedUsers) => {
+    setUsers(updatedUsers); // оптимистичное обновление UI
     try {
-      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(updatedUsers));
+      const response = await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedUsers),
+      });
+
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.error || "Ошибка сохранения");
+      }
+
+      // Уведомляем другие компоненты (например, хедер), если нужно
       window.dispatchEvent(new Event("smarthome_auth_change"));
     } catch (e) {
-      console.warn("Ошибка сохранения smarthome_users:", e);
+      console.warn("Ошибка сохранения на сервер:", e);
+      showAlert("error", "Не удалось сохранить изменения на сервере.");
     }
   };
 
-  // ── Проверка: есть ли уже admin ──
   const hasAdmin = users.some((u) => u.role === "admin");
 
-  // ── Показать уведомление ──
   const showAlert = useCallback((type, message) => {
     setAlert({ type, message });
     setTimeout(() => setAlert({ type: "", message: "" }), 4000);
   }, []);
 
-  // ── Сброс формы ──
   const resetForm = () => {
     setNewName("");
     setNewEmail("");
@@ -285,23 +287,20 @@ export default function UserManagement() {
 
   /* ── ДОБАВЛЕНИЕ пользователя ── */
   const handleAdd = () => {
-    // Валидация
     if (!newName.trim() || !newEmail.trim()) {
       showAlert("error", "Заполните обязательные поля: Имя и Email.");
       return;
     }
 
-    // Проверка уникальности email
     if (users.some((u) => u.email.toLowerCase() === newEmail.trim().toLowerCase())) {
       showAlert("error", `Пользователь с email «${newEmail.trim()}» уже зарегистрирован.`);
       return;
     }
 
-    // Блокировка второго админа
     if (newRole === "admin" && hasAdmin) {
       showAlert(
         "error",
-        "В системе уже есть администратор. Может быть только один администратор (владелец сервера)."
+        "В системе уже есть администратор. Может быть только один администратор."
       );
       return;
     }
@@ -315,7 +314,7 @@ export default function UserManagement() {
       device: newDevice.trim() || "—",
     };
 
-    saveUsersToStorage([...users, newUser]);
+    saveUsersToServer([...users, newUser]);
     resetForm();
     showAlert("success", `Пользователь «${newUser.name}» успешно добавлен.`);
   };
@@ -323,7 +322,7 @@ export default function UserManagement() {
   /* ── РЕДАКТИРОВАНИЕ пользователя ── */
   const handleSaveEdit = (updatedUser) => {
     const updated = users.map((u) => (u.id === updatedUser.id ? updatedUser : u));
-    saveUsersToStorage(updated);
+    saveUsersToServer(updated);
     setEditingUser(null);
     showAlert("success", `Данные «${updatedUser.name}» обновлены.`);
   };
@@ -332,7 +331,6 @@ export default function UserManagement() {
   const handleDelete = (userId) => {
     const target = users.find((u) => u.id === userId);
 
-    // Защита от удаления администратора
     if (target?.role === "admin") {
       showAlert("error", "Невозможно удалить администратора системы.");
       setDeletingUser(null);
@@ -340,12 +338,11 @@ export default function UserManagement() {
     }
 
     const updated = users.filter((u) => u.id !== userId);
-    saveUsersToStorage(updated);
+    saveUsersToServer(updated);
     setDeletingUser(null);
     showAlert("success", `Пользователь «${target.name}» удалён.`);
   };
 
-  /* ── Иконка роли для таблицы ── */
   const RoleIcon = ({ role }) => {
     switch (role) {
       case "admin":
@@ -357,14 +354,12 @@ export default function UserManagement() {
     }
   };
 
-  // ── Опции роли для формы добавления (без admin, если уже есть) ──
   const addRoleOptions = hasAdmin ? ROLE_OPTIONS : ROLE_OPTIONS_WITH_ADMIN;
 
   return (
     <div className={s.page}>
       <h1 className={s.pageTitle}>Управление пользователями</h1>
 
-      {/* ── Уведомление ── */}
       {alert.message && (
         <Alert
           type={alert.type}
@@ -374,9 +369,7 @@ export default function UserManagement() {
         </Alert>
       )}
 
-      {/* ══════════════════════════════════════
-           ФОРМА ДОБАВЛЕНИЯ ПОЛЬЗОВАТЕЛЯ
-         ══════════════════════════════════════ */}
+      {/* ── ФОРМА ДОБАВЛЕНИЯ ── */}
       <div className={s.formCard}>
         <h2 className={s.formTitle}>Добавить пользователя</h2>
 
@@ -433,9 +426,7 @@ export default function UserManagement() {
         </div>
       </div>
 
-      {/* ══════════════════════════════════════
-           ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ
-         ══════════════════════════════════════ */}
+      {/* ── ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ ── */}
       <div className={s.tableCard}>
         <h2 className={s.tableTitle}>
           Зарегистрированные пользователи ({users.length})
@@ -497,7 +488,7 @@ export default function UserManagement() {
         )}
       </div>
 
-      {/* ── Модалка редактирования ── */}
+      {/* ── МОДАЛКИ ── */}
       {editingUser && (
         <EditModal
           user={editingUser}
@@ -507,7 +498,6 @@ export default function UserManagement() {
         />
       )}
 
-      {/* ── Модалка удаления ── */}
       {deletingUser && (
         <ConfirmDeleteModal
           user={deletingUser}

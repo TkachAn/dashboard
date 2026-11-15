@@ -24,40 +24,8 @@ import s from "./auth.module.css";
 /* ═══════════════════════════════════════════════════════════════
    КОНСТАНТЫ И ДЕФОЛТНЫЕ ДАННЫЕ
    ═══════════════════════════════════════════════════════════════ */
-const USERS_STORAGE_KEY = "smarthome_users";
-const SESSION_STORAGE_KEY = "current_user";
+const SESSION_STORAGE_KEY = "current_user"; // Сессию активного юзера можно оставить в sessionStorage/localStorage для удобства интерфейса
 const AUTH_EVENT_NAME = "smarthome_auth_change";
-
-/**
- * Начальный пул пользователей для демонстрации и первого запуска,
- * если в localStorage ключ "smarthome_users" ещё пуст.
- */
-const DEFAULT_SYSTEM_USERS = [
-  {
-    id: "usr_001",
-    name: "Главный Администратор",
-    email: "admin@smarthome.local",
-    password: "admin",
-    role: "admin",
-    device: "iPhone 15 Pro",
-  },
-  {
-    id: "usr_002",
-    name: "Алексей (Владелец)",
-    email: "owner@smarthome.local",
-    password: "password123",
-    role: "owner",
-    device: "Samsung Galaxy S24",
-  },
-  {
-    id: "usr_003",
-    name: "Гость Дома",
-    email: "guest@smarthome.local",
-    password: "guest",
-    role: "guest",
-    device: "Google Pixel 8",
-  },
-];
 
 const ROLE_CONFIG = {
   admin: {
@@ -98,7 +66,7 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e?.preventDefault();
     setError("");
 
@@ -117,29 +85,22 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
     setIsLoading(true);
 
     try {
-      // Считываем актуальный список пользователей из localStorage
-      const rawUsers = localStorage.getItem(USERS_STORAGE_KEY);
-      let users = [];
-      if (rawUsers) {
-        try {
-          users = JSON.parse(rawUsers);
-        } catch {
-          users = [];
-        }
-      }
+      // Считываем актуальный список пользователей напрямую с сервера из users.json
+      const response = await fetch("/api/users");
+      const users = await response.json();
 
-      // Если в localStorage пусто, используем дефолтных
       if (!Array.isArray(users) || users.length === 0) {
-        users = DEFAULT_SYSTEM_USERS;
-        localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(DEFAULT_SYSTEM_USERS));
+        setError("Список пользователей пуст или недоступен.");
+        setIsLoading(false);
+        return;
       }
 
-      // Проверка совпадения учетных данных
+      // Проверка совпадения учетных данных из серверного файла
       const matchedUser = users.find(
         (u) =>
           u.email &&
           u.email.trim().toLowerCase() === trimmedEmail &&
-          String(u.password) === trimmedPassword
+          String(u.password).trim() === trimmedPassword
       );
 
       if (!matchedUser) {
@@ -148,7 +109,7 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
         return;
       }
 
-      // Успешный вход: сохраняем сессию без пароля
+      // Успешный вход: сохраняем активную сессию
       const sessionData = {
         id: matchedUser.id,
         name: matchedUser.name,
@@ -218,7 +179,7 @@ function LoginModal({ isOpen, onClose, onLoginSuccess }) {
             />
 
             <p className={s.hint}>
-              Для теста: <strong>admin@smarthome.local</strong> / <strong>admin</strong>
+              База данных загружается из файла <strong>users.json</strong>.
             </p>
           </div>
 
@@ -245,16 +206,9 @@ export function AuthWidget() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Инициализация пользователей в localStorage и загрузка текущей сессии
+  // Загрузка текущей сессии
   const syncAuthState = useCallback(() => {
     try {
-      // Инициализируем хранилище пользователей, если его ещё нет
-      const storedUsers = localStorage.getItem(USERS_STORAGE_KEY);
-      if (!storedUsers) {
-        localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(DEFAULT_SYSTEM_USERS));
-      }
-
-      // Считываем активную сессию
       const rawSession = localStorage.getItem(SESSION_STORAGE_KEY);
       if (rawSession) {
         const parsed = JSON.parse(rawSession);
@@ -263,7 +217,7 @@ export function AuthWidget() {
         setCurrentUser(null);
       }
     } catch (e) {
-      console.warn("Не удалось прочитать состояние авторизации из localStorage:", e);
+      console.warn("Не удалось прочитать текущую сессию:", e);
       setCurrentUser(null);
     }
   }, []);
@@ -272,9 +226,8 @@ export function AuthWidget() {
     setIsMounted(true);
     syncAuthState();
 
-    // Слушаем изменения localStorage (в других вкладках и через кастомные события)
     const handleStorageChange = (e) => {
-      if (!e.key || e.key === SESSION_STORAGE_KEY || e.key === USERS_STORAGE_KEY) {
+      if (!e.key || e.key === SESSION_STORAGE_KEY) {
         syncAuthState();
       }
     };

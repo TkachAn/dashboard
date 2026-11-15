@@ -1,0 +1,26 @@
+[
+  {
+    "id": "usr_001",
+    "name": "Администратор",
+    "email": "admin@sh.lo",
+    "password": "admin",
+    "role": "admin",
+    "device": "iPhone 15 Pro"
+  },
+  {
+    "id": "usr_002",
+    "name": "nina",
+    "email": "zaq.qaq.zaq@gmail.com",
+    "password": "3214",
+    "role": "owner",
+    "device": "ws23"
+  },
+  {
+    "id": "usr_002",
+    "name": "Dasha",
+    "email": "4ndrey.tkachenko@gmail.com",
+    "password": "1111",
+    "role": "guest",
+    "device": "qw1"
+  }
+]
