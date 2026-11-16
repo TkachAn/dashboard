@@ -55,16 +55,19 @@ const BADGE_CLASS = {
 const INITIAL_USERS = [
   {
     id: "usr_001",
-    name: "Главный Администратор",
-    email: "admin@smarthome.local",
+    name: "Администратор",
+    email: "admin@sh.lo",
     password: "admin",
     role: "admin",
     device: "iPhone 15 Pro",
   },
 ];
 
-let nextId = 2;
-const generateId = () => `usr_${String(nextId++).padStart(3, "0")}`;
+const generateId = () => `usr_${Date.now()}`;
+
+
+
+
 
 /* ═══════════════════════════════════════════
    КОМПОНЕНТ: УВЕДОМЛЕНИЕ

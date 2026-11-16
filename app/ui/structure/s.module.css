@@ -211,3 +211,26 @@
     align-items: baseline;
     align-items: center;
 }
+
+/* Кнопка добавления пользователя в Header */
+.addUserBtn {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--icon-color, #1f2937);
+    border-radius: var(--radius-sm, 4px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.addUserBtn:hover {
+    background-color: var(--icon-hover-bg, rgba(0, 0, 0, 0.05));
+    color: var(--icon-hover-color, #3b82f6);
+}
+
+.addUserBtn:active {
+    transform: scale(0.95);
+}
