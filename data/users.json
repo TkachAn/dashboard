@@ -5,15 +5,15 @@
     "email": "admin@sh.lo",
     "password": "admin",
     "role": "admin",
-    "device": "iPhone 15 Pro"
+    "device": "Xiaomi Redmi Note 13"
   },
   {
     "id": "usr_1794844166157",
-    "name": "nin",
-    "email": "4ndrey.tkachenko@gmail.com",
+    "name": "Нина",
+    "email": "Ninfa@i.ua",
     "password": "3214",
     "role": "owner",
-    "device": "—"
+    "device": "Xiaomi Redmi Note 14"
   },
   {
     "id": "usr_1794844300549",
@@ -22,5 +22,13 @@
     "password": "3214",
     "role": "guest",
     "device": "—"
+  },
+  {
+    "id": "usr_1794904236500",
+    "name": "аавв",
+    "email": "ad@sh.lo",
+    "password": "admin",
+    "role": "guest",
+    "device": "лоо"
   }
 ]

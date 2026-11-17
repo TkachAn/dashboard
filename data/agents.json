@@ -1,0 +1,34 @@
+[
+    {
+        "id": "agent_001",
+        "name": "Sys",
+        "email": "house.agent.sys@gmail.com",
+        "password": "admin",
+        "role": "admin",
+        "device": "TV box Debian"
+    },
+    {
+        "id": "agent_002",
+        "name": "Saeah",
+        "email": "house.agent.sara@gmail.com",
+        "password": "3214",
+        "role": "Speacer +",
+        "device": "TV box android"
+    },
+    {
+        "id": "agent_003",
+        "name": "Leonard",
+        "email": "house.agent.leo@gmail.com",
+        "password": "3214",
+        "role": "Speacer +",
+        "device": "—"
+    },
+    {
+        "id": "agent_004",
+        "name": "Gregory",
+        "email": "house.agent.greg@gmail.com",
+        "password": "admin",
+        "role": "Speacer +",
+        "device": "Orange Pi pc+ linux"
+    }
+]

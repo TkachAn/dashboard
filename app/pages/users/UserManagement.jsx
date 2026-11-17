@@ -32,6 +32,7 @@ import s from "./s.module.css";
 const ROLE_OPTIONS = [
   { label: "Владелец (owner)", value: "owner" },
   { label: "Гость (guest)", value: "guest" },
+  { label: "VIP Гость (guest)", value: "VIP guest" },
 ];
 
 const ROLE_OPTIONS_WITH_ADMIN = [
@@ -43,12 +44,14 @@ const ROLE_LABELS = {
   admin: "Администратор",
   owner: "Владелец",
   guest: "Гость",
+  guestVIP: "VIP гость",
 };
 
 const BADGE_CLASS = {
   admin: s.badgeAdmin,
   owner: s.badgeOwner,
   guest: s.badgeGuest,
+  guestVIP: s.badgeGuest,
 };
 
 /** Начальные данные на случай задержки сети */
