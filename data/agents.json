@@ -4,8 +4,8 @@
         "name": "Sys",
         "email": "house.agent.sys@gmail.com",
         "role": "admin",
-        "device": "TV box Debian",
-        "gender": "neutral",
+        "device": "TV box Vontar X12 RAM: 2G ROM: 16G Armbian",
+        "gender": "female",
         "voice": {
             "engine": "tts_system",
             "tone": "спокойный, четкий, технический"
@@ -26,7 +26,7 @@
         "name": "Sarah",
         "email": "house.agent.sara@gmail.com",
         "role": "Speaker +",
-        "device": "TV box android",
+        "device": "TV box android RAM: 4G ROM: 32G",
         "gender": "female",
         "voice": {
             "engine": "tts_female_soft",
@@ -47,7 +47,7 @@
         "name": "Leonard",
         "email": "house.agent.leon@gmail.com",
         "role": "Speaker +",
-        "device": "unassigned",
+        "device": "TV box android RAM: 1G ROM: 8G",
         "gender": "male",
         "voice": {
             "engine": "tts_male_calm",
@@ -68,7 +68,7 @@
         "name": "Gregory",
         "email": "house.agent.greg@gmail.com",
         "role": "Speaker +",
-        "device": "Orange Pi pc+ linux",
+        "device": "Orange Pi pc+ Armbian",
         "gender": "male",
         "voice": {
             "engine": "tts_male_deep",
