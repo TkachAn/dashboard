@@ -1,6 +1,6 @@
-/* ui/structure/s.module.css — Альтернативный layout с overflow-скроллом внутри */
+/* app/ui/structure/s.module.css  */
 
-/* Ограничивающий контейнер страницы */
+
 .container {
     max-width: calc(100vw - 1rem);
     width: 100%;
@@ -31,7 +31,6 @@
 
 /* Карточка */
 .card {
-    /*width: 280px;*/
     display: inline-flex;
     border-radius: var(--radius-lg);
     border: 2px solid var(--card-border);

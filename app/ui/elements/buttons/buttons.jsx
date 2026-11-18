@@ -1,5 +1,6 @@
 "use client";
-// src/base/buttons/buttons.jsx
+// ui/elements/buttons/buttons.jsx
+
 import { forwardRef } from "react";
 import styles from "./button.module.css";
 

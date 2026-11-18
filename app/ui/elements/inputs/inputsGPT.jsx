@@ -1,9 +1,10 @@
+/* ui/elements/inputs/inputsGPT.jsx*/
+
 "use client";
 
-/* inputsGPT.jsx */
 import { useState, useEffect, forwardRef, useRef } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import styles from "./ingpt.module.css";
+import styles from "./s.module.css";
 
 /* =========================
    VALIDATORS

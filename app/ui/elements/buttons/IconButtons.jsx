@@ -1,4 +1,4 @@
-// src/base/buttons/IconButtons.jsx
+// ui/elements/buttons/IconButtons.jsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -116,33 +116,6 @@ export const LogOutIconButton = forwardRef(({ size = 24, ...props }, ref) => (
   </BaseIconButton>
 ));
 LogOutIconButton.displayName = "LogOutIconButton";
-/*
-export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
-
-  // Синхронизируем состояние с текущей темой при загрузке
-  useEffect(() => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    setIsDark(currentTheme === 'dark');
-  }, []);
-
-  const toggle_Theme = () => {
-    const newTheme = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    setIsDark(!isDark);
-  };
-
-  return (
-    <BaseIconButton
-      onClick={toggle_Theme}
-      title={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
-    >
-      {isDark ? <Sun size={26} color="#FFFF00" /> : <Moon size={26} color="#3B82F6" />}
-    </BaseIconButton>
-  );
-}
-*/
 
 
 export function ThemeToggle() {
@@ -186,3 +159,31 @@ export function ThemeToggle() {
     </BaseIconButton>
   );
 }
+
+/*
+export function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  // Синхронизируем состояние с текущей темой при загрузке
+  useEffect(() => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    setIsDark(currentTheme === 'dark');
+  }, []);
+
+  const toggle_Theme = () => {
+    const newTheme = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    setIsDark(!isDark);
+  };
+
+  return (
+    <BaseIconButton
+      onClick={toggle_Theme}
+      title={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
+    >
+      {isDark ? <Sun size={26} color="#FFFF00" /> : <Moon size={26} color="#3B82F6" />}
+    </BaseIconButton>
+  );
+}
+*/

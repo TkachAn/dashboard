@@ -1,14 +1,16 @@
+/*ui/elements/forms/form.jsx */
+
 "use client";
 import React, { useState, useCallback, useMemo } from "react";
 import s from "./f.module.css";
 import { SubmitButton } from "../buttons/buttons";
 
-export function Forma({ 
-  children, 
-  onSubmit, 
-  submitText = "Продолжить", 
-  socialButtons, 
-  className = "" 
+export function Forma({
+  children,
+  onSubmit,
+  submitText = "Продолжить",
+  socialButtons,
+  className = ""
 }) {
   const [loading, setLoading] = useState(false);
   // Храним статусы валидности каждого поля: { email: true, password: false }
@@ -58,9 +60,9 @@ export function Forma({
   return (
     <form className={`${s.form} ${className}`} onSubmit={handleSubmit} noValidate>
       <div className={s.fields}>{enhancedChildren}</div>
-      
+
       <div className={s.actions}>
-        <SubmitButton 
+        <SubmitButton
           // Кнопка активна только если форма валидна и не идет загрузка
           status={loading ? "blocked" : (isFormValid ? "accent" : "blocked")}
         >

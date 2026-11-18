@@ -1,3 +1,5 @@
+//app/layouts/layout.jsx
+
 'use client';
 
 import { useState } from 'react';

@@ -1,3 +1,4 @@
+/* app/ui/structure/struct.jsx */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -119,7 +120,7 @@ function checkAdminRole() {
 }
 
 export function Container({ children, className }) {
-    return <div className={`${s.container} ${className || ""}`}>{children}</div>;
+  return <div className={`${s.container} ${className || ""}`}>{children}</div>;
 }
 
 export function Header({
@@ -178,72 +179,72 @@ export function Header({
   );
 }
 export function Sidebar({ children, id, className }) {
-    return (
-        <aside id={id} className={`${s.sidebar} ${className || ""}`}>
-            {children}
-        </aside>
-    );
+  return (
+    <aside id={id} className={`${s.sidebar} ${className || ""}`}>
+      {children}
+    </aside>
+  );
 }
 
 
 export function Wrapper({ id, children, className }) {
-    return (
-        <div id={id} className={`${s.main_wrapper} ${className || ""}`}>
-            {children}
-        </div>
-    );
+  return (
+    <div id={id} className={`${s.main_wrapper} ${className || ""}`}>
+      {children}
+    </div>
+  );
 }
 
 export function Main({ children, id, className }) {
-    return (
-        <main id={id} className={`${s.main} ${className || ""}`}>
-            {children}
-        </main>
-    );
+  return (
+    <main id={id} className={`${s.main} ${className || ""}`}>
+      {children}
+    </main>
+  );
 }
 
 export function Section({ children, title, id, className }) {
-    return (
-        <section
-            id={id}
-            className={`${s.section} ${className || ""}`}
-            title={title}
-        >
-            {title && <h2 className={s.section_title}>{title}</h2>}
-            {children}
-        </section>
-    );
+  return (
+    <section
+      id={id}
+      className={`${s.section} ${className || ""}`}
+      title={title}
+    >
+      {title && <h2 className={s.section_title}>{title}</h2>}
+      {children}
+    </section>
+  );
 }
 
 export function Article({ children, title, id, className }) {
-    return (
-        <article
-            id={id}
-            className={`${s.article} ${className || ""}`}
-            title={title}
-        >
-            {title && <h3 className={s.article_title}>{title}</h3>}
-            {children}
-        </article>
-    );
+  return (
+    <article
+      id={id}
+      className={`${s.article} ${className || ""}`}
+      title={title}
+    >
+      {title && <h3 className={s.article_title}>{title}</h3>}
+      {children}
+    </article>
+  );
 }
 export function Card({ children, id, className, title }) {
-    return (
-        <div id={id} className={`${s.card} ${className || ""}`}>
-            {title && <h4 className={s.card_title}>{title}</h4>}
-            {children}
-        </div>
-    );
+  return (
+    <div id={id} className={`${s.card} ${className || ""}`}>
+      {title && <h4 className={s.card_title}>{title}</h4>}
+      {children}
+    </div>
+  );
 }
 export function Panel({ children, id, className, title, icon = <Bot /> }) {
-    return (
-        <div id={id} className={`${s.panel} ${className || ""}`}>
-            <div className={s.flex}>
-                {title && <h5 className={s.panel_title}>{title}</h5>}
-                {icon && icon}
-            </div>
-            {children}
-        </div>
-    );
+  return (
+    <div id={id} className={`${s.panel} ${className || ""}`}>
+      <div className={s.flex}>
+        {title && <h5 className={s.panel_title}>{title}</h5>}
+        {icon && icon}
+      </div>
+      {children}
+    </div>
+  );
 }
 
