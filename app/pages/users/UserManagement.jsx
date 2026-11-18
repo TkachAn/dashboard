@@ -1,5 +1,6 @@
 "use client";
 
+import s from "./s.module.css";
 import { useState, useEffect, useCallback } from "react";
 import {
   Shield,
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 
 // ── Компоненты дизайн-системы ──
+import { Article, Section } from "@/app/ui/structure/struct";
 import { TextInput, EmailInput, SelectInput, PasswordInput } from "@/app/ui/elements/inputs/inputsGPT";
 import {
   NormButton,
@@ -24,7 +26,6 @@ import {
   CloseIconButton,
 } from "@/app/ui/elements/buttons/IconButtons";
 
-import s from "./s.module.css";
 
 /* ═══════════════════════════════════════════
    КОНСТАНТЫ И ХЕЛПЕРЫ
@@ -67,10 +68,6 @@ const INITIAL_USERS = [
 ];
 
 const generateId = () => `usr_${Date.now()}`;
-
-
-
-
 
 /* ═══════════════════════════════════════════
    КОМПОНЕНТ: УВЕДОМЛЕНИЕ
@@ -363,8 +360,8 @@ export default function UserManagement() {
   const addRoleOptions = hasAdmin ? ROLE_OPTIONS : ROLE_OPTIONS_WITH_ADMIN;
 
   return (
-    <div className={s.page}>
-      <h1 className={s.pageTitle}>Управление пользователями</h1>
+    <Section id='1' title='Управление пользователями' className={s.page}>
+
 
       {alert.message && (
         <Alert
@@ -376,8 +373,7 @@ export default function UserManagement() {
       )}
 
       {/* ── ФОРМА ДОБАВЛЕНИЯ ── */}
-      <div className={s.formCard}>
-        <h2 className={s.formTitle}>Добавить пользователя</h2>
+      <Article id='11' className={s.formCard} title='Добавить пользователя'>
 
         <div className={s.formGrid}>
           <TextInput
@@ -430,13 +426,11 @@ export default function UserManagement() {
             Добавить пользователя
           </AddButton>
         </div>
-      </div>
+      </Article>
 
       {/* ── ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ ── */}
-      <div className={s.tableCard}>
-        <h2 className={s.tableTitle}>
-          Зарегистрированные пользователи ({users.length})
-        </h2>
+      <Article id='12' title='Зарегистрированные пользователи' className={s.tableCard}>
+
 
         {users.length === 0 ? (
           <div className={s.empty}>Нет зарегистрированных пользователей.</div>
@@ -492,7 +486,7 @@ export default function UserManagement() {
             </tbody>
           </table>
         )}
-      </div>
+      </Article>
 
       {/* ── МОДАЛКИ ── */}
       {editingUser && (
@@ -511,6 +505,16 @@ export default function UserManagement() {
           onClose={() => setDeletingUser(null)}
         />
       )}
-    </div>
+    </Section>
   );
 }
+
+
+/*
+       <h1 className={s.pageTitle}>Управление пользователями</h1>
+<h2 className={s.formTitle}>Добавить пользователя</h2>
+
+<h2 className={s.tableTitle}>
+          Зарегистрированные пользователи ({users.length})
+        </h2>
+*/

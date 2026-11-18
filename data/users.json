@@ -1,7 +1,7 @@
 [
   {
     "id": "usr_001",
-    "name": "Администратор",
+    "name": "Админ",
     "email": "admin@sh.lo",
     "password": "admin",
     "role": "admin",
@@ -16,19 +16,11 @@
     "device": "Xiaomi Redmi Note 14"
   },
   {
-    "id": "usr_1794844300549",
-    "name": "dash",
-    "email": "zaq.qaq.zaq@gmail.com",
-    "password": "3214",
-    "role": "guest",
-    "device": "—"
-  },
-  {
-    "id": "usr_1794904236500",
-    "name": "аавв",
-    "email": "ad@sh.lo",
-    "password": "admin",
-    "role": "guest",
-    "device": "лоо"
+    "id": "usr_1794936378318",
+    "name": "Андрей",
+    "email": "4ndrey.tkachenko@gmail.com",
+    "password": "1234",
+    "role": "owner",
+    "device": "Xiaomi Redmi Note 13"
   }
 ]

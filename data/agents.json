@@ -9,26 +9,26 @@
     },
     {
         "id": "agent_002",
-        "name": "Saeah",
+        "name": "Sarah",
         "email": "house.agent.sara@gmail.com",
         "password": "3214",
-        "role": "Speacer +",
+        "role": "Speaker +",
         "device": "TV box android"
     },
     {
         "id": "agent_003",
         "name": "Leonard",
-        "email": "house.agent.leo@gmail.com",
+        "email": "house.agent.leon@gmail.com",
         "password": "3214",
-        "role": "Speacer +",
-        "device": "—"
+        "role": "Speaker +",
+        "device": "unassigned"
     },
     {
         "id": "agent_004",
         "name": "Gregory",
         "email": "house.agent.greg@gmail.com",
         "password": "admin",
-        "role": "Speacer +",
+        "role": "Speaker +",
         "device": "Orange Pi pc+ linux"
     }
 ]

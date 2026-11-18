@@ -1,0 +1,30 @@
+.card {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.emptyState {
+    padding: 24px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+}
+
+.container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
