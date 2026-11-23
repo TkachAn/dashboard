@@ -1,0 +1,298 @@
+.card {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--card-bg, #ffffff);
+    color: var(--card-text, #222222);
+    border: 1px solid var(--card-border, #e2e6ec);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.status {
+    padding: 28px 12px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.topHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.title span {
+    color: #8c8c8c;
+    font-weight: 400;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.periodBadge {
+    font-size: 0.82rem;
+    background: rgba(156, 163, 175, 0.16);
+    border-radius: 6px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+/* Лента дней */
+.daysRow {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(92px, 1fr));
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.dayCard {
+    background: transparent;
+    color: inherit;
+    border: 1px solid rgba(156, 163, 175, 0.25);
+    border-radius: 10px 10px 6px 6px;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.dayCardActive {
+    border-color: #d97706;
+    background: rgba(217, 119, 6, 0.08);
+    font-weight: 500;
+}
+
+.dayWeekday {
+    font-size: 0.78rem;
+    color: #6b7280;
+}
+
+.dayNumber {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.dayMonth {
+    font-size: 0.76rem;
+    color: #6b7280;
+}
+
+.dayIcon {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 4px 0;
+}
+
+.minMaxRow {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.72rem;
+    gap: 4px;
+}
+
+.minMaxRow span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.minMaxRow small {
+    font-size: 0.65rem;
+    color: #8c8c8c;
+}
+
+.weekendText {
+    color: #dc2626;
+}
+
+/* Детали выбранного дня */
+.detailGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+@media (min-width: 820px) {
+    .detailGrid {
+        grid-template-columns: 120px 1fr;
+    }
+}
+
+.daySideColumn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (min-width: 820px) {
+    .daySideColumn {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+.selectedDateBox {
+    text-align: center;
+    padding: 6px;
+}
+
+.selectedWeekday {
+    font-size: 0.88rem;
+    color: #6b7280;
+}
+
+.selectedBigNum {
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.selectedMonth {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.astroBox {
+    border: 1px solid rgba(156, 163, 175, 0.35);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 104px;
+}
+
+.astroBox>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.astroBox span {
+    color: #6b7280;
+}
+
+/* Таблица почасового прогноза */
+.tableScroll {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.forecastTable {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.stickyCol {
+    position: sticky;
+    left: 0;
+    background: var(--card-bg, #ffffff);
+    z-index: 1;
+    text-align: left;
+    padding: 6px 10px 6px 4px;
+    white-space: nowrap;
+}
+
+.rowLabel {
+    font-weight: 400;
+    color: #4b5563;
+}
+
+.partHeaderRow th {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #6b7280;
+    padding-bottom: 4px;
+    border-right: 1px solid rgba(156, 163, 175, 0.25);
+}
+
+.partHeaderRow th:last-child {
+    border-right: none;
+}
+
+.timeHeaderRow th {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #8c8c8c;
+    padding-bottom: 6px;
+}
+
+.timeCell,
+.iconCell,
+.tempMainCell,
+.mutedCell,
+.dataCell,
+.windCell {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 4px;
+    white-space: nowrap;
+}
+
+.iconCell {
+    font-size: 1.25rem;
+}
+
+.tempMainCell {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.mutedCell {
+    font-size: 0.74rem;
+    color: #6b7280;
+}
+
+.bandRow {
+    background: rgba(156, 163, 175, 0.12);
+}
+
+.bandRow .stickyCol {
+    background: var(--card-bg, #ffffff);
+}
+
+.windCell {
+    font-size: 0.76rem;
+}
+
+.arrow {
+    display: inline-block;
+    color: #9ca3af;
+    font-size: 0.8rem;
+    margin-right: 3px;
+}
+
+.dayNote {
+    margin: 0;
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.45;
+    padding-top: 4px;
+    border-top: 1px solid rgba(156, 163, 175, 0.2);
+}

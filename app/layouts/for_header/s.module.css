@@ -2,6 +2,7 @@
 
 .logotype {
     padding: 6px 16px;
+
     border: 1px solid var(--logo-border);
     border-radius: var(--radius-sm);
     display: inline-flex;
@@ -26,3 +27,52 @@
 .logo:hover {
     color: var(--logo-hover-color);
 }
+
+/*
+.logotype {
+    border: 1px solid var(--logo-border);
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+}
+
+/* Внешняя окружность (например, черная или темная рамка) */
+/*
+.outerCircle {
+    width: 140px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #000000;
+    /* Черный контур/фон */
+/*
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    /* Толщина внешней рамки */
+/*
+}
+
+/* Внутренняя окружность (светлая подложка) */
+/*
+.innerCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    /* Светлый фон (можно заменить на вашу переменную) */
+/*
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Сам логотип внутри */
+/*
+.logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}*/

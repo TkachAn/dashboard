@@ -1,19 +1,33 @@
+.group {
+
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-surface);
+    border-radius: 8px;
+    width: 100%;
+}
+
 /* Mobile First базовые переменные и контейнер */
 .container {
     --scheduler-size: 235px;
-    max-width: var(--scheduler-size);
+    /*max-width: var(--scheduler-size);*/
     display: flex;
-    flex-direction: column;
+    flex: 1;
     align-items: center;
     justify-content: center;
-    width: 100%;
     margin: 0 auto;
-    user-select: none;
-    -webkit-user-select: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--bg-surface);
-    border-radius: 8px;
+    border-radius: 80px;
+    display: inline-flex;
 
+    /*flex: 1 1 20rem;*/
+    min-width: 0;
+    max-width: 100%;
+    /* padding: 2.2rem;*/
+    height: 100%;
 
     /*container-type: inline-size;*/
 
@@ -164,27 +178,3 @@
     line-height: 1.25;
     /*font-variant-numeric: tabular-nums;*/
 }
-
-/* Адаптация под планшеты и десктоп 
-@media (min-width: 768px) {
-    .container {
-        --scheduler-size: 320px;
-    }
-
-    .title {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    .intervalLabel {
-        font-size: 12px;
-    }
-
-    .intervalTime {
-        font-size: 19px;
-    }
-
-    .hourLabel {
-        font-size: 12px;
-    }
-}*/

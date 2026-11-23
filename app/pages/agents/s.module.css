@@ -28,7 +28,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
     gap: 20px;
 }
 
@@ -114,6 +114,7 @@
     flex-direction: column;
     gap: 10px;
     font-size: 0.9rem;
+    flex-grow: 1;
 }
 
 .infoRow {
@@ -179,7 +180,8 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /*flex-grow: 1;*/
+    /*justify-content: space-between;
     /* Распределяет контент сверху, а кнопку прижимает вниз */
     height: 100%;
     /* Заставляет карточки в одной строке выравниваться по высоте */
@@ -191,14 +193,38 @@
     padding-top: 12px;
     border-top: 1px solid #1e293b;
     display: flex;
-    width: 100%;
+
+    /* width: 100%;*/
 }
 
 .editButtonFull {
-    width: 100%;
+    /* width: 100%;*/
     /* Делает кнопку на всю ширину карточки снизу для аккуратного вида */
-    justify-content: center;
+    /*justify-content: center;*/
+    margin-top: auto;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    /* Располагаем элементы вертикально */
+    height: 100%;
+    /* Карточка занимает всю высоту строки сетки */
+}
+
+/* Контейнер для текста/описания (вся «сердцевина») */
+.cardContent {
+    flex-grow: 1;
+    /* Заставляет среднюю часть растягиваться и толкать кнопку вниз */
+}
+
+/* Кнопка в самом низу */
+.cardButton {
+    margin-top: auto;
+    /* Автоматический отступ сверху прижмет её к низу, даже если контента мало */
+}
+
+
 
 .value {
     color: #e2e8f0;

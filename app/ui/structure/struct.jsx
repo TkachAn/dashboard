@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Bot, UserPlus } from "lucide-react";
-import s from "./s.module.css";
+import s from "./s1.module.css";
 
 const SESSION_STORAGE_KEY = "current_user";
 const USERS_STORAGE_KEY = "smarthome_users";
@@ -203,7 +203,7 @@ export function Main({ children, id, className }) {
   );
 }
 
-export function Section({ children, title, id, className }) {
+export function Section({ children, title, id, note, className }) {
   return (
     <section
       id={id}
@@ -211,12 +211,13 @@ export function Section({ children, title, id, className }) {
       title={title}
     >
       {title && <h2 className={s.section_title}>{title}</h2>}
+      {note && <small className={s.note}>{note}</small>}
       {children}
     </section>
   );
 }
 
-export function Article({ children, title, id, className }) {
+export function Article({ children, title, note, id, className }) {
   return (
     <article
       id={id}
@@ -224,6 +225,7 @@ export function Article({ children, title, id, className }) {
       title={title}
     >
       {title && <h3 className={s.article_title}>{title}</h3>}
+      {note && <small className={s.note}>{note}</small>}
       {children}
     </article>
   );
@@ -248,3 +250,10 @@ export function Panel({ children, id, className, title, icon = <Bot /> }) {
   );
 }
 
+export function Wrap(children, className) {
+  return (
+    <div className={`${s.wrap} ${className || ""}`}>
+      {children}
+    </div>
+  );
+}

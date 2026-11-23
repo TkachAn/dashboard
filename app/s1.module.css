@@ -1,0 +1,38 @@
+.sec {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Контейнер карточек: строит ряд и переносит при нехватке места */
+.cont {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+
+/* Сама карточка: подстраивается по контенту, тянется и переносится */
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1 1 20rem;
+    min-width: 0;
+    max-width: 100%;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    gap: 1rem;
+}
+
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.2rem;
+    width: 100%;
+    margin: 0 auto;
+}

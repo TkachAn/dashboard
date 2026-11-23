@@ -1,0 +1,193 @@
+/* Совместимо со стилями панелей SmartHome */
+.panelCard {
+    width: 100%;
+    min-width: 280px;
+    max-width: 360px;
+    box-sizing: border-box;
+    background: var(--card-bg, #1f2937);
+    border: 1px solid var(--card-border, #374151);
+    border-radius: 16px;
+    padding: 14px;
+    color: var(--card-text, #f9fafb);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.statusText {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    text-align: center;
+    padding: 18px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 8px;
+}
+
+.city {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.conditionLabel {
+    font-size: 0.78rem;
+    color: #9ca3af;
+}
+
+.currentBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.mainTempContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mainIcon {
+    font-size: 1.85rem;
+    line-height: 1;
+}
+
+.tempValue {
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.76rem;
+    color: #9ca3af;
+}
+
+.detailRow {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.detailRow strong {
+    color: #e5e7eb;
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.22);
+    padding: 3px;
+    border-radius: 9px;
+}
+
+.tab {
+    border: none;
+    background: transparent;
+    color: #9ca3af;
+    font-size: 0.76rem;
+    font-weight: 500;
+    padding: 5px 4px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.tabActive {
+    background: #374151;
+    color: #f9fafb;
+}
+
+.forecastList {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    overflow-x: auto;
+}
+
+.forecastItem {
+    flex: 1;
+    min-width: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--input-bg, #111827);
+    border: 1px solid var(--input-border, #374151);
+    border-radius: 8px;
+    padding: 7px 3px;
+    gap: 3px;
+}
+
+.forecastTime {
+    font-size: 0.68rem;
+    color: #9ca3af;
+}
+
+.forecastIcon {
+    font-size: 1.05rem;
+}
+
+.forecastTemp {
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.tomorrowBox {
+    background: var(--input-bg, #111827);
+    border: 1px solid var(--input-border, #374151);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.82rem;
+}
+
+.tomorrowTop,
+.tomorrowMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tomorrowMeta {
+    font-size: 0.74rem;
+    color: #9ca3af;
+}
+
+.weekList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 170px;
+    overflow-y: auto;
+}
+
+.weekRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    background: var(--input-bg, #111827);
+    border-radius: 7px;
+    padding: 5px 8px;
+}
+
+.weekDay {
+    min-width: 56px;
+    color: #d1d5db;
+}
+
+.minTemp {
+    color: #9ca3af;
+}

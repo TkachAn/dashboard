@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import s from './s.module.css';
 import { Dashboard_Layout } from '@/app/layouts/layout';
 import { Section, Article, Card } from '@/app/ui/structure/struct';
@@ -72,6 +73,7 @@ export default function TestPage() {
           </div>
         </Article>
       </Section>
+
 
       <Section id={'1'} title={'Тестовый дашборд (Все компоненты)'}>
         <Article id="article1" title="Элементы управления и формы">

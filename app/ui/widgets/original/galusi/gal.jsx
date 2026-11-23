@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './s.module.css';
+import styles from './s1.module.css';
 import React, { useState } from 'react';
 /*import { ColumnSetWidget } from '../../unific/SetColumn/column';*/
 import { ColumnSetWidget } from '@/app/ui/widgets/unific/SetColumn/column';

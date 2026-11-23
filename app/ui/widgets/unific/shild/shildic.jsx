@@ -1,6 +1,6 @@
 'use client';
 
-import s from './s.module.css';
+import s from './s1.module.css';
 import { Thermometer, Droplet, Gauge, Sun } from 'lucide-react';
 // Карта иконок для быстрого поиска по строковому имени
 const iconMap = {

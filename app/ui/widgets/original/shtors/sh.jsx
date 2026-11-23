@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import styles from './s.module.css';
+import styles from './s1.module.css';
 
 /**
  * Виджет управления обычной (тканевой / рулонной) шторой

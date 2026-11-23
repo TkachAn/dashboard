@@ -9,7 +9,8 @@
     color: var(--text-main);
     width: 100%;
     min-width: 180px;
-    /* box-sizing: border-box;*/
+
+
 }
 
 .bar {
@@ -48,8 +49,8 @@
 
 .ttl {
     margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+    /*font-size: 18px;
+    font-weight: 600;*/
     color: var(--text-muted);
     line-height: 1.4;
 }
@@ -65,13 +66,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 11px;
-    line-height: 1.2;
+    /*font-size: 11px;
+    line-height: 1.2;*/
 }
 
 .main {
-    font-size: 14px;
-    font-weight: 700;
+    /*font-size: 14px;
+    font-weight: 700;*/
     margin-top: 5px;
     /*margin-bottom: 5px;*/
 }

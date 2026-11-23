@@ -1,0 +1,237 @@
+/* Базовый расчёт размеров для всех элементов лейаута */
+.dashboard_layout,
+.sidebar_container,
+.content_wrapper,
+.header,
+.main_content,
+.burger_btn,
+.overlay {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. Мобильная база — Mobile First (< 768px)
+   ========================================================================== */
+
+.dashboard_layout {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    font-size: 1.4rem;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.burger_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.burger_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.4rem 0.6rem;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.burger_hidden {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+
+    .burger_btn,
+    .overlay {
+        display: none;
+    }
+}
+
+.burger_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.4rem 0.6rem;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.burger_hidden {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+
+    .burger_btn,
+    .overlay {
+        display: none;
+    }
+}
+
+.burger_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.4rem 0.6rem;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.burger_hidden {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+
+    .burger_btn,
+    .overlay {
+        display: none;
+    }
+}
+
+.burger_hidden {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: var(--overlay-bg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay_active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-default);
+    box-shadow: 4px 0 16px var(--sidebar-shadow);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebar_container::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar_open {
+    transform: translateX(0);
+}
+
+.content_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+.main_content {
+    flex: 1;
+    width: 100%;
+    padding: 0;
+    background-color: var(--bg-page);
+}
+
+/* ==========================================================================
+   2. Планшеты (768px – 1023px)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    .sidebar_container {
+        width: var(--sidebar-width, 280px);
+    }
+}
+
+/* ==========================================================================
+   3. Десктоп (>= 1024px)
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+    .dashboard_layout {
+        flex-direction: row;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .burger_btn,
+    .overlay {
+        display: none;
+    }
+
+    .sidebar_container {
+        position: relative;
+        top: auto;
+        left: auto;
+        z-index: 1;
+        flex-shrink: 0;
+        width: var(--sidebar-width, 280px);
+        height: 100vh;
+        box-shadow: none;
+        transform: translateX(0);
+    }
+
+    .content_wrapper {
+        height: 100vh;
+        overflow-y: auto;
+    }
+}

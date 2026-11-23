@@ -1,3 +1,5 @@
+//app/layouts/logotype.jsx
+
 import Link from "next/link";
 import s from "./s.module.css";
 import { NextLogo } from "./imgLogo.jsx"; // Укажите актуальный путь к файлу NextLogo, если он в другой папке

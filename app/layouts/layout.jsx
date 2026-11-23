@@ -1,10 +1,10 @@
+'use client';
 //app/layouts/layout.jsx
 
-'use client';
 
 import { useState } from 'react';
 import { Container, Header, Sidebar, Wrapper, Main } from "../ui/structure/struct";
-import s from "./s.module.css";
+import s from "./s1.module.css";
 import { Logotype } from "../layouts/for_header/logotype";
 import { AuthWidget } from "../layouts/for_header/AuthWidget";
 import { SmartMenu } from "../layouts/for_sidebar/leftBar";
@@ -22,14 +22,7 @@ export function Dashboard_Layout({ children, sidebar, title }) {
 
     return (
         <Container className={s.dashboard_layout}>
-            {/* Фиксированная кнопка-гамбургер (скрывается, когда меню открыто) */}
-            <button
-                className={`${s.burger_btn} ${isMobileOpen ? s.burger_hidden : ''}`}
-                onClick={() => setIsMobileOpen(true)}
-                aria-label="Открыть меню"
-            >
-                ☰
-            </button>
+
 
             {/* Затемнение фона для мобильных при открытом сайдбаре */}
             <div
@@ -50,6 +43,14 @@ export function Dashboard_Layout({ children, sidebar, title }) {
             {/* Правая обёртка: Header + Main */}
             <Wrapper className={s.content_wrapper}>
                 <Header title={title} id="0" className={s.header}>
+                    {/* Фиксированная кнопка-гамбургер (скрывается, когда меню открыто) */}
+                    <button
+                        className={`${s.burger_btn} ${isMobileOpen ? s.burger_hidden : ''}`}
+                        onClick={() => setIsMobileOpen(true)}
+                        aria-label="Открыть меню"
+                    >
+                        ☰
+                    </button>
                     <Logotype />
                     <AuthWidget />
                     <ThemeToggle />

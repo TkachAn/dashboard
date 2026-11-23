@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import agentsData from '@/data/agents.json';
+import { Article, Section } from '@/app/ui/structure/struct';
 import { TextInput, TextAreaInput, PasswordInput } from '@/app/ui/elements/inputs/inputsGPT';
 import { EditButton, SubmitButton, NormButton } from '@/app/ui/elements/buttons/buttons';
 import s from './s.module.css';
@@ -127,32 +128,15 @@ export function AgentsManager() {
     };
 
     return (
-        <>
-            <header className={s.header}>
-                <h2 className={s.title}>Агенты системы</h2>
-                <span className={s.counter}>Всего: {agents.length}</span>
-            </header>
+        <Section title='Агенты системы'>
+
 
             <div className={s.grid}>
                 {agents.map((agent) => {
                     const isAdmin = agent.role === 'admin';
 
                     return (
-                        <article key={agent.id} className={s.card}>
-                            <div className={s.cardTop}>
-                                <div className={s.avatar}>
-                                    {agent.name ? agent.name.charAt(0).toUpperCase() : '?'}
-                                </div>
-                                <div className={s.nameBlock}>
-                                    <h3 className={s.name}>{agent.name || 'Без имени'}</h3>
-                                    <span className={s.id}>{agent.id}</span>
-                                </div>
-                                {agent.role && (
-                                    <span className={`${s.badge} ${isAdmin ? s.badgeAdmin : s.badgeSpeaker}`}>
-                                        {agent.role}
-                                    </span>
-                                )}
-                            </div>
+                        <Article id={agent.id} title={agent.name} note={agent.id} key={agent.id} className={s.card}>
 
                             {/* Динамический обход всех полей JSON */}
                             <div className={s.infoList}>
@@ -173,7 +157,7 @@ export function AgentsManager() {
                                     Редактировать
                                 </EditButton>
                             </div>
-                        </article>
+                        </Article>
                     );
                 })}
             </div>
@@ -238,6 +222,25 @@ export function AgentsManager() {
                     </div>
                 </div>
             )}
-        </>
+        </Section>
     );
 }
+
+//<h3 className={s.name}>{agent.name || 'Без имени'}</h3>
+//title={<>{agent.name} <small>- {agent.id}</small></>}
+/*
+<div className={s.cardTop}>
+                                <div className={s.avatar}>
+                                    {agent.name ? agent.name.charAt(0).toUpperCase() : '?'}
+                                </div>
+                                <div className={s.nameBlock} id={agent.id}>
+
+                                </div>
+                                {agent.role && (
+                                    <span className={`${s.badge} ${isAdmin ? s.badgeAdmin : s.badgeSpeaker}`}>
+                                        {agent.role}
+                                    </span>
+                                )}
+                            </div>
+
+*/

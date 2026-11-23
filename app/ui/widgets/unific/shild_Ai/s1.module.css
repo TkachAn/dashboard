@@ -1,0 +1,133 @@
+/*Основной контейнер карточки виджета */
+
+.item {
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1 1 18rem;
+    min-width: 0;
+    max-width: 44rem;
+    container-type: inline-size;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.8rem 1.8rem;
+    box-sizing: border-box;
+    background-color: #1c1c1e;
+    border-radius: 0.8rem;
+    font-size: clamp(1.2rem, 4cqw, 2.4rem);
+}
+
+.bar {
+    width: 1.2rem;
+    height: 8rem;
+    border: 0.2rem solid var(--column-border);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--bg-surface);
+    padding: 0.2rem;
+    margin-right: 1.8rem;
+
+    /* Создает тот самый белый просвет по контуру */
+    box-sizing: border-box;
+}
+
+.fill {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    background: var(--column-fill);
+    border-radius: 0 0 5px 5px;
+    transition: height 0.3s ease;
+}
+
+/* Правая информационная часть */
+.info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Заголовок виджета */
+.ttl {
+    margin: 0 0 0.6rem 0;
+    /*font-size: 1.6rem;*/
+    font-size: clamp(1.0rem, 4cqw, 3.0rem);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+/* Список показателей */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+/* Строка показателей */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(0.5rem, 4cqw, 1.0rem);
+    /* font-size: 1.2rem;*/
+    /*color: #8e8e93;*/
+}
+
+/* Выделенная главная строка (внутри) */
+.main {
+    /*font-size: 1.4rem;*/
+    font-size: clamp(1.0rem, 4cqw, 2.4rem);
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.lbl {
+    white-space: nowrap;
+}
+
+.val {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+
+
+/* Цветовые темы */
+.blue {
+    --column-border: var(--accent-primary);
+    /* var(--color-blue);*/
+    --column-fill: var(--accent-primary);
+}
+
+.green {
+    --column-border: var(--color-green-d);
+    --column-fill: var(--color-green);
+}
+
+.orange {
+    --column-border: var(--color-orange);
+    /*var(--color-amber);*/
+    --column-fill: var(--color-orange);
+}
+
+.red {
+    --column-border: var(--color-red-d);
+    --column-fill: var(--color-red);
+}
+
+.yellow {
+    --column-border: var(--color-yellow);
+    --column-fill: var(--color-yellow);
+}

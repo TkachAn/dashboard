@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import s from './s.module.css';
+import s from './s1.module.css';
 import { ArrowRight } from 'lucide-react';
 
 export function RoomIndicatorCard({

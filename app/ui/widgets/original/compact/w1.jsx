@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import styles from './s.module.css';
+import styles from './s1.module.css';
 
 /**
  * Компактный виджет-индикатор климата для главного дашборда
