@@ -1,0 +1,112 @@
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        /* ── Фоны ── */
+        --bg-page: var(--color-gray1);
+        --bg-surface: var(--color-gray2);
+        --bg-sidebar: var(--color-gray2);
+        --bg-header: var(--color-gray2);
+
+        /* ── Текст ── */
+        --text-main: var(--color-grayF);
+        --text-muted: var(--color-gray6);
+        --text-error: var(--color-red);
+
+        /* ── Границы ── */
+        --border-default: var(--color-gray2);
+        --border-subtle: var(--color-gray2);
+
+        /* ── Акценты и ссылки ── */
+        --accent-primary: var(--color-blue-500);
+        --accent-primary-hover: var(--color-blue-600);
+        --link-section: var(--color-blue-500);
+        --link-article: var(--color-green);
+        --link-hover: var(--color-blue-500);
+
+        /* ── Меню и навигация ── */
+        --nav-text: var(--color-grayF);
+        --nav-title: var(--color-white);
+        --nav-hover: var(--color-blue-500);
+
+        /* ── Кнопки ── */
+        --btn-normal-bg: var(--color-gray2);
+        --btn-normal-text: var(--color-grayF);
+        --btn-normal-hover-bg: var(--color-blue-500);
+        --btn-normal-hover-text: var(--color-white);
+
+        --btn-accent-bg: var(--color-blue-500);
+        --btn-accent-text: var(--color-white);
+        --btn-accent-hover-bg: var(--color-blue-600);
+
+        --btn-blocked-bg: var(--color-gray2);
+        --btn-blocked-text: var(--color-gray6);
+
+        --btn-default-bg: var(--color-gray2);
+        --btn-default-text: var(--color-grayF);
+        --btn-success-bg: var(--color-green);
+        --btn-success-text: var(--color-white);
+        --btn-warning-bg: var(--color-amber);
+        --btn-warning-text: var(--color-white);
+        --btn-danger-bg: var(--color-red);
+        --btn-danger-text: var(--color-white);
+        --btn-disabled-bg: var(--color-gray2);
+        --btn-disabled-text: var(--color-gray6);
+
+        --btn-out-text: var(--color-blue-500);
+        --btn-out-hover-text: var(--color-blue-600);
+        --btn-close-text: var(--color-gray6);
+        --btn-close-hover-text: var(--color-grayF);
+        --btn-shadow: rgba(0, 0, 0, 0.4);
+
+        /* ── Чекбоксы и тогглы ── */
+        --checkbox-border: var(--color-gray6);
+        --checkbox-checked-bg: var(--color-blue-500);
+        --checkbox-check-color: var(--color-white);
+        --checkbox-label-text: var(--color-grayF);
+
+        --toggle-slider-bg: var(--color-gray2);
+        --toggle-slider-thumb: var(--color-grayF);
+        --toggle-slider-checked-bg: var(--color-green);
+
+        /* ── Инпуты и формы ── */
+        --input-border: var(--color-gray2);
+        --input-border-focus: var(--color-blue-500);
+        --input-bg: var(--color-gray2);
+        --input-text: var(--color-grayF);
+        --input-error-text: var(--color-red);
+        --input-intro-text: var(--color-grayF);
+        --form-divider-text: var(--color-gray6);
+        --form-divider-line: var(--color-gray2);
+
+        /* ── Иконки и хинты ── */
+        --icon-color: var(--color-grayF);
+        --icon-hover-color: var(--color-blue-500);
+        --icon-hover-bg: rgba(255, 255, 255, 0.08);
+
+        --hint-text: var(--color-blue-500);
+        --hint-bg: var(--color-gray2);
+
+        /* ── Структура, оверлей и карточки ── */
+        --overlay-bg: rgba(0, 0, 0, 0.6);
+        --logo-color: var(--color-grayF);
+        --logo-hover-color: var(--color-blue-500);
+        --logo-border: var(--color-gray2);
+
+        --card-bg: var(--color-gray2);
+        --card-text: var(--color-grayF);
+        --card-border: var(--color-gray2);
+        --card-shadow: rgba(0, 0, 0, 0.35);
+        --sidebar-shadow: rgba(0, 0, 0, 0.4);
+
+        /* ── Виджеты ── */
+        --scheduler-bg: var(--color-gray2);
+        --scheduler-track-color: var(--color-gray6);
+        --scheduler-active-color: var(--color-amber);
+        --scheduler-tick-color: var(--color-gray5);
+        --scheduler-tick-major-color: var(--color-gray8);
+        --scheduler-text-primary: var(--color-grayE);
+        --scheduler-text-secondary: var(--color-grayA);
+        --scheduler-handle-bg: var(--color-grayE);
+        --scheduler-handle-core: var(--color-red);
+        --scheduler-now-color: var(--color-amber-c);
+    }
+}

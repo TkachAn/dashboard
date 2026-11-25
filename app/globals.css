@@ -1,132 +1,8 @@
-/* ============================================================
-   DESIGN SYSTEM — CSS Custom Properties & Tokenized Palette
-   ============================================================ */
+/* app/globals.css */
+
 @import "./styles/palette.css";
-@import "./styles/th-dark.css";
 @import "./styles/th-light.css";
-
-:root {
-    /* ────────────────────────────────────────────────────────────
-     2. СВЕТЛАЯ ТЕМА (SEMANTIC TOKENS)
-     ──────────────────────────────────────────────────────────── *
-    /* ── Фоны ── */
-    --bg-page: var(--color-white);
-    --bg-surface: var(--clr-grayF8);
-    --bg-sidebar: var(--clr-grayF8);
-    --bg-header: var(--color-white);
-
-    /* ── Текст ── */
-    --text-main: var(--clr-gray1);
-    --text-muted: var(--clr-gray7);
-    --text-error: var(--color-red);
-    /* ── Границы ── */
-    --border-default: var(--color-gray-200);
-    --border-subtle: var(--color-gray-200);
-
-    /* ── Акценты и ссылки ── */
-    --accent-primary: var(--color-blue-500);
-    --accent-primary-hover: var(--color-blue-600);
-    --link-section: var(--color-blue-500);
-    --link-article: var(--color-green);
-    --link-hover: var(--color-blue-600);
-
-    /* ── Меню и навигация ── */
-    --nav-text: var(--color-gray-800);
-    --nav-title: var(--color-gray-900);
-    --nav-hover: var(--color-blue-500);
-
-    /* ── Кнопки ── */
-    --btn-normal-bg: var(--color-gray-200);
-    --btn-normal-text: var(--color-gray-900);
-    --btn-normal-hover-bg: var(--color-blue-500);
-    --btn-normal-hover-text: var(--color-white);
-
-    --btn-accent-bg: var(--color-blue-500);
-    --btn-accent-text: var(--color-white);
-    --btn-accent-hover-bg: var(--color-blue-600);
-
-    --btn-blocked-bg: var(--color-gray-200);
-    --btn-blocked-text: var(--color-gray-500);
-
-    --btn-default-bg: var(--color-gray-200);
-    --btn-default-text: var(--color-black);
-    --btn-success-bg: var(--color-green);
-    --btn-success-text: var(--color-white);
-    --btn-warning-bg: var(--color-amber);
-    --btn-warning-text: var(--color-white);
-    --btn-danger-bg: var(--color-red);
-    --btn-danger-text: var(--color-white);
-    --btn-disabled-bg: var(--color-gray-200);
-    --btn-disabled-text: var(--color-gray-500);
-
-    --btn-out-text: var(--color-blue-500);
-    --btn-out-hover-text: var(--color-blue-600);
-    --btn-close-text: var(--color-gray-500);
-    --btn-close-hover-text: var(--color-gray-900);
-    --btn-shadow: rgba(0, 0, 0, 0.1);
-
-    /* ── Чекбоксы и тогглы ── */
-    --checkbox-border: var(--color-gray-500);
-    --checkbox-checked-bg: var(--color-blue-500);
-    --checkbox-check-color: var(--color-white);
-    --checkbox-label-text: var(--color-gray-800);
-
-    --toggle-slider-bg: var(--color-gray-200);
-    --toggle-slider-thumb: var(--color-white);
-    --toggle-slider-checked-bg: var(--color-green);
-
-    /* ── Инпуты и формы ── */
-    --input-border: var(--color-gray-200);
-    --input-border-focus: var(--color-blue-500);
-    --input-bg: var(--color-white);
-    --input-text: var(--color-gray-900);
-    --input-error-text: var(--color-red);
-    --input-intro-text: var(--color-gray-800);
-    --form-divider-text: var(--color-gray-500);
-    --form-divider-line: var(--color-gray-200);
-
-    /* ── Иконки и хинты ── */
-    --icon-color: var(--color-gray-800);
-    --icon-hover-color: var(--color-blue-500);
-    --icon-hover-bg: rgba(0, 0, 0, 0.05);
-
-    --hint-text: var(--color-blue-600);
-    --hint-bg: var(--color-gray-50);
-
-    /* ── Структура, оверлей и карточки ── */
-    --overlay-bg: rgba(0, 0, 0, 0.4);
-    --logo-color: var(--color-gray-900);
-    --logo-hover-color: var(--color-blue-500);
-    --logo-border: var(--color-gray-200);
-
-    --card-bg: var(--color-white);
-    --card-text: var(--color-gray-900);
-    --card-border: var(--color-gray-200);
-    --card-shadow: rgba(0, 0, 0, 0.08);
-    --sidebar-shadow: rgba(0, 0, 0, 0.1);
-
-    /* ── Размеры и радиусы ── */
-    --header-height: 64px;
-    --sidebar-width: 280px;
-    --radius-sm: 4px;
-    --radius-base: 8px;
-    --radius-lg: 16px;
-
-    /*--виджеты--*/
-
-    --scheduler-bg: var(--color-white, #ffffff);
-    --scheduler-track-color: var(--color-gray-400, #8c8c8c);
-    --scheduler-active-color: var(--color-amber, #f5821f);
-    --scheduler-tick-color: var(--color-gray-300, #a0a0a0);
-    --scheduler-tick-major-color: var(--color-gray-700, #4a4a4a);
-    --scheduler-text-primary: var(--color-gray-750, #333333);
-    --scheduler-text-secondary: var(--color-gray-450, #757575);
-    --scheduler-handle-bg: var(--color-white, #ffffff);
-    --scheduler-handle-core: var(--color-red, #e65100);
-    --scheduler-now-color: var(--color-amber-c, #f5a623);
-
-}
-
+@import "./styles/th-dark.css";
 
 
 /* ============================================================
@@ -137,7 +13,8 @@ html {
     max-width: 100vw;
     overflow-x: hidden;
     /* На 320px даёт 10px (1rem = 10px), на более широких экранах растёт пропорционально */
-    font-size: clamp(10px, 3.125vw, 18px);
+    /* font-size: clamp(8px, 1.85vw, 20px);*/
+    font-size: 1rem;
 }
 
 body {
@@ -145,26 +22,18 @@ body {
     padding: 0;
     background-color: var(--bg-page);
     color: var(--text-main);
-    /*font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen, Ubuntu, Cantarell, sans-serif;*/
+    font-family: Helvetica, Arial, system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     box-sizing: border-box;
     /*
     font:
         1.2em Helvetica,
         Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen, Ubuntu, Cantarell,
-        sans-serif;
+        Oxygen, Ubuntu, Cantarell, sans-serif;
 */
 
 }
 
-/*
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,*/
 ul,
 li,
 p {
@@ -175,7 +44,7 @@ p {
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 
@@ -199,3 +68,37 @@ p {
     box-sizing: border-box;
 }
 */
+
+
+/* ============================================================
+   5. БАЗОВЫЕ СБРОСЫ И НАСТРОЙКИ ДОКУМЕНТА
+   ============================================================ *
+html {
+    scroll-behavior: smooth;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, sans-serif;
+    box-sizing: border-box;
+
+}
+
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}

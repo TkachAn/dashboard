@@ -1,204 +1,119 @@
-:root {
-    /* Фоны и поверхности */
-    --bg-page: var(--color-white);
-    --bg-surface: var(--clr-grayF8);
-    --bg-sidebar: var(--clr-grayF8);
-    --bg-header: var(--color-white);
-    --overlay-bg: rgba(0, 0, 0, 0.4);
+/* app/styles/th-light.css */
 
-    /* Текст и ссылки */
-    --text-main: var(--clr-gray1);
-    --text-muted: var(--clr-gray7);
+:root {
+    /* ── Фоны ── */
+    --bg-page: var(--color-white);
+    --bg-surface: var(--color-grayF);
+    --bg-sidebar: var(--color-white);
+    --bg-header: var(--color-white);
+
+    /* ── Текст ── */
+    --text-main: var(--color-gray1);
+    --text-muted: var(--color-gray6);
     --text-error: var(--color-red);
 
-    --accent-primary: var(--color-blue);
-    --accent-primary-hover: var(--color-blue-d);
-    --link-section: var(--color-blue);
+    /* ── Границы ── */
+    --border-default: var(--color-grayE);
+    --border-subtle: var(--color-grayE);
+
+    /* ── Акценты и ссылки ── */
+    --accent-primary: var(--color-blue-500);
+    --accent-primary-hover: var(--color-blue-600);
+    --link-section: var(--color-blue-500);
     --link-article: var(--color-green);
-    --link-hover: var(--color-blue-d);
+    --link-hover: var(--color-blue-600);
 
-    /* Границы и тени */
-    --border-default: var(--clr-grayE);
-    --border-subtle: var(--clr-grayE);
-    --card-shadow: rgba(0, 0, 0, 0.08);
-    --sidebar-shadow: rgba(0, 0, 0, 0.1);
-    --btn-shadow: rgba(0, 0, 0, 0.1);
+    /* ── Меню и навигация ── */
+    --nav-text: var(--color-gray2);
+    --nav-title: var(--color-gray1);
+    --nav-hover: var(--color-blue-500);
 
-    /* Навигация и лого */
-    --nav-text: var(--clr-gray2);
-    --nav-title: var(--clr-gray1);
-    --nav-hover: var(--color-blue);
-    --logo-color: var(--clr-gray1);
-    --logo-hover-color: var(--color-blue);
-    --logo-border: var(--clr-grayE);
-
-    /* Кнопки */
-    --btn-normal-bg: var(--clr-grayE);
-    --btn-normal-text: var(--clr-gray1);
-    --btn-normal-hover-bg: var(--color-blue);
+    /* ── Кнопки ── */
+    --btn-normal-bg: var(--color-grayE);
+    --btn-normal-text: var(--color-gray1);
+    --btn-normal-hover-bg: var(--color-blue-500);
     --btn-normal-hover-text: var(--color-white);
 
-    --btn-default-bg: var(--clr-grayE);
-    --btn-default-text: var(--color-black);
-
-    --btn-accent-bg: var(--color-blue);
+    --btn-accent-bg: var(--color-blue-500);
     --btn-accent-text: var(--color-white);
-    --btn-accent-hover-bg: var(--color-blue-d);
+    --btn-accent-hover-bg: var(--color-blue-600);
 
-    --btn-disabled-bg: var(--clr-grayE);
-    --btn-disabled-text: var(--clr-gray6);
-    --btn-blocked-bg: var(--btn-disabled-bg);
-    --btn-blocked-text: var(--btn-disabled-text);
+    --btn-blocked-bg: var(--color-grayE);
+    --btn-blocked-text: var(--color-gray6);
 
+    --btn-default-bg: var(--color-grayE);
+    --btn-default-text: var(--color-black);
     --btn-success-bg: var(--color-green);
     --btn-success-text: var(--color-white);
     --btn-warning-bg: var(--color-amber);
     --btn-warning-text: var(--color-white);
     --btn-danger-bg: var(--color-red);
     --btn-danger-text: var(--color-white);
+    --btn-disabled-bg: var(--color-grayE);
+    --btn-disabled-text: var(--color-gray6);
 
-    --btn-out-text: var(--color-blue);
-    --btn-out-hover-text: var(--color-blue-d);
-    --btn-close-text: var(--clr-gray6);
-    --btn-close-hover-text: var(--clr-gray1);
+    --btn-out-text: var(--color-blue-500);
+    --btn-out-hover-text: var(--color-blue-600);
+    --btn-close-text: var(--color-gray6);
+    --btn-close-hover-text: var(--color-gray1);
+    --btn-shadow: rgba(0, 0, 0, 0.1);
 
-    /* Формы, инпуты, чекбоксы */
-    --input-bg: var(--color-white);
-    --input-text: var(--clr-gray1);
-    --input-border: var(--clr-grayE);
-    --input-border-focus: var(--color-blue);
-    --input-error-text: var(--color-red);
-    --input-intro-text: var(--clr-gray2);
-    --form-divider-text: var(--clr-gray6);
-    --form-divider-line: var(--clr-grayE);
-
-    --checkbox-border: var(--clr-gray6);
-    --checkbox-checked-bg: var(--color-blue);
+    /* ── Чекбоксы и тогглы ── */
+    --checkbox-border: var(--color-gray6);
+    --checkbox-checked-bg: var(--color-blue-500);
     --checkbox-check-color: var(--color-white);
-    --checkbox-label-text: var(--clr-gray2);
+    --checkbox-label-text: var(--color-gray2);
 
-    --toggle-slider-bg: var(--clr-grayE);
+    --toggle-slider-bg: var(--color-grayE);
     --toggle-slider-thumb: var(--color-white);
     --toggle-slider-checked-bg: var(--color-green);
 
-    /* Карточки, иконки, хинты */
-    --card-bg: var(--color-white);
-    --card-text: var(--clr-gray1);
-    --card-border: var(--clr-grayE);
+    /* ── Инпуты и формы ── */
+    --input-border: var(--color-grayE);
+    --input-border-focus: var(--color-blue-500);
+    --input-bg: var(--color-white);
+    --input-text: var(--color-gray1);
+    --input-error-text: var(--color-red);
+    --input-intro-text: var(--color-gray2);
+    --form-divider-text: var(--color-gray6);
+    --form-divider-line: var(--color-grayE);
 
-    --icon-color: var(--clr-gray2);
-    --icon-hover-color: var(--color-blue);
+    /* ── Иконки и хинты ── */
+    --icon-color: var(--color-gray2);
+    --icon-hover-color: var(--color-blue-500);
     --icon-hover-bg: rgba(0, 0, 0, 0.05);
 
-    --hint-text: var(--color-blue-d);
-    --hint-bg: var(--clr-grayF8);
-}
+    --hint-text: var(--color-blue-600);
+    --hint-bg: var(--color-grayF);
 
+    /* ── Структура, оверлей и карточки ── */
+    --overlay-bg: rgba(0, 0, 0, 0.4);
+    --logo-color: var(--color-gray1);
+    --logo-hover-color: var(--color-blue-500);
+    --logo-border: var(--color-grayE);
 
+    --card-bg: var(--color-white);
+    --card-text: var(--color-gray1);
+    --card-border: var(--color-grayE);
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --sidebar-shadow: rgba(0, 0, 0, 0.1);
 
+    /* ── Размеры и радиусы ── */
+    --header-height: 64px;
+    --sidebar-width: 280px;
+    --radius-sm: 4px;
+    --radius-base: 8px;
+    --radius-lg: 16px;
 
-/* ============================================================
-   4. АВТОМАТИЧЕСКАЯ СИСТЕМНАЯ ТЁМНАЯ ТЕМА
-   Работает только если пользователь еще не сделал ручной выбор
-   ============================================================ */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]):not([data-theme="dark"]) {
-        --bg-page: var(--color-gray-900);
-        --bg-surface: var(--color-gray-800);
-        --bg-sidebar: var(--color-gray-800);
-        --bg-header: var(--color-gray-800);
-
-        --text-main: var(--color-gray-50);
-        --text-muted: var(--color-gray-500);
-        --text-error: var(--color-red);
-
-        --border-default: var(--color-gray-800);
-        --border-subtle: var(--color-gray-800);
-
-        --link-section: var(--color-blue-500);
-        --link-article: var(--color-green);
-        --link-hover: var(--color-blue-500);
-
-        --nav-text: var(--color-gray-50);
-        --nav-title: var(--color-white);
-        --nav-hover: var(--color-blue-500);
-
-        --btn-normal-bg: var(--color-gray-800);
-        --btn-normal-text: var(--color-gray-50);
-        --btn-normal-hover-bg: var(--color-blue-500);
-        --btn-normal-hover-text: var(--color-white);
-
-        --btn-accent-bg: var(--color-blue-500);
-        --btn-accent-text: var(--color-white);
-        --btn-accent-hover-bg: var(--color-blue-600);
-
-        --btn-blocked-bg: var(--color-gray-800);
-        --btn-blocked-text: var(--color-gray-500);
-
-        --btn-default-bg: var(--color-gray-800);
-        --btn-default-text: var(--color-gray-50);
-        --btn-success-bg: var(--color-green);
-        --btn-success-text: var(--color-white);
-        --btn-warning-bg: var(--color-amber);
-        --btn-warning-text: var(--color-white);
-        --btn-danger-bg: var(--color-red);
-        --btn-danger-text: var(--color-white);
-        --btn-disabled-bg: var(--color-gray-800);
-        --btn-disabled-text: var(--color-gray-500);
-
-        --btn-out-text: var(--color-blue-500);
-        --btn-out-hover-text: var(--color-blue-600);
-        --btn-close-text: var(--color-gray-500);
-        --btn-close-hover-text: var(--color-gray-50);
-        --btn-shadow: rgba(0, 0, 0, 0.4);
-
-        --checkbox-border: var(--color-gray-500);
-        --checkbox-checked-bg: var(--color-blue-500);
-        --checkbox-check-color: var(--color-white);
-        --checkbox-label-text: var(--color-gray-50);
-
-        --toggle-slider-bg: var(--color-gray-800);
-        --toggle-slider-thumb: var(--color-gray-50);
-        --toggle-slider-checked-bg: var(--color-green);
-
-        --input-border: var(--color-gray-800);
-        --input-border-focus: var(--color-blue-500);
-        --input-bg: var(--color-gray-800);
-        --input-text: var(--color-gray-50);
-        --input-error-text: var(--color-red);
-        --input-intro-text: var(--color-gray-50);
-        --form-divider-text: var(--color-gray-500);
-        --form-divider-line: var(--color-gray-800);
-
-        --icon-color: var(--color-gray-50);
-        --icon-hover-color: var(--color-blue-500);
-        --icon-hover-bg: rgba(255, 255, 255, 0.08);
-
-        --hint-text: var(--color-blue-500);
-        --hint-bg: var(--color-gray-800);
-
-        --overlay-bg: rgba(0, 0, 0, 0.6);
-        --logo-color: var(--color-gray-50);
-        --logo-hover-color: var(--color-blue-500);
-        --logo-border: var(--color-gray-800);
-
-        --card-bg: var(--color-gray-800);
-        --card-text: var(--color-gray-50);
-        --card-border: var(--color-gray-800);
-        --card-shadow: rgba(0, 0, 0, 0.35);
-        --sidebar-shadow: rgba(0, 0, 0, 0.4);
-
-        /*--виджеты--*/
-
-        --scheduler-bg: var(--color-white, #ffffff);
-        --scheduler-track-color: var(--color-gray-400, #8c8c8c);
-        --scheduler-active-color: var(--color-amber, #f5821f);
-        --scheduler-tick-color: var(--color-gray-300, #a0a0a0);
-        --scheduler-tick-major-color: var(--color-gray-700, #4a4a4a);
-        --scheduler-text-primary: var(--color-gray-750, #333333);
-        --scheduler-text-secondary: var(--color-gray-450, #757575);
-        --scheduler-handle-bg: var(--color-white, #ffffff);
-        --scheduler-handle-core: var(--color-red, #e65100);
-        --scheduler-now-color: var(--color-amber-c, #f5a623);
-    }
+    /* ── Виджеты ── */
+    --scheduler-bg: var(--color-white);
+    --scheduler-track-color: var(--color-gray9);
+    --scheduler-active-color: var(--color-amber);
+    --scheduler-tick-color: var(--color-grayA);
+    --scheduler-tick-major-color: var(--color-gray4);
+    --scheduler-text-primary: var(--color-gray3);
+    --scheduler-text-secondary: var(--color-gray7);
+    --scheduler-handle-bg: var(--color-white);
+    --scheduler-handle-core: var(--color-red);
+    --scheduler-now-color: var(--color-amber-c);
 }
